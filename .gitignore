@@ -1,0 +1,8 @@
+.env
+data/raw/
+data/shapefiles/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+models/saved/*.pkl
