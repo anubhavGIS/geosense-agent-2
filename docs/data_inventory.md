@@ -1,19 +1,14 @@
-# GeoSense Agent 2.0 — Phase 1 Data Inventory
+# GeoSense Agent 2.0 — Phase I Data Inventory
 
 **Project:** GeoSense Agent 2.0 — Site Suitability Scoring
 **Study area:** Kolkata, West Bengal, India
 **Study area bounding box:** `(88.30, 22.45, 88.42, 22.67)` — min_lon, min_lat, max_lon, max_lat
 (Central Kolkata. The western edge at 88.30°E lies west of the Hooghly for part of its
 length, so the area includes the eastern portion of Howrah — Shibpur and the Howrah station
-district — as well as the Kolkata Municipal Corporation core. Substituted for the manual's
-Chennai box
-`(80.18, 12.87, 80.30, 13.09)`; the manual states the bounding box is to be changed for a
-different city. At the manual's 0.005° spacing this yields 25 × 45 = 1,125 candidate points
-over roughly 12.3 km east–west by 24.3 km north–south.)
+district — as well as the Kolkata Municipal Corporation core. At 0.005° spacing this yields
+25 × 45 = 1,125 candidate points over roughly 12.3 km east–west by 24.3 km north–south.)
 
 **Projected CRS for metric calculations:** EPSG:32645 (WGS 84 / UTM zone 45N)
-*Note: Chennai falls in zone 44N; Kolkata at 88.36°E falls in zone 45N.*
-
 **Study area corners in EPSG:32645 (metres):**
 
 | Corner | Geographic (EPSG:4326) | Easting (m) | Northing (m) |
@@ -34,7 +29,7 @@ rectangle is therefore a slightly tapered, slightly rotated quadrilateral once p
 The axis-aligned box above is the smallest UTM rectangle enclosing it, and is what should be
 used when a rectangular grid is required in projected space.
 
-**Grid spacing.** The manual specifies 0.005° "approximately 500 metres". At 22.56 N this is
+**Grid spacing.** The grid uses 0.005° spacing (approximately 500 metres). At 22.56 N this is
 553.6 m north–south but only 514.2 m east–west, so the cells are 7.7% taller than they are
 wide. A grid generated in degrees is not a square grid, and any per-cell area or density
 figure derived from it must account for this.
@@ -72,7 +67,7 @@ distances rather than ground distances.
 produced from it cannot be reproduced from the same URL afterwards; the dated file names the
 exact extract used and keeps the analysis reproducible for as long as Geofabrik retains it.
 
-**Layers used in Phase 1**
+**Layers used in Phase I**
 
 | Shapefile | Geometry | Represents |
 |---|---|---|
@@ -99,11 +94,10 @@ contributors may map the same kind of feature either as a single node or as a cl
 Geofabrik writes each to a different file. It matters for feature engineering: a large hospital
 or shopping mall is almost always mapped as a building polygon and therefore appears only in
 `gis_osm_pois_a_free_1.shp`, while a small clinic or ATM appears only in
-`gis_osm_pois_free_1.shp`. The ingestion list in the Implementation Manual reads the point
-file alone, so a "distance to nearest hospital" feature built from it will systematically
-overstate distances by ignoring precisely the largest and most significant facilities.
-Both files should be read and their geometries combined — taking the centroid of each area
-feature — before any nearest-neighbour distance is computed.
+`gis_osm_pois_free_1.shp`. A "distance to nearest hospital" feature built from the point
+file alone would systematically overstate distances by ignoring precisely the largest and
+most significant facilities. Both files are therefore read and their geometries combined —
+taking the centroid of each area feature — before any nearest-neighbour distance is computed.
 
 Sizes of the layers that dominate the extract: `roads` 471 MB geometry + 266 MB attributes;
 `buildings_a` 278 MB geometry + 323 MB attributes; `landuse_a` 53 MB; `water_a` 40 MB;
@@ -120,14 +114,9 @@ Full layer listing verified in the downloaded extract:
 
 **Note on the buildings layer name.** Geofabrik writes any feature mapped as an area to a
 layer carrying an `_a` suffix, so the building footprints arrive as
-`gis_osm_buildings_a_free_1.shp`. The ingestion list in the Implementation Manual
-(§E, `ingest_osm.py`) refers to `gis_osm_buildings_free_1.shp` without the suffix. This was
-verified against the downloaded extract on 19 Aug 2026: the directory listing contains
-`gis_osm_buildings_a_free_1.shp` and no file of the unsuffixed name, so the path in the
-manual resolves to nothing and the ingestion of that layer fails. The filename must be
-corrected in Exercise 4. The landuse entry in the same list is already correct
-(`gis_osm_landuse_a_free_1.shp`), which indicates a typographical slip rather than a
-misunderstanding of the naming convention.
+`gis_osm_buildings_a_free_1.shp` — verified against the downloaded extract on 19 Aug 2026:
+the directory listing contains `gis_osm_buildings_a_free_1.shp` and no unsuffixed variant.
+The suffix must be included wherever the layer is referenced in ingestion code.
 
 ---
 
@@ -193,20 +182,18 @@ in Kolkata is governed largely by drainage capacity and tidal levels in the Hoog
 | Status | Registered for noncommercial use; Community Tier quota; access immediate |
 | Purpose | Landsat 8/9 and Sentinel-2 imagery access in Phase 2 |
 
-**Note on the registration process.** The Implementation Manual (§D.4) instructs the student to
-apply at earthengine.google.com and states that "GEE approval usually takes 1–3 days". That
-application queue no longer exists. Access is now obtained by registering a Google Cloud
-project at console.cloud.google.com/earth-engine and declaring noncommercial eligibility, and
-is granted immediately. No approval wait occurred. The registration is attached to a Cloud
-project rather than to a user account, so the project ID above — not a username — is what the
-Python client must be given when authenticating in Phase 2.
-
+**Note on the registration process.** Earth Engine access is obtained by registering a
+Google Cloud project at console.cloud.google.com/earth-engine with a noncommercial
+eligibility declaration; access is granted immediately, with no approval wait. The
+registration is attached to a Cloud project rather than to a user account, so the project ID
+above — not a username — is what the Python client must be given when authenticating in
+Phase 2.
 ---
 
 ## 2. Datasets identified for later acquisition
 
-These are listed in the practical manual as required data layers but are not needed to
-train the Phase 1 baseline model. They are recorded here so the inventory stays complete.
+These are required data layers for the full project but are not needed to
+train the Phase I baseline model. They are recorded here so the inventory stays complete.
 
 | Data layer | Represents | Intended source | Status |
 |---|---|---|---|

@@ -6,9 +6,7 @@ sys.path.append('src/phase1_ml')
 
 from site_scorer import score_location
 
-# Central Kolkata (Park Street area). The manual tests with Chennai
-# (13.0827, 80.2707) -- meaningless against a Kolkata database: the
-# nearest road would be ~1,660 km away.
+# Central Kolkata (Park Street area) test coordinate.
 TEST_LAT, TEST_LON = 22.5535, 88.3520
 
 def test_score_returns_dict():
