@@ -1,0 +1,7 @@
+{
+  "backbone": "prithvi",
+  "model_id": "ibm-nasa-geospatial/Prithvi-EO-1.0-100M",
+  "weights_file": "Prithvi_EO_V1_100M.pt",
+  "in_channels": 6,
+  "num_classes": 5
+}
