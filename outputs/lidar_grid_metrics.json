@@ -1,0 +1,2650 @@
+[
+ {
+  "grid_x": 0,
+  "grid_y": 0,
+  "avg_building_height_m": 22.15,
+  "canopy_cover_pct": 4.8,
+  "building_pct": 5.6,
+  "n_points": 13378
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 0,
+  "avg_building_height_m": 17.47,
+  "canopy_cover_pct": 3.1,
+  "building_pct": 33.0,
+  "n_points": 17833
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 0,
+  "avg_building_height_m": 25.52,
+  "canopy_cover_pct": 9.2,
+  "building_pct": 37.6,
+  "n_points": 14728
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 0,
+  "avg_building_height_m": 21.9,
+  "canopy_cover_pct": 7.9,
+  "building_pct": 36.0,
+  "n_points": 15460
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 0,
+  "avg_building_height_m": 7.54,
+  "canopy_cover_pct": 14.9,
+  "building_pct": 38.8,
+  "n_points": 25759
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 0,
+  "avg_building_height_m": 25.71,
+  "canopy_cover_pct": 8.4,
+  "building_pct": 41.2,
+  "n_points": 12652
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 0,
+  "avg_building_height_m": 22.86,
+  "canopy_cover_pct": 11.5,
+  "building_pct": 62.6,
+  "n_points": 12121
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 0,
+  "avg_building_height_m": 22.56,
+  "canopy_cover_pct": 7.6,
+  "building_pct": 51.3,
+  "n_points": 14715
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 0,
+  "avg_building_height_m": 27.37,
+  "canopy_cover_pct": 7.3,
+  "building_pct": 52.0,
+  "n_points": 13799
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 0,
+  "avg_building_height_m": 29.7,
+  "canopy_cover_pct": 9.0,
+  "building_pct": 52.0,
+  "n_points": 14192
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 0,
+  "avg_building_height_m": 23.61,
+  "canopy_cover_pct": 12.3,
+  "building_pct": 34.3,
+  "n_points": 16126
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 0,
+  "avg_building_height_m": 29.3,
+  "canopy_cover_pct": 9.7,
+  "building_pct": 37.0,
+  "n_points": 15312
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 0,
+  "avg_building_height_m": 18.66,
+  "canopy_cover_pct": 13.2,
+  "building_pct": 18.1,
+  "n_points": 15976
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 0,
+  "avg_building_height_m": 33.56,
+  "canopy_cover_pct": 10.5,
+  "building_pct": 71.9,
+  "n_points": 15452
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 0,
+  "avg_building_height_m": 28.0,
+  "canopy_cover_pct": 6.5,
+  "building_pct": 55.2,
+  "n_points": 16251
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 0,
+  "avg_building_height_m": 17.08,
+  "canopy_cover_pct": 8.6,
+  "building_pct": 56.7,
+  "n_points": 17010
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 0,
+  "avg_building_height_m": 24.13,
+  "canopy_cover_pct": 20.7,
+  "building_pct": 21.0,
+  "n_points": 28842
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 0,
+  "avg_building_height_m": 4.85,
+  "canopy_cover_pct": 8.1,
+  "building_pct": 34.4,
+  "n_points": 12714
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 1,
+  "avg_building_height_m": 15.67,
+  "canopy_cover_pct": 12.3,
+  "building_pct": 43.0,
+  "n_points": 28990
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 1,
+  "avg_building_height_m": 8.61,
+  "canopy_cover_pct": 13.0,
+  "building_pct": 3.7,
+  "n_points": 23102
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 1,
+  "avg_building_height_m": 26.12,
+  "canopy_cover_pct": 8.0,
+  "building_pct": 23.6,
+  "n_points": 22174
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 1,
+  "avg_building_height_m": 17.18,
+  "canopy_cover_pct": 13.6,
+  "building_pct": 24.1,
+  "n_points": 26944
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 1,
+  "avg_building_height_m": 9.79,
+  "canopy_cover_pct": 12.7,
+  "building_pct": 23.9,
+  "n_points": 20171
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 1,
+  "avg_building_height_m": 27.05,
+  "canopy_cover_pct": 10.5,
+  "building_pct": 25.3,
+  "n_points": 13869
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 1,
+  "avg_building_height_m": 25.13,
+  "canopy_cover_pct": 12.6,
+  "building_pct": 52.9,
+  "n_points": 16226
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 1,
+  "avg_building_height_m": 27.14,
+  "canopy_cover_pct": 8.7,
+  "building_pct": 31.9,
+  "n_points": 17121
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 1,
+  "avg_building_height_m": 33.3,
+  "canopy_cover_pct": 19.0,
+  "building_pct": 35.5,
+  "n_points": 19133
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 1,
+  "avg_building_height_m": 23.63,
+  "canopy_cover_pct": 9.7,
+  "building_pct": 37.7,
+  "n_points": 17943
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 1,
+  "avg_building_height_m": 27.68,
+  "canopy_cover_pct": 11.6,
+  "building_pct": 21.2,
+  "n_points": 18214
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 1,
+  "avg_building_height_m": 33.02,
+  "canopy_cover_pct": 11.1,
+  "building_pct": 16.2,
+  "n_points": 18752
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 1,
+  "avg_building_height_m": 22.59,
+  "canopy_cover_pct": 11.1,
+  "building_pct": 16.1,
+  "n_points": 17878
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 1,
+  "avg_building_height_m": 33.61,
+  "canopy_cover_pct": 11.9,
+  "building_pct": 31.5,
+  "n_points": 18495
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 1,
+  "avg_building_height_m": 33.97,
+  "canopy_cover_pct": 10.8,
+  "building_pct": 44.1,
+  "n_points": 18466
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 1,
+  "avg_building_height_m": 27.19,
+  "canopy_cover_pct": 10.7,
+  "building_pct": 35.3,
+  "n_points": 25986
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 1,
+  "avg_building_height_m": 21.39,
+  "canopy_cover_pct": 21.8,
+  "building_pct": 16.6,
+  "n_points": 34307
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 1,
+  "avg_building_height_m": 21.14,
+  "canopy_cover_pct": 18.3,
+  "building_pct": 30.2,
+  "n_points": 11512
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 2,
+  "avg_building_height_m": 14.98,
+  "canopy_cover_pct": 10.1,
+  "building_pct": 41.0,
+  "n_points": 20678
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 2,
+  "avg_building_height_m": 20.37,
+  "canopy_cover_pct": 17.3,
+  "building_pct": 29.7,
+  "n_points": 24545
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 2,
+  "avg_building_height_m": 23.08,
+  "canopy_cover_pct": 16.5,
+  "building_pct": 31.3,
+  "n_points": 30465
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 2,
+  "avg_building_height_m": 27.5,
+  "canopy_cover_pct": 7.5,
+  "building_pct": 69.3,
+  "n_points": 17131
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 2,
+  "avg_building_height_m": 28.18,
+  "canopy_cover_pct": 4.8,
+  "building_pct": 82.1,
+  "n_points": 12312
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 2,
+  "avg_building_height_m": 18.84,
+  "canopy_cover_pct": 5.9,
+  "building_pct": 26.9,
+  "n_points": 13755
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 2,
+  "avg_building_height_m": 20.56,
+  "canopy_cover_pct": 6.1,
+  "building_pct": 57.1,
+  "n_points": 19708
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 2,
+  "avg_building_height_m": 41.2,
+  "canopy_cover_pct": 12.7,
+  "building_pct": 63.2,
+  "n_points": 19346
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 2,
+  "avg_building_height_m": 11.62,
+  "canopy_cover_pct": 8.9,
+  "building_pct": 66.6,
+  "n_points": 18293
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 2,
+  "avg_building_height_m": 9.22,
+  "canopy_cover_pct": 11.1,
+  "building_pct": 59.8,
+  "n_points": 17568
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 2,
+  "avg_building_height_m": 25.6,
+  "canopy_cover_pct": 14.9,
+  "building_pct": 62.7,
+  "n_points": 20502
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 2,
+  "avg_building_height_m": 18.75,
+  "canopy_cover_pct": 17.8,
+  "building_pct": 8.6,
+  "n_points": 19068
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 2,
+  "avg_building_height_m": 33.31,
+  "canopy_cover_pct": 8.1,
+  "building_pct": 69.8,
+  "n_points": 17528
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 2,
+  "avg_building_height_m": 17.59,
+  "canopy_cover_pct": 16.1,
+  "building_pct": 20.9,
+  "n_points": 18934
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 2,
+  "avg_building_height_m": 27.32,
+  "canopy_cover_pct": 29.5,
+  "building_pct": 20.8,
+  "n_points": 33065
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 2,
+  "avg_building_height_m": 38.26,
+  "canopy_cover_pct": 17.8,
+  "building_pct": 54.7,
+  "n_points": 35286
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 2,
+  "avg_building_height_m": 29.19,
+  "canopy_cover_pct": 15.6,
+  "building_pct": 30.8,
+  "n_points": 29478
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 2,
+  "avg_building_height_m": 22.41,
+  "canopy_cover_pct": 5.0,
+  "building_pct": 83.5,
+  "n_points": 9676
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 3,
+  "avg_building_height_m": 18.85,
+  "canopy_cover_pct": 13.1,
+  "building_pct": 47.6,
+  "n_points": 21024
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 3,
+  "avg_building_height_m": 23.65,
+  "canopy_cover_pct": 10.5,
+  "building_pct": 58.0,
+  "n_points": 25991
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 3,
+  "avg_building_height_m": 23.15,
+  "canopy_cover_pct": 17.0,
+  "building_pct": 18.5,
+  "n_points": 20579
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 3,
+  "avg_building_height_m": 26.54,
+  "canopy_cover_pct": 11.1,
+  "building_pct": 56.7,
+  "n_points": 12687
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 3,
+  "avg_building_height_m": 26.62,
+  "canopy_cover_pct": 8.3,
+  "building_pct": 59.4,
+  "n_points": 12322
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 3,
+  "avg_building_height_m": 26.01,
+  "canopy_cover_pct": 6.6,
+  "building_pct": 38.0,
+  "n_points": 12911
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 3,
+  "avg_building_height_m": 26.14,
+  "canopy_cover_pct": 6.8,
+  "building_pct": 59.7,
+  "n_points": 15055
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 3,
+  "avg_building_height_m": 33.46,
+  "canopy_cover_pct": 9.0,
+  "building_pct": 61.4,
+  "n_points": 18651
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 3,
+  "avg_building_height_m": 19.77,
+  "canopy_cover_pct": 12.5,
+  "building_pct": 58.5,
+  "n_points": 17461
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 3,
+  "avg_building_height_m": 12.02,
+  "canopy_cover_pct": 12.6,
+  "building_pct": 48.8,
+  "n_points": 18941
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 3,
+  "avg_building_height_m": 11.35,
+  "canopy_cover_pct": 8.8,
+  "building_pct": 41.3,
+  "n_points": 19578
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 3,
+  "avg_building_height_m": 10.4,
+  "canopy_cover_pct": 6.6,
+  "building_pct": 32.3,
+  "n_points": 17847
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 3,
+  "avg_building_height_m": 20.4,
+  "canopy_cover_pct": 8.0,
+  "building_pct": 57.5,
+  "n_points": 17368
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 3,
+  "avg_building_height_m": 16.68,
+  "canopy_cover_pct": 7.7,
+  "building_pct": 62.5,
+  "n_points": 21189
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 3,
+  "avg_building_height_m": 25.12,
+  "canopy_cover_pct": 6.9,
+  "building_pct": 77.0,
+  "n_points": 31496
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 3,
+  "avg_building_height_m": 23.99,
+  "canopy_cover_pct": 13.4,
+  "building_pct": 46.7,
+  "n_points": 27545
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 3,
+  "avg_building_height_m": 15.42,
+  "canopy_cover_pct": 13.2,
+  "building_pct": 12.8,
+  "n_points": 26503
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 3,
+  "avg_building_height_m": 21.94,
+  "canopy_cover_pct": 18.5,
+  "building_pct": 24.7,
+  "n_points": 11411
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 4,
+  "avg_building_height_m": 11.53,
+  "canopy_cover_pct": 33.8,
+  "building_pct": 35.0,
+  "n_points": 30026
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 4,
+  "avg_building_height_m": 18.15,
+  "canopy_cover_pct": 10.8,
+  "building_pct": 56.0,
+  "n_points": 18890
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 4,
+  "avg_building_height_m": 18.23,
+  "canopy_cover_pct": 28.2,
+  "building_pct": 33.5,
+  "n_points": 15769
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 4,
+  "avg_building_height_m": 17.73,
+  "canopy_cover_pct": 33.4,
+  "building_pct": 23.8,
+  "n_points": 16795
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 4,
+  "avg_building_height_m": 28.24,
+  "canopy_cover_pct": 12.2,
+  "building_pct": 54.0,
+  "n_points": 12576
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 4,
+  "avg_building_height_m": 23.36,
+  "canopy_cover_pct": 7.8,
+  "building_pct": 48.3,
+  "n_points": 13042
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 4,
+  "avg_building_height_m": 27.34,
+  "canopy_cover_pct": 8.1,
+  "building_pct": 68.0,
+  "n_points": 13054
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 4,
+  "avg_building_height_m": 24.05,
+  "canopy_cover_pct": 9.8,
+  "building_pct": 56.2,
+  "n_points": 15366
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 4,
+  "avg_building_height_m": 20.75,
+  "canopy_cover_pct": 12.6,
+  "building_pct": 60.2,
+  "n_points": 16927
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 4,
+  "avg_building_height_m": 15.43,
+  "canopy_cover_pct": 8.7,
+  "building_pct": 47.4,
+  "n_points": 18409
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 4,
+  "avg_building_height_m": 13.58,
+  "canopy_cover_pct": 8.1,
+  "building_pct": 18.5,
+  "n_points": 19553
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 4,
+  "avg_building_height_m": 26.38,
+  "canopy_cover_pct": 12.9,
+  "building_pct": 48.3,
+  "n_points": 19220
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 4,
+  "avg_building_height_m": 25.98,
+  "canopy_cover_pct": 12.5,
+  "building_pct": 56.4,
+  "n_points": 24106
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 4,
+  "avg_building_height_m": 11.77,
+  "canopy_cover_pct": 15.2,
+  "building_pct": 56.8,
+  "n_points": 33879
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 4,
+  "avg_building_height_m": 11.22,
+  "canopy_cover_pct": 14.7,
+  "building_pct": 48.4,
+  "n_points": 28107
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 4,
+  "avg_building_height_m": 15.29,
+  "canopy_cover_pct": 13.7,
+  "building_pct": 54.1,
+  "n_points": 26963
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 4,
+  "avg_building_height_m": 16.53,
+  "canopy_cover_pct": 17.9,
+  "building_pct": 28.3,
+  "n_points": 26690
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 4,
+  "avg_building_height_m": 24.58,
+  "canopy_cover_pct": 19.8,
+  "building_pct": 50.7,
+  "n_points": 11670
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 5,
+  "avg_building_height_m": 9.95,
+  "canopy_cover_pct": 14.8,
+  "building_pct": 37.0,
+  "n_points": 18829
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 5,
+  "avg_building_height_m": 13.41,
+  "canopy_cover_pct": 14.7,
+  "building_pct": 38.6,
+  "n_points": 12599
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 5,
+  "avg_building_height_m": 11.18,
+  "canopy_cover_pct": 25.3,
+  "building_pct": 19.3,
+  "n_points": 15071
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 5,
+  "avg_building_height_m": 10.01,
+  "canopy_cover_pct": 20.8,
+  "building_pct": 40.3,
+  "n_points": 13958
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 5,
+  "avg_building_height_m": 16.35,
+  "canopy_cover_pct": 26.3,
+  "building_pct": 12.4,
+  "n_points": 16036
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 5,
+  "avg_building_height_m": 21.15,
+  "canopy_cover_pct": 13.3,
+  "building_pct": 21.4,
+  "n_points": 13406
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 5,
+  "avg_building_height_m": 25.46,
+  "canopy_cover_pct": 13.6,
+  "building_pct": 38.7,
+  "n_points": 13767
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 5,
+  "avg_building_height_m": 24.56,
+  "canopy_cover_pct": 15.9,
+  "building_pct": 34.2,
+  "n_points": 14359
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 5,
+  "avg_building_height_m": 22.83,
+  "canopy_cover_pct": 14.5,
+  "building_pct": 31.3,
+  "n_points": 14770
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 5,
+  "avg_building_height_m": 29.11,
+  "canopy_cover_pct": 8.9,
+  "building_pct": 53.0,
+  "n_points": 17719
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 5,
+  "avg_building_height_m": 18.88,
+  "canopy_cover_pct": 11.3,
+  "building_pct": 21.0,
+  "n_points": 16711
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 5,
+  "avg_building_height_m": 26.62,
+  "canopy_cover_pct": 8.4,
+  "building_pct": 33.6,
+  "n_points": 22086
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 5,
+  "avg_building_height_m": 14.06,
+  "canopy_cover_pct": 21.9,
+  "building_pct": 43.1,
+  "n_points": 37885
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 5,
+  "avg_building_height_m": 12.14,
+  "canopy_cover_pct": 13.8,
+  "building_pct": 48.7,
+  "n_points": 27553
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 5,
+  "avg_building_height_m": 17.88,
+  "canopy_cover_pct": 12.6,
+  "building_pct": 52.1,
+  "n_points": 25693
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 5,
+  "avg_building_height_m": 11.74,
+  "canopy_cover_pct": 18.6,
+  "building_pct": 40.5,
+  "n_points": 25917
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 5,
+  "avg_building_height_m": 13.59,
+  "canopy_cover_pct": 13.4,
+  "building_pct": 21.6,
+  "n_points": 25318
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 5,
+  "avg_building_height_m": 14.75,
+  "canopy_cover_pct": 9.4,
+  "building_pct": 40.6,
+  "n_points": 11280
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 6,
+  "avg_building_height_m": 7.58,
+  "canopy_cover_pct": 25.8,
+  "building_pct": 31.4,
+  "n_points": 11827
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 6,
+  "avg_building_height_m": 7.87,
+  "canopy_cover_pct": 24.0,
+  "building_pct": 33.0,
+  "n_points": 13728
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 6,
+  "avg_building_height_m": 8.5,
+  "canopy_cover_pct": 17.2,
+  "building_pct": 37.1,
+  "n_points": 13512
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 6,
+  "avg_building_height_m": 13.81,
+  "canopy_cover_pct": 16.7,
+  "building_pct": 41.0,
+  "n_points": 12530
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 6,
+  "avg_building_height_m": 24.43,
+  "canopy_cover_pct": 14.6,
+  "building_pct": 49.0,
+  "n_points": 13878
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 6,
+  "avg_building_height_m": 20.46,
+  "canopy_cover_pct": 21.1,
+  "building_pct": 18.1,
+  "n_points": 14594
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 6,
+  "avg_building_height_m": 17.76,
+  "canopy_cover_pct": 17.7,
+  "building_pct": 28.0,
+  "n_points": 14469
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 6,
+  "avg_building_height_m": 14.74,
+  "canopy_cover_pct": 16.6,
+  "building_pct": 35.3,
+  "n_points": 14291
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 6,
+  "avg_building_height_m": 23.18,
+  "canopy_cover_pct": 12.9,
+  "building_pct": 43.6,
+  "n_points": 15622
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 6,
+  "avg_building_height_m": 25.81,
+  "canopy_cover_pct": 11.8,
+  "building_pct": 53.7,
+  "n_points": 19634
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 6,
+  "avg_building_height_m": 14.89,
+  "canopy_cover_pct": 14.6,
+  "building_pct": 55.2,
+  "n_points": 19709
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 6,
+  "avg_building_height_m": 22.88,
+  "canopy_cover_pct": 9.2,
+  "building_pct": 56.4,
+  "n_points": 31853
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 6,
+  "avg_building_height_m": 10.0,
+  "canopy_cover_pct": 13.4,
+  "building_pct": 35.0,
+  "n_points": 28924
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 6,
+  "avg_building_height_m": 19.24,
+  "canopy_cover_pct": 17.0,
+  "building_pct": 29.6,
+  "n_points": 25447
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 6,
+  "avg_building_height_m": 19.35,
+  "canopy_cover_pct": 12.5,
+  "building_pct": 52.8,
+  "n_points": 25073
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 6,
+  "avg_building_height_m": 18.17,
+  "canopy_cover_pct": 18.9,
+  "building_pct": 39.0,
+  "n_points": 26050
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 6,
+  "avg_building_height_m": 14.54,
+  "canopy_cover_pct": 11.9,
+  "building_pct": 11.3,
+  "n_points": 25039
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 6,
+  "avg_building_height_m": 25.71,
+  "canopy_cover_pct": 11.0,
+  "building_pct": 25.2,
+  "n_points": 11915
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 7,
+  "avg_building_height_m": 7.48,
+  "canopy_cover_pct": 14.1,
+  "building_pct": 63.6,
+  "n_points": 10378
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 7,
+  "avg_building_height_m": 11.78,
+  "canopy_cover_pct": 20.8,
+  "building_pct": 62.0,
+  "n_points": 13107
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 7,
+  "avg_building_height_m": 11.74,
+  "canopy_cover_pct": 19.8,
+  "building_pct": 43.3,
+  "n_points": 13751
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 7,
+  "avg_building_height_m": 10.29,
+  "canopy_cover_pct": 30.6,
+  "building_pct": 38.6,
+  "n_points": 15504
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 7,
+  "avg_building_height_m": 19.02,
+  "canopy_cover_pct": 14.5,
+  "building_pct": 54.2,
+  "n_points": 12493
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 7,
+  "avg_building_height_m": 22.61,
+  "canopy_cover_pct": 15.8,
+  "building_pct": 27.2,
+  "n_points": 14426
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 7,
+  "avg_building_height_m": 10.95,
+  "canopy_cover_pct": 22.7,
+  "building_pct": 25.8,
+  "n_points": 15180
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 7,
+  "avg_building_height_m": 13.23,
+  "canopy_cover_pct": 7.2,
+  "building_pct": 45.4,
+  "n_points": 13717
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 7,
+  "avg_building_height_m": 31.81,
+  "canopy_cover_pct": 17.1,
+  "building_pct": 44.1,
+  "n_points": 14146
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 7,
+  "avg_building_height_m": 11.95,
+  "canopy_cover_pct": 11.7,
+  "building_pct": 27.7,
+  "n_points": 15315
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 7,
+  "avg_building_height_m": 12.81,
+  "canopy_cover_pct": 14.2,
+  "building_pct": 70.1,
+  "n_points": 30920
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 7,
+  "avg_building_height_m": 21.54,
+  "canopy_cover_pct": 13.5,
+  "building_pct": 50.4,
+  "n_points": 26721
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 7,
+  "avg_building_height_m": 20.73,
+  "canopy_cover_pct": 11.3,
+  "building_pct": 65.7,
+  "n_points": 27803
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 7,
+  "avg_building_height_m": 17.07,
+  "canopy_cover_pct": 13.5,
+  "building_pct": 37.4,
+  "n_points": 28044
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 7,
+  "avg_building_height_m": 11.58,
+  "canopy_cover_pct": 17.6,
+  "building_pct": 13.6,
+  "n_points": 26896
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 7,
+  "avg_building_height_m": 22.44,
+  "canopy_cover_pct": 12.1,
+  "building_pct": 41.3,
+  "n_points": 24360
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 7,
+  "avg_building_height_m": 23.31,
+  "canopy_cover_pct": 18.2,
+  "building_pct": 27.9,
+  "n_points": 26016
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 7,
+  "avg_building_height_m": 29.98,
+  "canopy_cover_pct": 4.6,
+  "building_pct": 87.5,
+  "n_points": 12243
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 8,
+  "avg_building_height_m": 10.47,
+  "canopy_cover_pct": 20.7,
+  "building_pct": 20.0,
+  "n_points": 10907
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 8,
+  "avg_building_height_m": 9.46,
+  "canopy_cover_pct": 19.3,
+  "building_pct": 32.4,
+  "n_points": 13185
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 8,
+  "avg_building_height_m": 10.56,
+  "canopy_cover_pct": 21.8,
+  "building_pct": 26.4,
+  "n_points": 14048
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 8,
+  "avg_building_height_m": 12.3,
+  "canopy_cover_pct": 35.1,
+  "building_pct": 27.4,
+  "n_points": 16581
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 8,
+  "avg_building_height_m": 14.44,
+  "canopy_cover_pct": 22.4,
+  "building_pct": 28.9,
+  "n_points": 13924
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 8,
+  "avg_building_height_m": 25.69,
+  "canopy_cover_pct": 21.7,
+  "building_pct": 22.2,
+  "n_points": 15284
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 8,
+  "avg_building_height_m": 17.54,
+  "canopy_cover_pct": 21.7,
+  "building_pct": 14.2,
+  "n_points": 15008
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 8,
+  "avg_building_height_m": 21.77,
+  "canopy_cover_pct": 8.0,
+  "building_pct": 41.9,
+  "n_points": 13774
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 8,
+  "avg_building_height_m": 26.65,
+  "canopy_cover_pct": 10.6,
+  "building_pct": 17.2,
+  "n_points": 15150
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 8,
+  "avg_building_height_m": 22.26,
+  "canopy_cover_pct": 12.3,
+  "building_pct": 52.8,
+  "n_points": 27813
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 8,
+  "avg_building_height_m": 22.72,
+  "canopy_cover_pct": 16.4,
+  "building_pct": 60.9,
+  "n_points": 27008
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 8,
+  "avg_building_height_m": 16.61,
+  "canopy_cover_pct": 20.2,
+  "building_pct": 26.5,
+  "n_points": 25571
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 8,
+  "avg_building_height_m": 15.2,
+  "canopy_cover_pct": 11.6,
+  "building_pct": 15.0,
+  "n_points": 21464
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 8,
+  "avg_building_height_m": 20.2,
+  "canopy_cover_pct": 20.0,
+  "building_pct": 43.6,
+  "n_points": 28303
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 8,
+  "avg_building_height_m": 25.15,
+  "canopy_cover_pct": 8.8,
+  "building_pct": 70.9,
+  "n_points": 24209
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 8,
+  "avg_building_height_m": 24.61,
+  "canopy_cover_pct": 13.0,
+  "building_pct": 54.2,
+  "n_points": 24843
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 8,
+  "avg_building_height_m": 19.86,
+  "canopy_cover_pct": 19.5,
+  "building_pct": 32.8,
+  "n_points": 26419
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 8,
+  "avg_building_height_m": 25.28,
+  "canopy_cover_pct": 19.8,
+  "building_pct": 51.5,
+  "n_points": 14296
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 9,
+  "avg_building_height_m": 12.66,
+  "canopy_cover_pct": 13.0,
+  "building_pct": 25.9,
+  "n_points": 9204
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 9,
+  "avg_building_height_m": 9.1,
+  "canopy_cover_pct": 15.0,
+  "building_pct": 36.8,
+  "n_points": 11964
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 9,
+  "avg_building_height_m": 11.07,
+  "canopy_cover_pct": 20.1,
+  "building_pct": 48.3,
+  "n_points": 13435
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 9,
+  "avg_building_height_m": 10.69,
+  "canopy_cover_pct": 13.1,
+  "building_pct": 54.4,
+  "n_points": 12657
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 9,
+  "avg_building_height_m": 11.83,
+  "canopy_cover_pct": 13.0,
+  "building_pct": 41.9,
+  "n_points": 11807
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 9,
+  "avg_building_height_m": 25.33,
+  "canopy_cover_pct": 9.4,
+  "building_pct": 37.4,
+  "n_points": 13332
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 9,
+  "avg_building_height_m": 11.01,
+  "canopy_cover_pct": 8.5,
+  "building_pct": 44.1,
+  "n_points": 13840
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 9,
+  "avg_building_height_m": 15.72,
+  "canopy_cover_pct": 24.5,
+  "building_pct": 7.8,
+  "n_points": 16724
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 9,
+  "avg_building_height_m": 6.93,
+  "canopy_cover_pct": 20.9,
+  "building_pct": 2.0,
+  "n_points": 32692
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 9,
+  "avg_building_height_m": 9.65,
+  "canopy_cover_pct": 15.8,
+  "building_pct": 26.2,
+  "n_points": 25823
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 9,
+  "avg_building_height_m": 14.46,
+  "canopy_cover_pct": 26.3,
+  "building_pct": 14.7,
+  "n_points": 25025
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 9,
+  "avg_building_height_m": 24.6,
+  "canopy_cover_pct": 17.2,
+  "building_pct": 34.9,
+  "n_points": 21544
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 9,
+  "avg_building_height_m": 25.59,
+  "canopy_cover_pct": 12.9,
+  "building_pct": 76.9,
+  "n_points": 28320
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 9,
+  "avg_building_height_m": 22.86,
+  "canopy_cover_pct": 18.7,
+  "building_pct": 53.8,
+  "n_points": 26165
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 9,
+  "avg_building_height_m": 16.66,
+  "canopy_cover_pct": 13.5,
+  "building_pct": 47.6,
+  "n_points": 25369
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 9,
+  "avg_building_height_m": 23.6,
+  "canopy_cover_pct": 8.3,
+  "building_pct": 65.0,
+  "n_points": 24839
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 9,
+  "avg_building_height_m": 18.16,
+  "canopy_cover_pct": 13.4,
+  "building_pct": 37.6,
+  "n_points": 25797
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 9,
+  "avg_building_height_m": 19.81,
+  "canopy_cover_pct": 15.6,
+  "building_pct": 59.9,
+  "n_points": 14431
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 10,
+  "avg_building_height_m": 20.58,
+  "canopy_cover_pct": 6.8,
+  "building_pct": 36.4,
+  "n_points": 8784
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 10,
+  "avg_building_height_m": 23.68,
+  "canopy_cover_pct": 8.7,
+  "building_pct": 47.5,
+  "n_points": 11475
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 10,
+  "avg_building_height_m": 11.85,
+  "canopy_cover_pct": 9.9,
+  "building_pct": 25.4,
+  "n_points": 12188
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 10,
+  "avg_building_height_m": 10.96,
+  "canopy_cover_pct": 12.4,
+  "building_pct": 36.7,
+  "n_points": 12724
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 10,
+  "avg_building_height_m": 12.97,
+  "canopy_cover_pct": 7.7,
+  "building_pct": 31.8,
+  "n_points": 12109
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 10,
+  "avg_building_height_m": 16.53,
+  "canopy_cover_pct": 10.1,
+  "building_pct": 21.3,
+  "n_points": 13156
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 10,
+  "avg_building_height_m": 8.02,
+  "canopy_cover_pct": 11.0,
+  "building_pct": 25.2,
+  "n_points": 13620
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 10,
+  "avg_building_height_m": 9.99,
+  "canopy_cover_pct": 33.5,
+  "building_pct": 2.5,
+  "n_points": 37391
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 10,
+  "avg_building_height_m": 9.66,
+  "canopy_cover_pct": 32.2,
+  "building_pct": 1.0,
+  "n_points": 32146
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 10,
+  "avg_building_height_m": 12.47,
+  "canopy_cover_pct": 21.6,
+  "building_pct": 6.9,
+  "n_points": 24972
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 10,
+  "avg_building_height_m": 13.48,
+  "canopy_cover_pct": 17.1,
+  "building_pct": 40.4,
+  "n_points": 21851
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 10,
+  "avg_building_height_m": 17.25,
+  "canopy_cover_pct": 23.6,
+  "building_pct": 24.8,
+  "n_points": 22660
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 10,
+  "avg_building_height_m": 15.08,
+  "canopy_cover_pct": 15.5,
+  "building_pct": 40.9,
+  "n_points": 20929
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 10,
+  "avg_building_height_m": 17.52,
+  "canopy_cover_pct": 27.0,
+  "building_pct": 39.5,
+  "n_points": 25634
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 10,
+  "avg_building_height_m": 13.67,
+  "canopy_cover_pct": 25.0,
+  "building_pct": 45.3,
+  "n_points": 26702
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 10,
+  "avg_building_height_m": 14.25,
+  "canopy_cover_pct": 17.1,
+  "building_pct": 45.8,
+  "n_points": 27266
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 10,
+  "avg_building_height_m": 10.75,
+  "canopy_cover_pct": 16.5,
+  "building_pct": 15.4,
+  "n_points": 27052
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 10,
+  "avg_building_height_m": 10.03,
+  "canopy_cover_pct": 22.8,
+  "building_pct": 28.8,
+  "n_points": 16101
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 11,
+  "avg_building_height_m": 23.64,
+  "canopy_cover_pct": 5.3,
+  "building_pct": 59.2,
+  "n_points": 8967
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 11,
+  "avg_building_height_m": 22.31,
+  "canopy_cover_pct": 19.0,
+  "building_pct": 48.3,
+  "n_points": 13390
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 11,
+  "avg_building_height_m": 12.58,
+  "canopy_cover_pct": 14.2,
+  "building_pct": 42.8,
+  "n_points": 12490
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 11,
+  "avg_building_height_m": 13.1,
+  "canopy_cover_pct": 10.0,
+  "building_pct": 59.6,
+  "n_points": 12337
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 11,
+  "avg_building_height_m": 20.61,
+  "canopy_cover_pct": 12.4,
+  "building_pct": 51.9,
+  "n_points": 12334
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 11,
+  "avg_building_height_m": 12.74,
+  "canopy_cover_pct": 10.9,
+  "building_pct": 16.4,
+  "n_points": 13155
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 11,
+  "avg_building_height_m": 9.7,
+  "canopy_cover_pct": 7.4,
+  "building_pct": 20.4,
+  "n_points": 24191
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 11,
+  "avg_building_height_m": 9.51,
+  "canopy_cover_pct": 23.0,
+  "building_pct": 5.6,
+  "n_points": 29111
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 11,
+  "avg_building_height_m": 10.97,
+  "canopy_cover_pct": 29.8,
+  "building_pct": 6.9,
+  "n_points": 26952
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 11,
+  "avg_building_height_m": 25.24,
+  "canopy_cover_pct": 8.2,
+  "building_pct": 47.5,
+  "n_points": 19561
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 11,
+  "avg_building_height_m": 17.65,
+  "canopy_cover_pct": 14.0,
+  "building_pct": 49.5,
+  "n_points": 20152
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 11,
+  "avg_building_height_m": 8.89,
+  "canopy_cover_pct": 22.0,
+  "building_pct": 9.6,
+  "n_points": 22192
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 11,
+  "avg_building_height_m": 9.29,
+  "canopy_cover_pct": 27.9,
+  "building_pct": 34.7,
+  "n_points": 22422
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 11,
+  "avg_building_height_m": 9.81,
+  "canopy_cover_pct": 29.1,
+  "building_pct": 40.3,
+  "n_points": 22269
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 11,
+  "avg_building_height_m": 8.07,
+  "canopy_cover_pct": 22.8,
+  "building_pct": 37.0,
+  "n_points": 21313
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 11,
+  "avg_building_height_m": 18.99,
+  "canopy_cover_pct": 11.5,
+  "building_pct": 59.0,
+  "n_points": 23298
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 11,
+  "avg_building_height_m": 17.5,
+  "canopy_cover_pct": 16.6,
+  "building_pct": 29.0,
+  "n_points": 27861
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 11,
+  "avg_building_height_m": 7.74,
+  "canopy_cover_pct": 17.6,
+  "building_pct": 50.1,
+  "n_points": 15484
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 12,
+  "avg_building_height_m": 13.99,
+  "canopy_cover_pct": 19.7,
+  "building_pct": 30.6,
+  "n_points": 9381
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 12,
+  "avg_building_height_m": 25.36,
+  "canopy_cover_pct": 10.1,
+  "building_pct": 65.9,
+  "n_points": 11661
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 12,
+  "avg_building_height_m": 21.48,
+  "canopy_cover_pct": 13.7,
+  "building_pct": 33.8,
+  "n_points": 13122
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 12,
+  "avg_building_height_m": 13.9,
+  "canopy_cover_pct": 16.8,
+  "building_pct": 23.0,
+  "n_points": 12851
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 12,
+  "avg_building_height_m": 16.94,
+  "canopy_cover_pct": 15.3,
+  "building_pct": 29.0,
+  "n_points": 13091
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 12,
+  "avg_building_height_m": 7.49,
+  "canopy_cover_pct": 17.3,
+  "building_pct": 20.6,
+  "n_points": 26524
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 12,
+  "avg_building_height_m": 10.22,
+  "canopy_cover_pct": 16.1,
+  "building_pct": 47.9,
+  "n_points": 24186
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 12,
+  "avg_building_height_m": 10.91,
+  "canopy_cover_pct": 10.1,
+  "building_pct": 19.9,
+  "n_points": 20511
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 12,
+  "avg_building_height_m": 22.82,
+  "canopy_cover_pct": 17.0,
+  "building_pct": 36.4,
+  "n_points": 20568
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 12,
+  "avg_building_height_m": 18.54,
+  "canopy_cover_pct": 14.0,
+  "building_pct": 25.4,
+  "n_points": 19793
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 12,
+  "avg_building_height_m": 14.3,
+  "canopy_cover_pct": 14.6,
+  "building_pct": 57.7,
+  "n_points": 20011
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 12,
+  "avg_building_height_m": 14.62,
+  "canopy_cover_pct": 17.0,
+  "building_pct": 27.4,
+  "n_points": 19708
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 12,
+  "avg_building_height_m": 11.67,
+  "canopy_cover_pct": 25.1,
+  "building_pct": 29.5,
+  "n_points": 21750
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 12,
+  "avg_building_height_m": 10.87,
+  "canopy_cover_pct": 35.5,
+  "building_pct": 29.2,
+  "n_points": 23371
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 12,
+  "avg_building_height_m": 9.16,
+  "canopy_cover_pct": 25.0,
+  "building_pct": 34.4,
+  "n_points": 21494
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 12,
+  "avg_building_height_m": 11.21,
+  "canopy_cover_pct": 26.5,
+  "building_pct": 43.7,
+  "n_points": 22784
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 12,
+  "avg_building_height_m": 13.04,
+  "canopy_cover_pct": 23.1,
+  "building_pct": 33.2,
+  "n_points": 25800
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 12,
+  "avg_building_height_m": 6.37,
+  "canopy_cover_pct": 12.5,
+  "building_pct": 62.3,
+  "n_points": 15437
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 13,
+  "avg_building_height_m": 18.63,
+  "canopy_cover_pct": 7.4,
+  "building_pct": 44.3,
+  "n_points": 9145
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 13,
+  "avg_building_height_m": 17.04,
+  "canopy_cover_pct": 14.3,
+  "building_pct": 13.4,
+  "n_points": 12957
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 13,
+  "avg_building_height_m": 8.04,
+  "canopy_cover_pct": 22.3,
+  "building_pct": 3.8,
+  "n_points": 14118
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 13,
+  "avg_building_height_m": 12.38,
+  "canopy_cover_pct": 19.5,
+  "building_pct": 34.0,
+  "n_points": 13393
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 13,
+  "avg_building_height_m": 14.88,
+  "canopy_cover_pct": 26.1,
+  "building_pct": 37.3,
+  "n_points": 27607
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 13,
+  "avg_building_height_m": 11.02,
+  "canopy_cover_pct": 20.9,
+  "building_pct": 19.5,
+  "n_points": 25766
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 13,
+  "avg_building_height_m": 8.12,
+  "canopy_cover_pct": 12.3,
+  "building_pct": 13.1,
+  "n_points": 21711
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 13,
+  "avg_building_height_m": 12.12,
+  "canopy_cover_pct": 11.4,
+  "building_pct": 39.3,
+  "n_points": 19527
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 13,
+  "avg_building_height_m": 18.99,
+  "canopy_cover_pct": 11.9,
+  "building_pct": 26.6,
+  "n_points": 19146
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 13,
+  "avg_building_height_m": 10.5,
+  "canopy_cover_pct": 30.1,
+  "building_pct": 31.6,
+  "n_points": 22767
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 13,
+  "avg_building_height_m": 13.03,
+  "canopy_cover_pct": 29.4,
+  "building_pct": 11.5,
+  "n_points": 23561
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 13,
+  "avg_building_height_m": 20.46,
+  "canopy_cover_pct": 20.9,
+  "building_pct": 23.7,
+  "n_points": 21097
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 13,
+  "avg_building_height_m": 21.67,
+  "canopy_cover_pct": 17.1,
+  "building_pct": 39.5,
+  "n_points": 19784
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 13,
+  "avg_building_height_m": 11.01,
+  "canopy_cover_pct": 27.2,
+  "building_pct": 32.5,
+  "n_points": 22494
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 13,
+  "avg_building_height_m": 10.76,
+  "canopy_cover_pct": 27.3,
+  "building_pct": 36.8,
+  "n_points": 22832
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 13,
+  "avg_building_height_m": 10.89,
+  "canopy_cover_pct": 27.7,
+  "building_pct": 34.5,
+  "n_points": 22952
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 13,
+  "avg_building_height_m": 11.41,
+  "canopy_cover_pct": 20.8,
+  "building_pct": 22.9,
+  "n_points": 22075
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 13,
+  "avg_building_height_m": 8.89,
+  "canopy_cover_pct": 19.6,
+  "building_pct": 41.7,
+  "n_points": 16185
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 14,
+  "avg_building_height_m": 11.5,
+  "canopy_cover_pct": 15.0,
+  "building_pct": 33.8,
+  "n_points": 9352
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 14,
+  "avg_building_height_m": 12.03,
+  "canopy_cover_pct": 22.2,
+  "building_pct": 46.0,
+  "n_points": 14399
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 14,
+  "avg_building_height_m": 13.26,
+  "canopy_cover_pct": 28.0,
+  "building_pct": 29.1,
+  "n_points": 15476
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 14,
+  "avg_building_height_m": 10.7,
+  "canopy_cover_pct": 30.4,
+  "building_pct": 36.4,
+  "n_points": 26445
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 14,
+  "avg_building_height_m": 10.53,
+  "canopy_cover_pct": 21.1,
+  "building_pct": 45.5,
+  "n_points": 26406
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 14,
+  "avg_building_height_m": 11.43,
+  "canopy_cover_pct": 11.9,
+  "building_pct": 41.9,
+  "n_points": 21240
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 14,
+  "avg_building_height_m": 13.73,
+  "canopy_cover_pct": 5.8,
+  "building_pct": 16.6,
+  "n_points": 17998
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 14,
+  "avg_building_height_m": 16.96,
+  "canopy_cover_pct": 11.0,
+  "building_pct": 57.1,
+  "n_points": 19180
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 14,
+  "avg_building_height_m": 11.34,
+  "canopy_cover_pct": 26.4,
+  "building_pct": 29.9,
+  "n_points": 21868
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 14,
+  "avg_building_height_m": 12.37,
+  "canopy_cover_pct": 28.3,
+  "building_pct": 42.7,
+  "n_points": 21050
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 14,
+  "avg_building_height_m": 14.0,
+  "canopy_cover_pct": 20.6,
+  "building_pct": 49.3,
+  "n_points": 20680
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 14,
+  "avg_building_height_m": 23.75,
+  "canopy_cover_pct": 17.7,
+  "building_pct": 25.9,
+  "n_points": 20878
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 14,
+  "avg_building_height_m": 18.3,
+  "canopy_cover_pct": 10.4,
+  "building_pct": 47.4,
+  "n_points": 18373
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 14,
+  "avg_building_height_m": 11.38,
+  "canopy_cover_pct": 37.4,
+  "building_pct": 34.6,
+  "n_points": 24544
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 14,
+  "avg_building_height_m": 10.57,
+  "canopy_cover_pct": 26.0,
+  "building_pct": 46.9,
+  "n_points": 21448
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 14,
+  "avg_building_height_m": 11.93,
+  "canopy_cover_pct": 35.3,
+  "building_pct": 38.0,
+  "n_points": 24278
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 14,
+  "avg_building_height_m": 15.77,
+  "canopy_cover_pct": 16.1,
+  "building_pct": 38.1,
+  "n_points": 20546
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 14,
+  "avg_building_height_m": 11.11,
+  "canopy_cover_pct": 9.7,
+  "building_pct": 62.7,
+  "n_points": 13545
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 15,
+  "avg_building_height_m": 12.2,
+  "canopy_cover_pct": 12.3,
+  "building_pct": 58.5,
+  "n_points": 8073
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 15,
+  "avg_building_height_m": 9.7,
+  "canopy_cover_pct": 13.9,
+  "building_pct": 33.1,
+  "n_points": 11497
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 15,
+  "avg_building_height_m": 12.66,
+  "canopy_cover_pct": 22.0,
+  "building_pct": 31.6,
+  "n_points": 25541
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 15,
+  "avg_building_height_m": 11.77,
+  "canopy_cover_pct": 20.1,
+  "building_pct": 55.7,
+  "n_points": 28159
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 15,
+  "avg_building_height_m": 12.18,
+  "canopy_cover_pct": 19.2,
+  "building_pct": 50.8,
+  "n_points": 22115
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 15,
+  "avg_building_height_m": 16.64,
+  "canopy_cover_pct": 8.9,
+  "building_pct": 34.2,
+  "n_points": 19732
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 15,
+  "avg_building_height_m": 11.65,
+  "canopy_cover_pct": 9.4,
+  "building_pct": 47.0,
+  "n_points": 17994
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 15,
+  "avg_building_height_m": 10.85,
+  "canopy_cover_pct": 10.7,
+  "building_pct": 56.9,
+  "n_points": 18111
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 15,
+  "avg_building_height_m": 9.51,
+  "canopy_cover_pct": 18.9,
+  "building_pct": 25.6,
+  "n_points": 19380
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 15,
+  "avg_building_height_m": 10.73,
+  "canopy_cover_pct": 24.1,
+  "building_pct": 40.5,
+  "n_points": 20913
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 15,
+  "avg_building_height_m": 17.29,
+  "canopy_cover_pct": 21.6,
+  "building_pct": 43.6,
+  "n_points": 20016
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 15,
+  "avg_building_height_m": 13.64,
+  "canopy_cover_pct": 28.6,
+  "building_pct": 11.6,
+  "n_points": 23551
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 15,
+  "avg_building_height_m": 16.0,
+  "canopy_cover_pct": 25.0,
+  "building_pct": 35.1,
+  "n_points": 21762
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 15,
+  "avg_building_height_m": 10.73,
+  "canopy_cover_pct": 16.1,
+  "building_pct": 40.4,
+  "n_points": 19858
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 15,
+  "avg_building_height_m": 9.0,
+  "canopy_cover_pct": 23.0,
+  "building_pct": 41.4,
+  "n_points": 21253
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 15,
+  "avg_building_height_m": 8.44,
+  "canopy_cover_pct": 14.7,
+  "building_pct": 54.0,
+  "n_points": 20022
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 15,
+  "avg_building_height_m": 6.67,
+  "canopy_cover_pct": 11.8,
+  "building_pct": 40.0,
+  "n_points": 19423
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 15,
+  "avg_building_height_m": 6.99,
+  "canopy_cover_pct": 8.7,
+  "building_pct": 35.2,
+  "n_points": 11479
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 16,
+  "avg_building_height_m": 13.05,
+  "canopy_cover_pct": 33.3,
+  "building_pct": 30.4,
+  "n_points": 7977
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 16,
+  "avg_building_height_m": 11.29,
+  "canopy_cover_pct": 27.6,
+  "building_pct": 58.5,
+  "n_points": 23453
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 16,
+  "avg_building_height_m": 12.6,
+  "canopy_cover_pct": 20.2,
+  "building_pct": 46.8,
+  "n_points": 29042
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 16,
+  "avg_building_height_m": 11.14,
+  "canopy_cover_pct": 13.3,
+  "building_pct": 60.5,
+  "n_points": 21809
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 16,
+  "avg_building_height_m": 20.28,
+  "canopy_cover_pct": 12.0,
+  "building_pct": 61.2,
+  "n_points": 18648
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 16,
+  "avg_building_height_m": 19.31,
+  "canopy_cover_pct": 11.2,
+  "building_pct": 17.7,
+  "n_points": 20199
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 16,
+  "avg_building_height_m": 13.08,
+  "canopy_cover_pct": 12.4,
+  "building_pct": 58.6,
+  "n_points": 17949
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 16,
+  "avg_building_height_m": 12.52,
+  "canopy_cover_pct": 20.2,
+  "building_pct": 52.1,
+  "n_points": 19581
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 16,
+  "avg_building_height_m": 14.39,
+  "canopy_cover_pct": 31.7,
+  "building_pct": 27.9,
+  "n_points": 22629
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 16,
+  "avg_building_height_m": 12.96,
+  "canopy_cover_pct": 17.8,
+  "building_pct": 36.9,
+  "n_points": 19182
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 16,
+  "avg_building_height_m": 20.79,
+  "canopy_cover_pct": 14.5,
+  "building_pct": 44.7,
+  "n_points": 18338
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 16,
+  "avg_building_height_m": 16.2,
+  "canopy_cover_pct": 16.9,
+  "building_pct": 32.0,
+  "n_points": 19508
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 16,
+  "avg_building_height_m": 14.97,
+  "canopy_cover_pct": 36.8,
+  "building_pct": 14.3,
+  "n_points": 25043
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 16,
+  "avg_building_height_m": 12.0,
+  "canopy_cover_pct": 14.3,
+  "building_pct": 44.2,
+  "n_points": 19306
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 16,
+  "avg_building_height_m": 11.97,
+  "canopy_cover_pct": 17.4,
+  "building_pct": 34.2,
+  "n_points": 18484
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 16,
+  "avg_building_height_m": 9.37,
+  "canopy_cover_pct": 14.9,
+  "building_pct": 15.7,
+  "n_points": 18195
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 16,
+  "avg_building_height_m": 10.13,
+  "canopy_cover_pct": 20.7,
+  "building_pct": 25.8,
+  "n_points": 17704
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 16,
+  "avg_building_height_m": 11.6,
+  "canopy_cover_pct": 12.5,
+  "building_pct": 40.6,
+  "n_points": 11483
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 17,
+  "avg_building_height_m": 11.51,
+  "canopy_cover_pct": 37.0,
+  "building_pct": 36.6,
+  "n_points": 14679
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 17,
+  "avg_building_height_m": 10.09,
+  "canopy_cover_pct": 31.2,
+  "building_pct": 20.4,
+  "n_points": 29085
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 17,
+  "avg_building_height_m": 12.52,
+  "canopy_cover_pct": 33.9,
+  "building_pct": 24.8,
+  "n_points": 24945
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 17,
+  "avg_building_height_m": 10.17,
+  "canopy_cover_pct": 22.9,
+  "building_pct": 36.5,
+  "n_points": 22299
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 17,
+  "avg_building_height_m": 11.19,
+  "canopy_cover_pct": 11.9,
+  "building_pct": 25.8,
+  "n_points": 19455
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 17,
+  "avg_building_height_m": 6.44,
+  "canopy_cover_pct": 13.0,
+  "building_pct": 9.5,
+  "n_points": 19617
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 17,
+  "avg_building_height_m": 14.45,
+  "canopy_cover_pct": 20.7,
+  "building_pct": 24.6,
+  "n_points": 19199
+ },
+ {
+  "grid_x": 7,
+  "grid_y": 17,
+  "avg_building_height_m": 16.25,
+  "canopy_cover_pct": 18.5,
+  "building_pct": 48.1,
+  "n_points": 19152
+ },
+ {
+  "grid_x": 8,
+  "grid_y": 17,
+  "avg_building_height_m": 11.87,
+  "canopy_cover_pct": 15.3,
+  "building_pct": 23.9,
+  "n_points": 17660
+ },
+ {
+  "grid_x": 9,
+  "grid_y": 17,
+  "avg_building_height_m": 11.18,
+  "canopy_cover_pct": 27.7,
+  "building_pct": 37.4,
+  "n_points": 19231
+ },
+ {
+  "grid_x": 10,
+  "grid_y": 17,
+  "avg_building_height_m": 13.24,
+  "canopy_cover_pct": 24.7,
+  "building_pct": 43.5,
+  "n_points": 19359
+ },
+ {
+  "grid_x": 11,
+  "grid_y": 17,
+  "avg_building_height_m": 14.58,
+  "canopy_cover_pct": 15.4,
+  "building_pct": 28.5,
+  "n_points": 17627
+ },
+ {
+  "grid_x": 12,
+  "grid_y": 17,
+  "avg_building_height_m": 14.87,
+  "canopy_cover_pct": 17.8,
+  "building_pct": 46.0,
+  "n_points": 17246
+ },
+ {
+  "grid_x": 13,
+  "grid_y": 17,
+  "avg_building_height_m": 13.22,
+  "canopy_cover_pct": 22.9,
+  "building_pct": 14.1,
+  "n_points": 18349
+ },
+ {
+  "grid_x": 14,
+  "grid_y": 17,
+  "avg_building_height_m": 13.7,
+  "canopy_cover_pct": 20.3,
+  "building_pct": 44.8,
+  "n_points": 14642
+ },
+ {
+  "grid_x": 15,
+  "grid_y": 17,
+  "avg_building_height_m": 15.85,
+  "canopy_cover_pct": 18.6,
+  "building_pct": 42.5,
+  "n_points": 13503
+ },
+ {
+  "grid_x": 16,
+  "grid_y": 17,
+  "avg_building_height_m": 16.33,
+  "canopy_cover_pct": 18.9,
+  "building_pct": 37.3,
+  "n_points": 13032
+ },
+ {
+  "grid_x": 17,
+  "grid_y": 17,
+  "avg_building_height_m": 10.64,
+  "canopy_cover_pct": 11.6,
+  "building_pct": 50.6,
+  "n_points": 7442
+ },
+ {
+  "grid_x": 0,
+  "grid_y": 18,
+  "avg_building_height_m": 15.49,
+  "canopy_cover_pct": 9.0,
+  "building_pct": 87.7,
+  "n_points": 2214
+ },
+ {
+  "grid_x": 1,
+  "grid_y": 18,
+  "avg_building_height_m": 12.12,
+  "canopy_cover_pct": 35.7,
+  "building_pct": 31.7,
+  "n_points": 2799
+ },
+ {
+  "grid_x": 2,
+  "grid_y": 18,
+  "avg_building_height_m": 13.11,
+  "canopy_cover_pct": 38.9,
+  "building_pct": 31.4,
+  "n_points": 2517
+ },
+ {
+  "grid_x": 3,
+  "grid_y": 18,
+  "avg_building_height_m": 9.26,
+  "canopy_cover_pct": 15.9,
+  "building_pct": 52.0,
+  "n_points": 1484
+ },
+ {
+  "grid_x": 4,
+  "grid_y": 18,
+  "avg_building_height_m": 14.85,
+  "canopy_cover_pct": 2.2,
+  "building_pct": 48.7,
+  "n_points": 939
+ },
+ {
+  "grid_x": 5,
+  "grid_y": 18,
+  "avg_building_height_m": 8.32,
+  "canopy_cover_pct": 22.4,
+  "building_pct": 20.0,
+  "n_points": 606
+ },
+ {
+  "grid_x": 6,
+  "grid_y": 18,
+  "avg_building_height_m": 6.37,
+  "canopy_cover_pct": 22.9,
+  "building_pct": 7.6,
+  "n_points": 105
+ }
+]
