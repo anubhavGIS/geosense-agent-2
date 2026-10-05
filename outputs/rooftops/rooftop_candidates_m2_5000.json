@@ -1,0 +1,3408 @@
+{
+ "device": "cuda",
+ "sam_seconds": 7.7,
+ "pixel_area_m2": 0.36,
+ "tile_avg_building_height_m": 17.705795288085938,
+ "area_limits_px": [
+  28,
+  13889
+ ],
+ "area_limits_m2": [
+  10.1,
+  5000.0
+ ],
+ "candidates": [
+  {
+   "footprint_area_m2": 4028.4,
+   "height_m": 33.3,
+   "volume_m3": 134145.7,
+   "rooftop": 1,
+   "area_px": 11190,
+   "bbox_px": [
+    791,
+    1400,
+    105,
+    113
+   ],
+   "lidar_points": 14085,
+   "height_source": "lidar",
+   "predicted_iou": 0.911
+  },
+  {
+   "footprint_area_m2": 3331.1,
+   "height_m": 7.97,
+   "volume_m3": 26548.7,
+   "rooftop": 2,
+   "area_px": 9253,
+   "bbox_px": [
+    475,
+    1224,
+    76,
+    128
+   ],
+   "lidar_points": 13235,
+   "height_source": "lidar",
+   "predicted_iou": 0.962
+  },
+  {
+   "footprint_area_m2": 3034.1,
+   "height_m": 8.34,
+   "volume_m3": 25304.2,
+   "rooftop": 3,
+   "area_px": 8428,
+   "bbox_px": [
+    1223,
+    1410,
+    133,
+    71
+   ],
+   "lidar_points": 11542,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 2922.8,
+   "height_m": 40.8,
+   "volume_m3": 119251.9,
+   "rooftop": 4,
+   "area_px": 8119,
+   "bbox_px": [
+    572,
+    1228,
+    68,
+    125
+   ],
+   "lidar_points": 24411,
+   "height_source": "lidar",
+   "predicted_iou": 0.933
+  },
+  {
+   "footprint_area_m2": 2810.5,
+   "height_m": 27.57,
+   "volume_m3": 77486.0,
+   "rooftop": 5,
+   "area_px": 7807,
+   "bbox_px": [
+    947,
+    1107,
+    125,
+    65
+   ],
+   "lidar_points": 20758,
+   "height_source": "lidar",
+   "predicted_iou": 0.908
+  },
+  {
+   "footprint_area_m2": 2804.8,
+   "height_m": 29.54,
+   "volume_m3": 82852.6,
+   "rooftop": 6,
+   "area_px": 7791,
+   "bbox_px": [
+    832,
+    1242,
+    68,
+    127
+   ],
+   "lidar_points": 794,
+   "height_source": "lidar",
+   "predicted_iou": 0.882
+  },
+  {
+   "footprint_area_m2": 2706.8,
+   "height_m": 25.93,
+   "volume_m3": 70188.4,
+   "rooftop": 7,
+   "area_px": 7519,
+   "bbox_px": [
+    226,
+    1280,
+    139,
+    67
+   ],
+   "lidar_points": 404,
+   "height_source": "lidar",
+   "predicted_iou": 0.896
+  },
+  {
+   "footprint_area_m2": 2698.6,
+   "height_m": 5.15,
+   "volume_m3": 13897.6,
+   "rooftop": 8,
+   "area_px": 7496,
+   "bbox_px": [
+    534,
+    805,
+    115,
+    92
+   ],
+   "lidar_points": 8644,
+   "height_source": "lidar",
+   "predicted_iou": 0.923
+  },
+  {
+   "footprint_area_m2": 2470.3,
+   "height_m": 29.1,
+   "volume_m3": 71886.3,
+   "rooftop": 9,
+   "area_px": 6862,
+   "bbox_px": [
+    1150,
+    1175,
+    120,
+    95
+   ],
+   "lidar_points": 26983,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 2435.4,
+   "height_m": 6.35,
+   "volume_m3": 15464.8,
+   "rooftop": 10,
+   "area_px": 6765,
+   "bbox_px": [
+    792,
+    1105,
+    90,
+    110
+   ],
+   "lidar_points": 8907,
+   "height_source": "lidar",
+   "predicted_iou": 0.91
+  },
+  {
+   "footprint_area_m2": 2429.6,
+   "height_m": 10.59,
+   "volume_m3": 25729.9,
+   "rooftop": 11,
+   "area_px": 6749,
+   "bbox_px": [
+    690,
+    1242,
+    137,
+    56
+   ],
+   "lidar_points": 6816,
+   "height_source": "lidar",
+   "predicted_iou": 0.884
+  },
+  {
+   "footprint_area_m2": 2285.6,
+   "height_m": 6.51,
+   "volume_m3": 14879.5,
+   "rooftop": 12,
+   "area_px": 6349,
+   "bbox_px": [
+    490,
+    698,
+    87,
+    110
+   ],
+   "lidar_points": 7213,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 2164.3,
+   "height_m": 23.72,
+   "volume_m3": 51337.7,
+   "rooftop": 13,
+   "area_px": 6012,
+   "bbox_px": [
+    962,
+    390,
+    129,
+    52
+   ],
+   "lidar_points": 10717,
+   "height_source": "lidar",
+   "predicted_iou": 0.915
+  },
+  {
+   "footprint_area_m2": 1998.7,
+   "height_m": 24.6,
+   "volume_m3": 49168.5,
+   "rooftop": 14,
+   "area_px": 5552,
+   "bbox_px": [
+    368,
+    105,
+    89,
+    101
+   ],
+   "lidar_points": 8430,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 1972.8,
+   "height_m": 39.62,
+   "volume_m3": 78162.3,
+   "rooftop": 15,
+   "area_px": 5480,
+   "bbox_px": [
+    690,
+    1396,
+    93,
+    66
+   ],
+   "lidar_points": 14009,
+   "height_source": "lidar",
+   "predicted_iou": 0.913
+  },
+  {
+   "footprint_area_m2": 1950.8,
+   "height_m": 5.27,
+   "volume_m3": 10280.9,
+   "rooftop": 16,
+   "area_px": 5419,
+   "bbox_px": [
+    1410,
+    1413,
+    55,
+    100
+   ],
+   "lidar_points": 7788,
+   "height_source": "lidar",
+   "predicted_iou": 0.952
+  },
+  {
+   "footprint_area_m2": 1944.4,
+   "height_m": 10.94,
+   "volume_m3": 21281.0,
+   "rooftop": 17,
+   "area_px": 5401,
+   "bbox_px": [
+    65,
+    1434,
+    112,
+    79
+   ],
+   "lidar_points": 5916,
+   "height_source": "lidar",
+   "predicted_iou": 0.909
+  },
+  {
+   "footprint_area_m2": 1920.6,
+   "height_m": 33.88,
+   "volume_m3": 65069.9,
+   "rooftop": 18,
+   "area_px": 5335,
+   "bbox_px": [
+    222,
+    1460,
+    116,
+    53
+   ],
+   "lidar_points": 3500,
+   "height_source": "lidar",
+   "predicted_iou": 0.894
+  },
+  {
+   "footprint_area_m2": 1911.2,
+   "height_m": 13.02,
+   "volume_m3": 24884.3,
+   "rooftop": 19,
+   "area_px": 5309,
+   "bbox_px": [
+    251,
+    101,
+    114,
+    50
+   ],
+   "lidar_points": 10937,
+   "height_source": "lidar",
+   "predicted_iou": 0.93
+  },
+  {
+   "footprint_area_m2": 1835.3,
+   "height_m": 15.3,
+   "volume_m3": 28079.8,
+   "rooftop": 20,
+   "area_px": 5098,
+   "bbox_px": [
+    131,
+    255,
+    72,
+    75
+   ],
+   "lidar_points": 7163,
+   "height_source": "lidar",
+   "predicted_iou": 0.914
+  },
+  {
+   "footprint_area_m2": 1769.0,
+   "height_m": 6.98,
+   "volume_m3": 12347.9,
+   "rooftop": 21,
+   "area_px": 4914,
+   "bbox_px": [
+    686,
+    1460,
+    98,
+    53
+   ],
+   "lidar_points": 2984,
+   "height_source": "lidar",
+   "predicted_iou": 0.935
+  },
+  {
+   "footprint_area_m2": 1712.5,
+   "height_m": 27.78,
+   "volume_m3": 47573.8,
+   "rooftop": 22,
+   "area_px": 4757,
+   "bbox_px": [
+    480,
+    1134,
+    66,
+    86
+   ],
+   "lidar_points": 8290,
+   "height_source": "lidar",
+   "predicted_iou": 0.913
+  },
+  {
+   "footprint_area_m2": 1704.2,
+   "height_m": 40.11,
+   "volume_m3": 68357.1,
+   "rooftop": 23,
+   "area_px": 4734,
+   "bbox_px": [
+    1301,
+    1273,
+    57,
+    98
+   ],
+   "lidar_points": 19705,
+   "height_source": "lidar",
+   "predicted_iou": 0.902
+  },
+  {
+   "footprint_area_m2": 1693.1,
+   "height_m": 21.74,
+   "volume_m3": 36807.6,
+   "rooftop": 24,
+   "area_px": 4703,
+   "bbox_px": [
+    1271,
+    524,
+    102,
+    48
+   ],
+   "lidar_points": 15447,
+   "height_source": "lidar",
+   "predicted_iou": 0.929
+  },
+  {
+   "footprint_area_m2": 1630.4,
+   "height_m": 27.54,
+   "volume_m3": 44902.3,
+   "rooftop": 25,
+   "area_px": 4529,
+   "bbox_px": [
+    285,
+    1272,
+    79,
+    74
+   ],
+   "lidar_points": 7917,
+   "height_source": "lidar",
+   "predicted_iou": 0.919
+  },
+  {
+   "footprint_area_m2": 1621.1,
+   "height_m": 39.05,
+   "volume_m3": 63303.2,
+   "rooftop": 26,
+   "area_px": 4503,
+   "bbox_px": [
+    1005,
+    1259,
+    96,
+    80
+   ],
+   "lidar_points": 10213,
+   "height_source": "lidar",
+   "predicted_iou": 0.914
+  },
+  {
+   "footprint_area_m2": 1577.2,
+   "height_m": 34.65,
+   "volume_m3": 54648.6,
+   "rooftop": 27,
+   "area_px": 4381,
+   "bbox_px": [
+    834,
+    1293,
+    66,
+    67
+   ],
+   "lidar_points": 11006,
+   "height_source": "lidar",
+   "predicted_iou": 0.946
+  },
+  {
+   "footprint_area_m2": 1570.0,
+   "height_m": 9.93,
+   "volume_m3": 15589.7,
+   "rooftop": 28,
+   "area_px": 4361,
+   "bbox_px": [
+    527,
+    448,
+    73,
+    97
+   ],
+   "lidar_points": 15405,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 1542.6,
+   "height_m": 25.56,
+   "volume_m3": 39421.1,
+   "rooftop": 29,
+   "area_px": 4285,
+   "bbox_px": [
+    542,
+    1016,
+    103,
+    44
+   ],
+   "lidar_points": 7830,
+   "height_source": "lidar",
+   "predicted_iou": 0.943
+  },
+  {
+   "footprint_area_m2": 1500.1,
+   "height_m": 3.85,
+   "volume_m3": 5775.5,
+   "rooftop": 30,
+   "area_px": 4167,
+   "bbox_px": [
+    768,
+    164,
+    87,
+    52
+   ],
+   "lidar_points": 828,
+   "height_source": "lidar",
+   "predicted_iou": 0.901
+  },
+  {
+   "footprint_area_m2": 1490.4,
+   "height_m": 28.19,
+   "volume_m3": 42014.4,
+   "rooftop": 31,
+   "area_px": 4140,
+   "bbox_px": [
+    411,
+    692,
+    39,
+    117
+   ],
+   "lidar_points": 7251,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 1478.9,
+   "height_m": 27.04,
+   "volume_m3": 39988.9,
+   "rooftop": 32,
+   "area_px": 4108,
+   "bbox_px": [
+    475,
+    1392,
+    78,
+    66
+   ],
+   "lidar_points": 11352,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 1425.6,
+   "height_m": 14.6,
+   "volume_m3": 20813.8,
+   "rooftop": 33,
+   "area_px": 3960,
+   "bbox_px": [
+    1308,
+    444,
+    67,
+    61
+   ],
+   "lidar_points": 9895,
+   "height_source": "lidar",
+   "predicted_iou": 0.937
+  },
+  {
+   "footprint_area_m2": 1410.5,
+   "height_m": 11.12,
+   "volume_m3": 15684.5,
+   "rooftop": 34,
+   "area_px": 3918,
+   "bbox_px": [
+    1304,
+    124,
+    78,
+    54
+   ],
+   "lidar_points": 6581,
+   "height_source": "lidar",
+   "predicted_iou": 0.929
+  },
+  {
+   "footprint_area_m2": 1379.9,
+   "height_m": 25.45,
+   "volume_m3": 35117.9,
+   "rooftop": 35,
+   "area_px": 3833,
+   "bbox_px": [
+    969,
+    826,
+    78,
+    82
+   ],
+   "lidar_points": 14390,
+   "height_source": "lidar",
+   "predicted_iou": 0.9
+  },
+  {
+   "footprint_area_m2": 1347.5,
+   "height_m": 15.35,
+   "volume_m3": 20683.8,
+   "rooftop": 36,
+   "area_px": 3743,
+   "bbox_px": [
+    843,
+    407,
+    77,
+    103
+   ],
+   "lidar_points": 9335,
+   "height_source": "lidar",
+   "predicted_iou": 0.921
+  },
+  {
+   "footprint_area_m2": 1337.8,
+   "height_m": 26.82,
+   "volume_m3": 35878.7,
+   "rooftop": 37,
+   "area_px": 3716,
+   "bbox_px": [
+    1214,
+    780,
+    71,
+    82
+   ],
+   "lidar_points": 12616,
+   "height_source": "lidar",
+   "predicted_iou": 0.882
+  },
+  {
+   "footprint_area_m2": 1332.7,
+   "height_m": 24.44,
+   "volume_m3": 32571.7,
+   "rooftop": 38,
+   "area_px": 3702,
+   "bbox_px": [
+    708,
+    1104,
+    70,
+    57
+   ],
+   "lidar_points": 10309,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 1288.8,
+   "height_m": 12.4,
+   "volume_m3": 15981.1,
+   "rooftop": 39,
+   "area_px": 3580,
+   "bbox_px": [
+    690,
+    1243,
+    74,
+    51
+   ],
+   "lidar_points": 9233,
+   "height_source": "lidar",
+   "predicted_iou": 0.898
+  },
+  {
+   "footprint_area_m2": 1256.4,
+   "height_m": 27.01,
+   "volume_m3": 33935.4,
+   "rooftop": 40,
+   "area_px": 3490,
+   "bbox_px": [
+    965,
+    295,
+    81,
+    55
+   ],
+   "lidar_points": 5448,
+   "height_source": "lidar",
+   "predicted_iou": 0.921
+  },
+  {
+   "footprint_area_m2": 1248.5,
+   "height_m": 7.93,
+   "volume_m3": 9900.4,
+   "rooftop": 41,
+   "area_px": 3468,
+   "bbox_px": [
+    0,
+    846,
+    81,
+    45
+   ],
+   "lidar_points": 3666,
+   "height_source": "lidar",
+   "predicted_iou": 0.896
+  },
+  {
+   "footprint_area_m2": 1244.2,
+   "height_m": 24.93,
+   "volume_m3": 31016.9,
+   "rooftop": 42,
+   "area_px": 3456,
+   "bbox_px": [
+    711,
+    385,
+    40,
+    133
+   ],
+   "lidar_points": 8653,
+   "height_source": "lidar",
+   "predicted_iou": 0.897
+  },
+  {
+   "footprint_area_m2": 1213.6,
+   "height_m": 27.62,
+   "volume_m3": 33518.5,
+   "rooftop": 43,
+   "area_px": 3371,
+   "bbox_px": [
+    483,
+    968,
+    41,
+    91
+   ],
+   "lidar_points": 5587,
+   "height_source": "lidar",
+   "predicted_iou": 0.93
+  },
+  {
+   "footprint_area_m2": 1183.7,
+   "height_m": 7.32,
+   "volume_m3": 8664.5,
+   "rooftop": 44,
+   "area_px": 3288,
+   "bbox_px": [
+    66,
+    1085,
+    37,
+    100
+   ],
+   "lidar_points": 470,
+   "height_source": "lidar",
+   "predicted_iou": 0.895
+  },
+  {
+   "footprint_area_m2": 1181.5,
+   "height_m": 18.47,
+   "volume_m3": 21822.7,
+   "rooftop": 45,
+   "area_px": 3282,
+   "bbox_px": [
+    1145,
+    667,
+    53,
+    73
+   ],
+   "lidar_points": 11267,
+   "height_source": "lidar",
+   "predicted_iou": 0.919
+  },
+  {
+   "footprint_area_m2": 1170.0,
+   "height_m": 7.15,
+   "volume_m3": 8365.5,
+   "rooftop": 46,
+   "area_px": 3250,
+   "bbox_px": [
+    0,
+    958,
+    123,
+    31
+   ],
+   "lidar_points": 2853,
+   "height_source": "lidar",
+   "predicted_iou": 0.895
+  },
+  {
+   "footprint_area_m2": 1115.3,
+   "height_m": 26.89,
+   "volume_m3": 29989.9,
+   "rooftop": 47,
+   "area_px": 3098,
+   "bbox_px": [
+    957,
+    665,
+    55,
+    66
+   ],
+   "lidar_points": 8153,
+   "height_source": "lidar",
+   "predicted_iou": 0.929
+  },
+  {
+   "footprint_area_m2": 1108.1,
+   "height_m": 24.1,
+   "volume_m3": 26704.7,
+   "rooftop": 48,
+   "area_px": 3078,
+   "bbox_px": [
+    1304,
+    704,
+    65,
+    59
+   ],
+   "lidar_points": 10226,
+   "height_source": "lidar",
+   "predicted_iou": 0.904
+  },
+  {
+   "footprint_area_m2": 1102.7,
+   "height_m": 9.36,
+   "volume_m3": 10326.6,
+   "rooftop": 49,
+   "area_px": 3063,
+   "bbox_px": [
+    835,
+    1242,
+    64,
+    50
+   ],
+   "lidar_points": 7350,
+   "height_source": "lidar",
+   "predicted_iou": 0.911
+  },
+  {
+   "footprint_area_m2": 1091.5,
+   "height_m": 27.19,
+   "volume_m3": 29678.4,
+   "rooftop": 50,
+   "area_px": 3032,
+   "bbox_px": [
+    1417,
+    896,
+    61,
+    66
+   ],
+   "lidar_points": 6807,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 1041.8,
+   "height_m": 26.94,
+   "volume_m3": 28067.2,
+   "rooftop": 51,
+   "area_px": 2894,
+   "bbox_px": [
+    476,
+    1468,
+    65,
+    45
+   ],
+   "lidar_points": 4163,
+   "height_source": "lidar",
+   "predicted_iou": 0.952
+  },
+  {
+   "footprint_area_m2": 1040.8,
+   "height_m": 26.84,
+   "volume_m3": 27934.0,
+   "rooftop": 52,
+   "area_px": 2891,
+   "bbox_px": [
+    1410,
+    1117,
+    68,
+    59
+   ],
+   "lidar_points": 6839,
+   "height_source": "lidar",
+   "predicted_iou": 0.916
+  },
+  {
+   "footprint_area_m2": 1033.6,
+   "height_m": 26.89,
+   "volume_m3": 27792.4,
+   "rooftop": 53,
+   "area_px": 2871,
+   "bbox_px": [
+    1420,
+    751,
+    58,
+    62
+   ],
+   "lidar_points": 2578,
+   "height_source": "lidar",
+   "predicted_iou": 0.908
+  },
+  {
+   "footprint_area_m2": 1031.0,
+   "height_m": 11.07,
+   "volume_m3": 11413.6,
+   "rooftop": 54,
+   "area_px": 2864,
+   "bbox_px": [
+    53,
+    1000,
+    74,
+    50
+   ],
+   "lidar_points": 4406,
+   "height_source": "lidar",
+   "predicted_iou": 0.893
+  },
+  {
+   "footprint_area_m2": 1010.5,
+   "height_m": 27.07,
+   "volume_m3": 27354.8,
+   "rooftop": 55,
+   "area_px": 2807,
+   "bbox_px": [
+    877,
+    156,
+    52,
+    66
+   ],
+   "lidar_points": 6718,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 1009.1,
+   "height_m": 4.77,
+   "volume_m3": 4813.3,
+   "rooftop": 56,
+   "area_px": 2803,
+   "bbox_px": [
+    650,
+    606,
+    55,
+    60
+   ],
+   "lidar_points": 197,
+   "height_source": "lidar",
+   "predicted_iou": 0.969
+  },
+  {
+   "footprint_area_m2": 998.6,
+   "height_m": 30.97,
+   "volume_m3": 30927.9,
+   "rooftop": 57,
+   "area_px": 2774,
+   "bbox_px": [
+    1418,
+    841,
+    60,
+    47
+   ],
+   "lidar_points": 6674,
+   "height_source": "lidar",
+   "predicted_iou": 0.948
+  },
+  {
+   "footprint_area_m2": 998.6,
+   "height_m": 24.84,
+   "volume_m3": 24806.2,
+   "rooftop": 58,
+   "area_px": 2774,
+   "bbox_px": [
+    1065,
+    667,
+    74,
+    41
+   ],
+   "lidar_points": 11124,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 987.5,
+   "height_m": 19.44,
+   "volume_m3": 19196.6,
+   "rooftop": 59,
+   "area_px": 2743,
+   "bbox_px": [
+    11,
+    514,
+    35,
+    88
+   ],
+   "lidar_points": 1633,
+   "height_source": "lidar",
+   "predicted_iou": 0.928
+  },
+  {
+   "footprint_area_m2": 983.2,
+   "height_m": 28.23,
+   "volume_m3": 27754.6,
+   "rooftop": 60,
+   "area_px": 2731,
+   "bbox_px": [
+    226,
+    1291,
+    59,
+    52
+   ],
+   "lidar_points": 12085,
+   "height_source": "lidar",
+   "predicted_iou": 0.914
+  },
+  {
+   "footprint_area_m2": 975.6,
+   "height_m": 20.78,
+   "volume_m3": 20273.0,
+   "rooftop": 61,
+   "area_px": 2710,
+   "bbox_px": [
+    21,
+    1203,
+    85,
+    54
+   ],
+   "lidar_points": 8904,
+   "height_source": "lidar",
+   "predicted_iou": 0.913
+  },
+  {
+   "footprint_area_m2": 974.2,
+   "height_m": 6.7,
+   "volume_m3": 6526.9,
+   "rooftop": 62,
+   "area_px": 2706,
+   "bbox_px": [
+    1427,
+    400,
+    51,
+    54
+   ],
+   "lidar_points": 6579,
+   "height_source": "lidar",
+   "predicted_iou": 0.944
+  },
+  {
+   "footprint_area_m2": 973.4,
+   "height_m": 30.44,
+   "volume_m3": 29636.4,
+   "rooftop": 63,
+   "area_px": 2704,
+   "bbox_px": [
+    1214,
+    950,
+    70,
+    58
+   ],
+   "lidar_points": 7142,
+   "height_source": "lidar",
+   "predicted_iou": 0.885
+  },
+  {
+   "footprint_area_m2": 970.2,
+   "height_m": 22.33,
+   "volume_m3": 21664.6,
+   "rooftop": 64,
+   "area_px": 2695,
+   "bbox_px": [
+    353,
+    541,
+    53,
+    62
+   ],
+   "lidar_points": 4701,
+   "height_source": "lidar",
+   "predicted_iou": 0.904
+  },
+  {
+   "footprint_area_m2": 965.5,
+   "height_m": 24.92,
+   "volume_m3": 24060.8,
+   "rooftop": 65,
+   "area_px": 2682,
+   "bbox_px": [
+    1263,
+    1177,
+    75,
+    51
+   ],
+   "lidar_points": 9547,
+   "height_source": "lidar",
+   "predicted_iou": 0.896
+  },
+  {
+   "footprint_area_m2": 958.0,
+   "height_m": 13.03,
+   "volume_m3": 12482.2,
+   "rooftop": 66,
+   "area_px": 2661,
+   "bbox_px": [
+    622,
+    0,
+    48,
+    70
+   ],
+   "lidar_points": 5101,
+   "height_source": "lidar",
+   "predicted_iou": 0.898
+  },
+  {
+   "footprint_area_m2": 949.0,
+   "height_m": 27.09,
+   "volume_m3": 25707.3,
+   "rooftop": 67,
+   "area_px": 2636,
+   "bbox_px": [
+    694,
+    1168,
+    57,
+    48
+   ],
+   "lidar_points": 7106,
+   "height_source": "lidar",
+   "predicted_iou": 0.952
+  },
+  {
+   "footprint_area_m2": 936.0,
+   "height_m": 24.49,
+   "volume_m3": 22922.6,
+   "rooftop": 68,
+   "area_px": 2600,
+   "bbox_px": [
+    104,
+    1086,
+    82,
+    38
+   ],
+   "lidar_points": 4386,
+   "height_source": "lidar",
+   "predicted_iou": 0.885
+  },
+  {
+   "footprint_area_m2": 927.4,
+   "height_m": 25.22,
+   "volume_m3": 23388.0,
+   "rooftop": 69,
+   "area_px": 2576,
+   "bbox_px": [
+    91,
+    1236,
+    66,
+    65
+   ],
+   "lidar_points": 7959,
+   "height_source": "lidar",
+   "predicted_iou": 0.923
+  },
+  {
+   "footprint_area_m2": 919.4,
+   "height_m": 13.16,
+   "volume_m3": 12099.8,
+   "rooftop": 70,
+   "area_px": 2554,
+   "bbox_px": [
+    713,
+    295,
+    56,
+    49
+   ],
+   "lidar_points": 5980,
+   "height_source": "lidar",
+   "predicted_iou": 0.903
+  },
+  {
+   "footprint_area_m2": 895.7,
+   "height_m": 22.34,
+   "volume_m3": 20009.5,
+   "rooftop": 71,
+   "area_px": 2488,
+   "bbox_px": [
+    395,
+    153,
+    62,
+    53
+   ],
+   "lidar_points": 7020,
+   "height_source": "lidar",
+   "predicted_iou": 0.894
+  },
+  {
+   "footprint_area_m2": 885.6,
+   "height_m": 20.76,
+   "volume_m3": 18385.1,
+   "rooftop": 72,
+   "area_px": 2460,
+   "bbox_px": [
+    1407,
+    1309,
+    47,
+    55
+   ],
+   "lidar_points": 7486,
+   "height_source": "lidar",
+   "predicted_iou": 0.916
+  },
+  {
+   "footprint_area_m2": 880.6,
+   "height_m": 33.35,
+   "volume_m3": 29366.7,
+   "rooftop": 73,
+   "area_px": 2446,
+   "bbox_px": [
+    750,
+    1015,
+    65,
+    49
+   ],
+   "lidar_points": 7955,
+   "height_source": "lidar",
+   "predicted_iou": 0.882
+  },
+  {
+   "footprint_area_m2": 874.8,
+   "height_m": 19.0,
+   "volume_m3": 16621.2,
+   "rooftop": 74,
+   "area_px": 2430,
+   "bbox_px": [
+    242,
+    486,
+    61,
+    63
+   ],
+   "lidar_points": 4143,
+   "height_source": "lidar",
+   "predicted_iou": 0.945
+  },
+  {
+   "footprint_area_m2": 871.6,
+   "height_m": 11.91,
+   "volume_m3": 10380.3,
+   "rooftop": 75,
+   "area_px": 2421,
+   "bbox_px": [
+    1433,
+    124,
+    45,
+    57
+   ],
+   "lidar_points": 4278,
+   "height_source": "lidar",
+   "predicted_iou": 0.919
+  },
+  {
+   "footprint_area_m2": 870.1,
+   "height_m": 16.05,
+   "volume_m3": 13965.4,
+   "rooftop": 76,
+   "area_px": 2417,
+   "bbox_px": [
+    1279,
+    20,
+    45,
+    64
+   ],
+   "lidar_points": 3848,
+   "height_source": "lidar",
+   "predicted_iou": 0.958
+  },
+  {
+   "footprint_area_m2": 867.6,
+   "height_m": 27.24,
+   "volume_m3": 23633.4,
+   "rooftop": 77,
+   "area_px": 2410,
+   "bbox_px": [
+    131,
+    1195,
+    51,
+    63
+   ],
+   "lidar_points": 10587,
+   "height_source": "lidar",
+   "predicted_iou": 0.89
+  },
+  {
+   "footprint_area_m2": 864.4,
+   "height_m": 39.36,
+   "volume_m3": 34021.2,
+   "rooftop": 78,
+   "area_px": 2401,
+   "bbox_px": [
+    1081,
+    1482,
+    92,
+    31
+   ],
+   "lidar_points": 4336,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 854.3,
+   "height_m": 17.62,
+   "volume_m3": 15052.4,
+   "rooftop": 79,
+   "area_px": 2373,
+   "bbox_px": [
+    971,
+    121,
+    54,
+    71
+   ],
+   "lidar_points": 5740,
+   "height_source": "lidar",
+   "predicted_iou": 0.925
+  },
+  {
+   "footprint_area_m2": 852.1,
+   "height_m": 22.86,
+   "volume_m3": 19479.5,
+   "rooftop": 80,
+   "area_px": 2367,
+   "bbox_px": [
+    399,
+    651,
+    57,
+    44
+   ],
+   "lidar_points": 3687,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 815.0,
+   "height_m": 25.73,
+   "volume_m3": 20971.0,
+   "rooftop": 81,
+   "area_px": 2264,
+   "bbox_px": [
+    0,
+    642,
+    45,
+    53
+   ],
+   "lidar_points": 2247,
+   "height_source": "lidar",
+   "predicted_iou": 0.883
+  },
+  {
+   "footprint_area_m2": 812.2,
+   "height_m": 26.11,
+   "volume_m3": 21205.5,
+   "rooftop": 82,
+   "area_px": 2256,
+   "bbox_px": [
+    1322,
+    840,
+    45,
+    72
+   ],
+   "lidar_points": 6863,
+   "height_source": "lidar",
+   "predicted_iou": 0.914
+  },
+  {
+   "footprint_area_m2": 793.8,
+   "height_m": 9.97,
+   "volume_m3": 7914.2,
+   "rooftop": 83,
+   "area_px": 2205,
+   "bbox_px": [
+    849,
+    926,
+    51,
+    59
+   ],
+   "lidar_points": 4536,
+   "height_source": "lidar",
+   "predicted_iou": 0.924
+  },
+  {
+   "footprint_area_m2": 787.7,
+   "height_m": 11.72,
+   "volume_m3": 9231.6,
+   "rooftop": 84,
+   "area_px": 2188,
+   "bbox_px": [
+    771,
+    187,
+    83,
+    29
+   ],
+   "lidar_points": 4950,
+   "height_source": "lidar",
+   "predicted_iou": 0.945
+  },
+  {
+   "footprint_area_m2": 785.2,
+   "height_m": 12.53,
+   "volume_m3": 9838.1,
+   "rooftop": 85,
+   "area_px": 2181,
+   "bbox_px": [
+    691,
+    1297,
+    48,
+    53
+   ],
+   "lidar_points": 5645,
+   "height_source": "lidar",
+   "predicted_iou": 0.886
+  },
+  {
+   "footprint_area_m2": 781.9,
+   "height_m": 17.19,
+   "volume_m3": 13441.2,
+   "rooftop": 86,
+   "area_px": 2172,
+   "bbox_px": [
+    1330,
+    29,
+    54,
+    52
+   ],
+   "lidar_points": 4434,
+   "height_source": "lidar",
+   "predicted_iou": 0.898
+  },
+  {
+   "footprint_area_m2": 780.1,
+   "height_m": 12.06,
+   "volume_m3": 9408.2,
+   "rooftop": 87,
+   "area_px": 2167,
+   "bbox_px": [
+    349,
+    757,
+    48,
+    51
+   ],
+   "lidar_points": 1333,
+   "height_source": "lidar",
+   "predicted_iou": 0.889
+  },
+  {
+   "footprint_area_m2": 776.9,
+   "height_m": 13.82,
+   "volume_m3": 10736.5,
+   "rooftop": 88,
+   "area_px": 2158,
+   "bbox_px": [
+    88,
+    94,
+    67,
+    39
+   ],
+   "lidar_points": 8618,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 768.2,
+   "height_m": 26.73,
+   "volume_m3": 20535.1,
+   "rooftop": 89,
+   "area_px": 2134,
+   "bbox_px": [
+    950,
+    1016,
+    70,
+    52
+   ],
+   "lidar_points": 8863,
+   "height_source": "lidar",
+   "predicted_iou": 0.897
+  },
+  {
+   "footprint_area_m2": 754.9,
+   "height_m": 18.16,
+   "volume_m3": 13709.3,
+   "rooftop": 90,
+   "area_px": 2097,
+   "bbox_px": [
+    1024,
+    856,
+    53,
+    65
+   ],
+   "lidar_points": 8025,
+   "height_source": "lidar",
+   "predicted_iou": 0.913
+  },
+  {
+   "footprint_area_m2": 750.2,
+   "height_m": 27.13,
+   "volume_m3": 20354.0,
+   "rooftop": 91,
+   "area_px": 2084,
+   "bbox_px": [
+    1128,
+    746,
+    46,
+    70
+   ],
+   "lidar_points": 7407,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 735.8,
+   "height_m": 9.32,
+   "volume_m3": 6854.3,
+   "rooftop": 92,
+   "area_px": 2044,
+   "bbox_px": [
+    0,
+    1154,
+    62,
+    36
+   ],
+   "lidar_points": 658,
+   "height_source": "lidar",
+   "predicted_iou": 0.942
+  },
+  {
+   "footprint_area_m2": 735.5,
+   "height_m": 18.56,
+   "volume_m3": 13650.5,
+   "rooftop": 93,
+   "area_px": 2043,
+   "bbox_px": [
+    26,
+    408,
+    64,
+    50
+   ],
+   "lidar_points": 3473,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 727.9,
+   "height_m": 11.92,
+   "volume_m3": 8676.8,
+   "rooftop": 94,
+   "area_px": 2022,
+   "bbox_px": [
+    1436,
+    32,
+    42,
+    52
+   ],
+   "lidar_points": 3109,
+   "height_source": "lidar",
+   "predicted_iou": 0.924
+  },
+  {
+   "footprint_area_m2": 714.6,
+   "height_m": 15.82,
+   "volume_m3": 11305.0,
+   "rooftop": 95,
+   "area_px": 1985,
+   "bbox_px": [
+    849,
+    658,
+    67,
+    42
+   ],
+   "lidar_points": 5210,
+   "height_source": "lidar",
+   "predicted_iou": 0.939
+  },
+  {
+   "footprint_area_m2": 701.6,
+   "height_m": 15.5,
+   "volume_m3": 10875.4,
+   "rooftop": 96,
+   "area_px": 1949,
+   "bbox_px": [
+    173,
+    134,
+    35,
+    59
+   ],
+   "lidar_points": 8833,
+   "height_source": "lidar",
+   "predicted_iou": 0.91
+  },
+  {
+   "footprint_area_m2": 679.3,
+   "height_m": 13.32,
+   "volume_m3": 9048.5,
+   "rooftop": 97,
+   "area_px": 1887,
+   "bbox_px": [
+    247,
+    232,
+    55,
+    41
+   ],
+   "lidar_points": 7063,
+   "height_source": "lidar",
+   "predicted_iou": 0.907
+  },
+  {
+   "footprint_area_m2": 673.2,
+   "height_m": 26.23,
+   "volume_m3": 17658.0,
+   "rooftop": 98,
+   "area_px": 1870,
+   "bbox_px": [
+    61,
+    512,
+    33,
+    60
+   ],
+   "lidar_points": 3342,
+   "height_source": "lidar",
+   "predicted_iou": 0.918
+  },
+  {
+   "footprint_area_m2": 672.5,
+   "height_m": 11.68,
+   "volume_m3": 7854.6,
+   "rooftop": 99,
+   "area_px": 1868,
+   "bbox_px": [
+    1216,
+    37,
+    58,
+    43
+   ],
+   "lidar_points": 1166,
+   "height_source": "lidar",
+   "predicted_iou": 0.885
+  },
+  {
+   "footprint_area_m2": 670.3,
+   "height_m": 3.16,
+   "volume_m3": 2118.2,
+   "rooftop": 100,
+   "area_px": 1862,
+   "bbox_px": [
+    1074,
+    997,
+    70,
+    30
+   ],
+   "lidar_points": 516,
+   "height_source": "lidar",
+   "predicted_iou": 0.958
+  },
+  {
+   "footprint_area_m2": 668.5,
+   "height_m": 28.98,
+   "volume_m3": 19373.7,
+   "rooftop": 101,
+   "area_px": 1857,
+   "bbox_px": [
+    1227,
+    1489,
+    77,
+    24
+   ],
+   "lidar_points": 4138,
+   "height_source": "lidar",
+   "predicted_iou": 0.954
+  },
+  {
+   "footprint_area_m2": 665.6,
+   "height_m": 14.45,
+   "volume_m3": 9621.8,
+   "rooftop": 102,
+   "area_px": 1849,
+   "bbox_px": [
+    67,
+    1085,
+    36,
+    57
+   ],
+   "lidar_points": 6558,
+   "height_source": "lidar",
+   "predicted_iou": 0.904
+  },
+  {
+   "footprint_area_m2": 663.8,
+   "height_m": 25.04,
+   "volume_m3": 16622.6,
+   "rooftop": 103,
+   "area_px": 1844,
+   "bbox_px": [
+    868,
+    113,
+    59,
+    33
+   ],
+   "lidar_points": 4500,
+   "height_source": "lidar",
+   "predicted_iou": 0.942
+  },
+  {
+   "footprint_area_m2": 663.5,
+   "height_m": 13.82,
+   "volume_m3": 9169.3,
+   "rooftop": 104,
+   "area_px": 1843,
+   "bbox_px": [
+    873,
+    557,
+    45,
+    63
+   ],
+   "lidar_points": 206,
+   "height_source": "lidar",
+   "predicted_iou": 0.933
+  },
+  {
+   "footprint_area_m2": 657.0,
+   "height_m": 14.39,
+   "volume_m3": 9454.2,
+   "rooftop": 105,
+   "area_px": 1825,
+   "bbox_px": [
+    961,
+    451,
+    44,
+    45
+   ],
+   "lidar_points": 3981,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 649.1,
+   "height_m": 27.65,
+   "volume_m3": 17947.1,
+   "rooftop": 106,
+   "area_px": 1803,
+   "bbox_px": [
+    575,
+    291,
+    45,
+    51
+   ],
+   "lidar_points": 4424,
+   "height_source": "lidar",
+   "predicted_iou": 0.954
+  },
+  {
+   "footprint_area_m2": 646.2,
+   "height_m": 11.69,
+   "volume_m3": 7554.1,
+   "rooftop": 107,
+   "area_px": 1795,
+   "bbox_px": [
+    6,
+    232,
+    40,
+    61
+   ],
+   "lidar_points": 1675,
+   "height_source": "lidar",
+   "predicted_iou": 0.891
+  },
+  {
+   "footprint_area_m2": 641.9,
+   "height_m": 15.24,
+   "volume_m3": 9782.3,
+   "rooftop": 108,
+   "area_px": 1783,
+   "bbox_px": [
+    1274,
+    252,
+    54,
+    42
+   ],
+   "lidar_points": 4442,
+   "height_source": "lidar",
+   "predicted_iou": 0.893
+  },
+  {
+   "footprint_area_m2": 637.2,
+   "height_m": 17.46,
+   "volume_m3": 11125.5,
+   "rooftop": 109,
+   "area_px": 1770,
+   "bbox_px": [
+    1003,
+    245,
+    54,
+    45
+   ],
+   "lidar_points": 2759,
+   "height_source": "lidar",
+   "predicted_iou": 0.894
+  },
+  {
+   "footprint_area_m2": 631.1,
+   "height_m": 16.34,
+   "volume_m3": 10311.8,
+   "rooftop": 110,
+   "area_px": 1753,
+   "bbox_px": [
+    1413,
+    1039,
+    62,
+    36
+   ],
+   "lidar_points": 4369,
+   "height_source": "lidar",
+   "predicted_iou": 0.945
+  },
+  {
+   "footprint_area_m2": 608.8,
+   "height_m": 11.56,
+   "volume_m3": 7037.3,
+   "rooftop": 111,
+   "area_px": 1691,
+   "bbox_px": [
+    1060,
+    324,
+    72,
+    25
+   ],
+   "lidar_points": 4402,
+   "height_source": "lidar",
+   "predicted_iou": 0.926
+  },
+  {
+   "footprint_area_m2": 600.8,
+   "height_m": 11.67,
+   "volume_m3": 7011.8,
+   "rooftop": 112,
+   "area_px": 1669,
+   "bbox_px": [
+    270,
+    654,
+    55,
+    33
+   ],
+   "lidar_points": 2578,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 596.9,
+   "height_m": 9.23,
+   "volume_m3": 5509.2,
+   "rooftop": 113,
+   "area_px": 1658,
+   "bbox_px": [
+    557,
+    897,
+    42,
+    45
+   ],
+   "lidar_points": 2560,
+   "height_source": "lidar",
+   "predicted_iou": 0.891
+  },
+  {
+   "footprint_area_m2": 595.4,
+   "height_m": 25.25,
+   "volume_m3": 15034.9,
+   "rooftop": 114,
+   "area_px": 1654,
+   "bbox_px": [
+    579,
+    20,
+    39,
+    48
+   ],
+   "lidar_points": 3813,
+   "height_source": "lidar",
+   "predicted_iou": 0.96
+  },
+  {
+   "footprint_area_m2": 595.4,
+   "height_m": 27.1,
+   "volume_m3": 16136.4,
+   "rooftop": 115,
+   "area_px": 1654,
+   "bbox_px": [
+    606,
+    904,
+    42,
+    41
+   ],
+   "lidar_points": 2763,
+   "height_source": "lidar",
+   "predicted_iou": 0.925
+  },
+  {
+   "footprint_area_m2": 587.2,
+   "height_m": 18.46,
+   "volume_m3": 10839.0,
+   "rooftop": 116,
+   "area_px": 1631,
+   "bbox_px": [
+    155,
+    218,
+    52,
+    36
+   ],
+   "lidar_points": 3018,
+   "height_source": "lidar",
+   "predicted_iou": 0.9
+  },
+  {
+   "footprint_area_m2": 584.3,
+   "height_m": 16.55,
+   "volume_m3": 9669.8,
+   "rooftop": 117,
+   "area_px": 1623,
+   "bbox_px": [
+    484,
+    912,
+    60,
+    37
+   ],
+   "lidar_points": 2335,
+   "height_source": "lidar",
+   "predicted_iou": 0.894
+  },
+  {
+   "footprint_area_m2": 582.8,
+   "height_m": 26.42,
+   "volume_m3": 15398.6,
+   "rooftop": 118,
+   "area_px": 1619,
+   "bbox_px": [
+    58,
+    1459,
+    54,
+    54
+   ],
+   "lidar_points": 1327,
+   "height_source": "lidar",
+   "predicted_iou": 0.923
+  },
+  {
+   "footprint_area_m2": 581.4,
+   "height_m": 9.23,
+   "volume_m3": 5366.3,
+   "rooftop": 119,
+   "area_px": 1615,
+   "bbox_px": [
+    228,
+    1088,
+    62,
+    40
+   ],
+   "lidar_points": 631,
+   "height_source": "lidar",
+   "predicted_iou": 0.898
+  },
+  {
+   "footprint_area_m2": 572.8,
+   "height_m": 28.03,
+   "volume_m3": 16054.5,
+   "rooftop": 120,
+   "area_px": 1591,
+   "bbox_px": [
+    1246,
+    715,
+    36,
+    44
+   ],
+   "lidar_points": 4660,
+   "height_source": "lidar",
+   "predicted_iou": 0.918
+  },
+  {
+   "footprint_area_m2": 566.6,
+   "height_m": 12.35,
+   "volume_m3": 6998.0,
+   "rooftop": 121,
+   "area_px": 1574,
+   "bbox_px": [
+    291,
+    547,
+    32,
+    54
+   ],
+   "lidar_points": 2697,
+   "height_source": "lidar",
+   "predicted_iou": 0.89
+  },
+  {
+   "footprint_area_m2": 564.1,
+   "height_m": 15.61,
+   "volume_m3": 8805.9,
+   "rooftop": 122,
+   "area_px": 1567,
+   "bbox_px": [
+    873,
+    580,
+    44,
+    39
+   ],
+   "lidar_points": 3900,
+   "height_source": "lidar",
+   "predicted_iou": 0.959
+  },
+  {
+   "footprint_area_m2": 560.2,
+   "height_m": 13.11,
+   "volume_m3": 7343.7,
+   "rooftop": 123,
+   "area_px": 1556,
+   "bbox_px": [
+    552,
+    971,
+    55,
+    30
+   ],
+   "lidar_points": 2708,
+   "height_source": "lidar",
+   "predicted_iou": 0.906
+  },
+  {
+   "footprint_area_m2": 559.1,
+   "height_m": 27.14,
+   "volume_m3": 15173.4,
+   "rooftop": 124,
+   "area_px": 1553,
+   "bbox_px": [
+    1420,
+    769,
+    37,
+    44
+   ],
+   "lidar_points": 5202,
+   "height_source": "lidar",
+   "predicted_iou": 0.914
+  },
+  {
+   "footprint_area_m2": 558.7,
+   "height_m": 15.37,
+   "volume_m3": 8587.5,
+   "rooftop": 125,
+   "area_px": 1552,
+   "bbox_px": [
+    26,
+    0,
+    84,
+    31
+   ],
+   "lidar_points": 4530,
+   "height_source": "lidar",
+   "predicted_iou": 0.923
+  },
+  {
+   "footprint_area_m2": 541.1,
+   "height_m": 12.68,
+   "volume_m3": 6860.9,
+   "rooftop": 126,
+   "area_px": 1503,
+   "bbox_px": [
+    237,
+    647,
+    31,
+    49
+   ],
+   "lidar_points": 2302,
+   "height_source": "lidar",
+   "predicted_iou": 0.947
+  },
+  {
+   "footprint_area_m2": 539.6,
+   "height_m": 22.73,
+   "volume_m3": 12266.0,
+   "rooftop": 127,
+   "area_px": 1499,
+   "bbox_px": [
+    1066,
+    874,
+    44,
+    55
+   ],
+   "lidar_points": 5679,
+   "height_source": "lidar",
+   "predicted_iou": 0.933
+  },
+  {
+   "footprint_area_m2": 529.6,
+   "height_m": 6.56,
+   "volume_m3": 3473.9,
+   "rooftop": 128,
+   "area_px": 1471,
+   "bbox_px": [
+    0,
+    958,
+    53,
+    31
+   ],
+   "lidar_points": 1543,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 509.0,
+   "height_m": 11.65,
+   "volume_m3": 5930.3,
+   "rooftop": 129,
+   "area_px": 1414,
+   "bbox_px": [
+    716,
+    165,
+    27,
+    54
+   ],
+   "lidar_points": 3380,
+   "height_source": "lidar",
+   "predicted_iou": 0.948
+  },
+  {
+   "footprint_area_m2": 507.6,
+   "height_m": 13.9,
+   "volume_m3": 7055.6,
+   "rooftop": 130,
+   "area_px": 1410,
+   "bbox_px": [
+    1329,
+    1114,
+    29,
+    51
+   ],
+   "lidar_points": 4617,
+   "height_source": "lidar",
+   "predicted_iou": 0.886
+  },
+  {
+   "footprint_area_m2": 503.6,
+   "height_m": 16.95,
+   "volume_m3": 8536.7,
+   "rooftop": 131,
+   "area_px": 1399,
+   "bbox_px": [
+    1430,
+    321,
+    38,
+    38
+   ],
+   "lidar_points": 4340,
+   "height_source": "lidar",
+   "predicted_iou": 0.902
+  },
+  {
+   "footprint_area_m2": 496.1,
+   "height_m": 15.8,
+   "volume_m3": 7838.1,
+   "rooftop": 132,
+   "area_px": 1378,
+   "bbox_px": [
+    508,
+    24,
+    37,
+    39
+   ],
+   "lidar_points": 3282,
+   "height_source": "lidar",
+   "predicted_iou": 0.894
+  },
+  {
+   "footprint_area_m2": 488.9,
+   "height_m": 10.19,
+   "volume_m3": 4981.7,
+   "rooftop": 133,
+   "area_px": 1358,
+   "bbox_px": [
+    306,
+    234,
+    35,
+    41
+   ],
+   "lidar_points": 3663,
+   "height_source": "lidar",
+   "predicted_iou": 0.925
+  },
+  {
+   "footprint_area_m2": 478.8,
+   "height_m": 22.24,
+   "volume_m3": 10650.9,
+   "rooftop": 134,
+   "area_px": 1330,
+   "bbox_px": [
+    1421,
+    674,
+    30,
+    45
+   ],
+   "lidar_points": 4132,
+   "height_source": "lidar",
+   "predicted_iou": 0.957
+  },
+  {
+   "footprint_area_m2": 475.6,
+   "height_m": 14.44,
+   "volume_m3": 6867.1,
+   "rooftop": 135,
+   "area_px": 1321,
+   "bbox_px": [
+    956,
+    198,
+    39,
+    41
+   ],
+   "lidar_points": 3203,
+   "height_source": "lidar",
+   "predicted_iou": 0.972
+  },
+  {
+   "footprint_area_m2": 474.8,
+   "height_m": 27.18,
+   "volume_m3": 12906.2,
+   "rooftop": 136,
+   "area_px": 1319,
+   "bbox_px": [
+    1192,
+    1039,
+    42,
+    33
+   ],
+   "lidar_points": 5077,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 473.0,
+   "height_m": 25.52,
+   "volume_m3": 12072.0,
+   "rooftop": 137,
+   "area_px": 1314,
+   "bbox_px": [
+    0,
+    368,
+    45,
+    36
+   ],
+   "lidar_points": 940,
+   "height_source": "lidar",
+   "predicted_iou": 0.963
+  },
+  {
+   "footprint_area_m2": 466.9,
+   "height_m": 15.81,
+   "volume_m3": 7382.0,
+   "rooftop": 138,
+   "area_px": 1297,
+   "bbox_px": [
+    404,
+    307,
+    51,
+    28
+   ],
+   "lidar_points": 3648,
+   "height_source": "lidar",
+   "predicted_iou": 0.891
+  },
+  {
+   "footprint_area_m2": 465.8,
+   "height_m": 11.74,
+   "volume_m3": 5471.3,
+   "rooftop": 139,
+   "area_px": 1294,
+   "bbox_px": [
+    1347,
+    580,
+    25,
+    52
+   ],
+   "lidar_points": 3034,
+   "height_source": "lidar",
+   "predicted_iou": 0.93
+  },
+  {
+   "footprint_area_m2": 455.4,
+   "height_m": 27.03,
+   "volume_m3": 12309.5,
+   "rooftop": 140,
+   "area_px": 1265,
+   "bbox_px": [
+    1014,
+    308,
+    31,
+    42
+   ],
+   "lidar_points": 2570,
+   "height_source": "lidar",
+   "predicted_iou": 0.886
+  },
+  {
+   "footprint_area_m2": 444.6,
+   "height_m": 14.28,
+   "volume_m3": 6348.9,
+   "rooftop": 141,
+   "area_px": 1235,
+   "bbox_px": [
+    881,
+    307,
+    39,
+    43
+   ],
+   "lidar_points": 3209,
+   "height_source": "lidar",
+   "predicted_iou": 0.942
+  },
+  {
+   "footprint_area_m2": 440.6,
+   "height_m": 10.32,
+   "volume_m3": 4547.4,
+   "rooftop": 142,
+   "area_px": 1224,
+   "bbox_px": [
+    68,
+    1146,
+    32,
+    39
+   ],
+   "lidar_points": 4647,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 439.6,
+   "height_m": 17.06,
+   "volume_m3": 7498.9,
+   "rooftop": 143,
+   "area_px": 1221,
+   "bbox_px": [
+    370,
+    758,
+    26,
+    50
+   ],
+   "lidar_points": 1874,
+   "height_source": "lidar",
+   "predicted_iou": 0.921
+  },
+  {
+   "footprint_area_m2": 439.2,
+   "height_m": 12.97,
+   "volume_m3": 5696.4,
+   "rooftop": 144,
+   "area_px": 1220,
+   "bbox_px": [
+    227,
+    1088,
+    61,
+    25
+   ],
+   "lidar_points": 2068,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 438.8,
+   "height_m": 12.73,
+   "volume_m3": 5586.4,
+   "rooftop": 145,
+   "area_px": 1219,
+   "bbox_px": [
+    134,
+    39,
+    77,
+    19
+   ],
+   "lidar_points": 3003,
+   "height_source": "lidar",
+   "predicted_iou": 0.883
+  },
+  {
+   "footprint_area_m2": 437.0,
+   "height_m": 17.66,
+   "volume_m3": 7718.1,
+   "rooftop": 146,
+   "area_px": 1214,
+   "bbox_px": [
+    1329,
+    988,
+    32,
+    47
+   ],
+   "lidar_points": 3847,
+   "height_source": "lidar",
+   "predicted_iou": 0.895
+  },
+  {
+   "footprint_area_m2": 428.4,
+   "height_m": 16.98,
+   "volume_m3": 7274.2,
+   "rooftop": 147,
+   "area_px": 1190,
+   "bbox_px": [
+    1241,
+    37,
+    32,
+    41
+   ],
+   "lidar_points": 2263,
+   "height_source": "lidar",
+   "predicted_iou": 0.894
+  },
+  {
+   "footprint_area_m2": 422.6,
+   "height_m": 6.18,
+   "volume_m3": 2611.9,
+   "rooftop": 148,
+   "area_px": 1174,
+   "bbox_px": [
+    495,
+    658,
+    53,
+    28
+   ],
+   "lidar_points": 2015,
+   "height_source": "lidar",
+   "predicted_iou": 0.896
+  },
+  {
+   "footprint_area_m2": 400.3,
+   "height_m": 24.15,
+   "volume_m3": 9667.7,
+   "rooftop": 149,
+   "area_px": 1112,
+   "bbox_px": [
+    1337,
+    263,
+    42,
+    31
+   ],
+   "lidar_points": 2586,
+   "height_source": "lidar",
+   "predicted_iou": 0.933
+  },
+  {
+   "footprint_area_m2": 393.1,
+   "height_m": 16.41,
+   "volume_m3": 6451.1,
+   "rooftop": 150,
+   "area_px": 1092,
+   "bbox_px": [
+    769,
+    292,
+    23,
+    51
+   ],
+   "lidar_points": 2687,
+   "height_source": "lidar",
+   "predicted_iou": 0.935
+  },
+  {
+   "footprint_area_m2": 393.1,
+   "height_m": 6.16,
+   "volume_m3": 2421.6,
+   "rooftop": 151,
+   "area_px": 1092,
+   "bbox_px": [
+    0,
+    900,
+    37,
+    30
+   ],
+   "lidar_points": 1195,
+   "height_source": "lidar",
+   "predicted_iou": 0.885
+  },
+  {
+   "footprint_area_m2": 389.5,
+   "height_m": 7.85,
+   "volume_m3": 3057.7,
+   "rooftop": 152,
+   "area_px": 1082,
+   "bbox_px": [
+    1081,
+    779,
+    35,
+    42
+   ],
+   "lidar_points": 3807,
+   "height_source": "lidar",
+   "predicted_iou": 0.917
+  },
+  {
+   "footprint_area_m2": 387.4,
+   "height_m": 17.3,
+   "volume_m3": 6701.3,
+   "rooftop": 153,
+   "area_px": 1076,
+   "bbox_px": [
+    1010,
+    0,
+    42,
+    30
+   ],
+   "lidar_points": 413,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 385.2,
+   "height_m": 14.54,
+   "volume_m3": 5600.8,
+   "rooftop": 154,
+   "area_px": 1070,
+   "bbox_px": [
+    1257,
+    579,
+    24,
+    47
+   ],
+   "lidar_points": 3624,
+   "height_source": "lidar",
+   "predicted_iou": 0.915
+  },
+  {
+   "footprint_area_m2": 385.2,
+   "height_m": 11.09,
+   "volume_m3": 4271.9,
+   "rooftop": 155,
+   "area_px": 1070,
+   "bbox_px": [
+    28,
+    1155,
+    34,
+    35
+   ],
+   "lidar_points": 2196,
+   "height_source": "lidar",
+   "predicted_iou": 0.885
+  },
+  {
+   "footprint_area_m2": 384.5,
+   "height_m": 27.67,
+   "volume_m3": 10636.6,
+   "rooftop": 156,
+   "area_px": 1068,
+   "bbox_px": [
+    1177,
+    1489,
+    48,
+    24
+   ],
+   "lidar_points": 1892,
+   "height_source": "lidar",
+   "predicted_iou": 0.9
+  },
+  {
+   "footprint_area_m2": 382.7,
+   "height_m": 27.54,
+   "volume_m3": 10539.0,
+   "rooftop": 157,
+   "area_px": 1063,
+   "bbox_px": [
+    734,
+    996,
+    32,
+    36
+   ],
+   "lidar_points": 699,
+   "height_source": "lidar",
+   "predicted_iou": 0.888
+  },
+  {
+   "footprint_area_m2": 381.2,
+   "height_m": 17.71,
+   "volume_m3": 6750.2,
+   "rooftop": 158,
+   "area_px": 1059,
+   "bbox_px": [
+    1210,
+    0,
+    60,
+    27
+   ],
+   "lidar_points": 0,
+   "height_source": "tile average",
+   "predicted_iou": 0.941
+  },
+  {
+   "footprint_area_m2": 379.4,
+   "height_m": 17.71,
+   "volume_m3": 6718.3,
+   "rooftop": 159,
+   "area_px": 1054,
+   "bbox_px": [
+    1339,
+    4,
+    46,
+    25
+   ],
+   "lidar_points": 0,
+   "height_source": "tile average",
+   "predicted_iou": 0.911
+  },
+  {
+   "footprint_area_m2": 377.3,
+   "height_m": 17.02,
+   "volume_m3": 6421.3,
+   "rooftop": 160,
+   "area_px": 1048,
+   "bbox_px": [
+    876,
+    863,
+    39,
+    28
+   ],
+   "lidar_points": 3685,
+   "height_source": "lidar",
+   "predicted_iou": 0.886
+  },
+  {
+   "footprint_area_m2": 376.6,
+   "height_m": 8.24,
+   "volume_m3": 3102.9,
+   "rooftop": 161,
+   "area_px": 1046,
+   "bbox_px": [
+    1173,
+    521,
+    24,
+    46
+   ],
+   "lidar_points": 2098,
+   "height_source": "lidar",
+   "predicted_iou": 0.939
+  },
+  {
+   "footprint_area_m2": 365.0,
+   "height_m": 13.94,
+   "volume_m3": 5088.7,
+   "rooftop": 162,
+   "area_px": 1014,
+   "bbox_px": [
+    830,
+    114,
+    34,
+    31
+   ],
+   "lidar_points": 2316,
+   "height_source": "lidar",
+   "predicted_iou": 0.945
+  },
+  {
+   "footprint_area_m2": 360.4,
+   "height_m": 12.93,
+   "volume_m3": 4659.5,
+   "rooftop": 163,
+   "area_px": 1001,
+   "bbox_px": [
+    1018,
+    492,
+    39,
+    30
+   ],
+   "lidar_points": 2969,
+   "height_source": "lidar",
+   "predicted_iou": 0.911
+  },
+  {
+   "footprint_area_m2": 357.5,
+   "height_m": 12.25,
+   "volume_m3": 4379.1,
+   "rooftop": 164,
+   "area_px": 993,
+   "bbox_px": [
+    130,
+    846,
+    34,
+    41
+   ],
+   "lidar_points": 1611,
+   "height_source": "lidar",
+   "predicted_iou": 0.884
+  },
+  {
+   "footprint_area_m2": 353.2,
+   "height_m": 10.15,
+   "volume_m3": 3584.6,
+   "rooftop": 165,
+   "area_px": 981,
+   "bbox_px": [
+    817,
+    237,
+    35,
+    32
+   ],
+   "lidar_points": 2185,
+   "height_source": "lidar",
+   "predicted_iou": 0.909
+  },
+  {
+   "footprint_area_m2": 351.0,
+   "height_m": 22.3,
+   "volume_m3": 7827.3,
+   "rooftop": 166,
+   "area_px": 975,
+   "bbox_px": [
+    697,
+    1031,
+    36,
+    32
+   ],
+   "lidar_points": 1598,
+   "height_source": "lidar",
+   "predicted_iou": 0.915
+  },
+  {
+   "footprint_area_m2": 349.9,
+   "height_m": 9.7,
+   "volume_m3": 3394.2,
+   "rooftop": 167,
+   "area_px": 972,
+   "bbox_px": [
+    714,
+    236,
+    38,
+    44
+   ],
+   "lidar_points": 2386,
+   "height_source": "lidar",
+   "predicted_iou": 0.905
+  },
+  {
+   "footprint_area_m2": 335.5,
+   "height_m": 12.92,
+   "volume_m3": 4334.9,
+   "rooftop": 168,
+   "area_px": 932,
+   "bbox_px": [
+    270,
+    1049,
+    37,
+    33
+   ],
+   "lidar_points": 1407,
+   "height_source": "lidar",
+   "predicted_iou": 0.935
+  },
+  {
+   "footprint_area_m2": 329.8,
+   "height_m": 17.71,
+   "volume_m3": 5838.7,
+   "rooftop": 169,
+   "area_px": 916,
+   "bbox_px": [
+    1435,
+    0,
+    43,
+    24
+   ],
+   "lidar_points": 0,
+   "height_source": "tile average",
+   "predicted_iou": 0.897
+  },
+  {
+   "footprint_area_m2": 322.9,
+   "height_m": 12.41,
+   "volume_m3": 4007.4,
+   "rooftop": 170,
+   "area_px": 897,
+   "bbox_px": [
+    838,
+    1195,
+    50,
+    26
+   ],
+   "lidar_points": 2227,
+   "height_source": "lidar",
+   "predicted_iou": 0.888
+  },
+  {
+   "footprint_area_m2": 320.4,
+   "height_m": 26.01,
+   "volume_m3": 8333.6,
+   "rooftop": 171,
+   "area_px": 890,
+   "bbox_px": [
+    123,
+    1155,
+    32,
+    28
+   ],
+   "lidar_points": 2260,
+   "height_source": "lidar",
+   "predicted_iou": 0.933
+  },
+  {
+   "footprint_area_m2": 318.6,
+   "height_m": 12.13,
+   "volume_m3": 3864.6,
+   "rooftop": 172,
+   "area_px": 885,
+   "bbox_px": [
+    1183,
+    455,
+    22,
+    40
+   ],
+   "lidar_points": 2128,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 317.2,
+   "height_m": 13.06,
+   "volume_m3": 4142.1,
+   "rooftop": 173,
+   "area_px": 881,
+   "bbox_px": [
+    1351,
+    402,
+    24,
+    38
+   ],
+   "lidar_points": 2188,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 310.7,
+   "height_m": 9.22,
+   "volume_m3": 2864.5,
+   "rooftop": 174,
+   "area_px": 863,
+   "bbox_px": [
+    357,
+    182,
+    39,
+    24
+   ],
+   "lidar_points": 2354,
+   "height_source": "lidar",
+   "predicted_iou": 0.907
+  },
+  {
+   "footprint_area_m2": 297.0,
+   "height_m": 12.85,
+   "volume_m3": 3816.5,
+   "rooftop": 175,
+   "area_px": 825,
+   "bbox_px": [
+    1267,
+    398,
+    36,
+    24
+   ],
+   "lidar_points": 1951,
+   "height_source": "lidar",
+   "predicted_iou": 0.901
+  },
+  {
+   "footprint_area_m2": 286.2,
+   "height_m": 13.78,
+   "volume_m3": 3943.8,
+   "rooftop": 176,
+   "area_px": 795,
+   "bbox_px": [
+    723,
+    13,
+    38,
+    23
+   ],
+   "lidar_points": 1733,
+   "height_source": "lidar",
+   "predicted_iou": 0.908
+  },
+  {
+   "footprint_area_m2": 281.9,
+   "height_m": 15.65,
+   "volume_m3": 4411.4,
+   "rooftop": 177,
+   "area_px": 783,
+   "bbox_px": [
+    881,
+    258,
+    42,
+    23
+   ],
+   "lidar_points": 1793,
+   "height_source": "lidar",
+   "predicted_iou": 0.921
+  },
+  {
+   "footprint_area_m2": 279.0,
+   "height_m": 17.71,
+   "volume_m3": 4939.9,
+   "rooftop": 178,
+   "area_px": 775,
+   "bbox_px": [
+    885,
+    0,
+    47,
+    17
+   ],
+   "lidar_points": 0,
+   "height_source": "tile average",
+   "predicted_iou": 0.921
+  },
+  {
+   "footprint_area_m2": 275.4,
+   "height_m": 14.73,
+   "volume_m3": 4055.3,
+   "rooftop": 179,
+   "area_px": 765,
+   "bbox_px": [
+    185,
+    1120,
+    26,
+    35
+   ],
+   "lidar_points": 1384,
+   "height_source": "lidar",
+   "predicted_iou": 0.915
+  },
+  {
+   "footprint_area_m2": 267.8,
+   "height_m": 12.76,
+   "volume_m3": 3417.6,
+   "rooftop": 180,
+   "area_px": 744,
+   "bbox_px": [
+    226,
+    1128,
+    28,
+    41
+   ],
+   "lidar_points": 1276,
+   "height_source": "lidar",
+   "predicted_iou": 0.932
+  },
+  {
+   "footprint_area_m2": 258.1,
+   "height_m": 15.7,
+   "volume_m3": 4053.8,
+   "rooftop": 181,
+   "area_px": 717,
+   "bbox_px": [
+    761,
+    414,
+    36,
+    32
+   ],
+   "lidar_points": 1758,
+   "height_source": "lidar",
+   "predicted_iou": 0.938
+  },
+  {
+   "footprint_area_m2": 257.8,
+   "height_m": 14.32,
+   "volume_m3": 3691.1,
+   "rooftop": 182,
+   "area_px": 716,
+   "bbox_px": [
+    1332,
+    468,
+    19,
+    38
+   ],
+   "lidar_points": 1585,
+   "height_source": "lidar",
+   "predicted_iou": 0.91
+  },
+  {
+   "footprint_area_m2": 247.3,
+   "height_m": 7.93,
+   "volume_m3": 1961.2,
+   "rooftop": 183,
+   "area_px": 687,
+   "bbox_px": [
+    718,
+    137,
+    29,
+    26
+   ],
+   "lidar_points": 1694,
+   "height_source": "lidar",
+   "predicted_iou": 0.897
+  },
+  {
+   "footprint_area_m2": 245.2,
+   "height_m": 17.71,
+   "volume_m3": 4340.8,
+   "rooftop": 184,
+   "area_px": 681,
+   "bbox_px": [
+    974,
+    0,
+    35,
+    19
+   ],
+   "lidar_points": 0,
+   "height_source": "tile average",
+   "predicted_iou": 0.907
+  },
+  {
+   "footprint_area_m2": 241.2,
+   "height_m": 14.5,
+   "volume_m3": 3497.4,
+   "rooftop": 185,
+   "area_px": 670,
+   "bbox_px": [
+    1092,
+    413,
+    23,
+    32
+   ],
+   "lidar_points": 1394,
+   "height_source": "lidar",
+   "predicted_iou": 0.937
+  },
+  {
+   "footprint_area_m2": 237.6,
+   "height_m": 13.2,
+   "volume_m3": 3136.3,
+   "rooftop": 186,
+   "area_px": 660,
+   "bbox_px": [
+    254,
+    0,
+    23,
+    28
+   ],
+   "lidar_points": 1544,
+   "height_source": "lidar",
+   "predicted_iou": 0.897
+  },
+  {
+   "footprint_area_m2": 227.2,
+   "height_m": 22.95,
+   "volume_m3": 5214.5,
+   "rooftop": 187,
+   "area_px": 631,
+   "bbox_px": [
+    375,
+    397,
+    19,
+    35
+   ],
+   "lidar_points": 1250,
+   "height_source": "lidar",
+   "predicted_iou": 0.91
+  },
+  {
+   "footprint_area_m2": 225.0,
+   "height_m": 8.38,
+   "volume_m3": 1884.4,
+   "rooftop": 188,
+   "area_px": 625,
+   "bbox_px": [
+    647,
+    988,
+    24,
+    31
+   ],
+   "lidar_points": 714,
+   "height_source": "lidar",
+   "predicted_iou": 0.881
+  },
+  {
+   "footprint_area_m2": 224.6,
+   "height_m": 14.6,
+   "volume_m3": 3279.7,
+   "rooftop": 189,
+   "area_px": 624,
+   "bbox_px": [
+    802,
+    309,
+    18,
+    34
+   ],
+   "lidar_points": 1391,
+   "height_source": "lidar",
+   "predicted_iou": 0.916
+  },
+  {
+   "footprint_area_m2": 223.6,
+   "height_m": 7.24,
+   "volume_m3": 1618.6,
+   "rooftop": 190,
+   "area_px": 621,
+   "bbox_px": [
+    1041,
+    987,
+    32,
+    21
+   ],
+   "lidar_points": 1332,
+   "height_source": "lidar",
+   "predicted_iou": 0.887
+  },
+  {
+   "footprint_area_m2": 219.2,
+   "height_m": 12.38,
+   "volume_m3": 2714.2,
+   "rooftop": 191,
+   "area_px": 609,
+   "bbox_px": [
+    345,
+    1427,
+    20,
+    31
+   ],
+   "lidar_points": 757,
+   "height_source": "lidar",
+   "predicted_iou": 0.933
+  },
+  {
+   "footprint_area_m2": 213.8,
+   "height_m": 3.0,
+   "volume_m3": 641.5,
+   "rooftop": 192,
+   "area_px": 594,
+   "bbox_px": [
+    1054,
+    946,
+    23,
+    29
+   ],
+   "lidar_points": 131,
+   "height_source": "lidar",
+   "predicted_iou": 0.881
+  },
+  {
+   "footprint_area_m2": 211.7,
+   "height_m": 9.7,
+   "volume_m3": 2053.3,
+   "rooftop": 193,
+   "area_px": 588,
+   "bbox_px": [
+    1454,
+    675,
+    24,
+    26
+   ],
+   "lidar_points": 774,
+   "height_source": "lidar",
+   "predicted_iou": 0.934
+  },
+  {
+   "footprint_area_m2": 200.5,
+   "height_m": 6.48,
+   "volume_m3": 1299.4,
+   "rooftop": 194,
+   "area_px": 557,
+   "bbox_px": [
+    1151,
+    541,
+    22,
+    29
+   ],
+   "lidar_points": 1236,
+   "height_source": "lidar",
+   "predicted_iou": 0.882
+  },
+  {
+   "footprint_area_m2": 200.2,
+   "height_m": 16.11,
+   "volume_m3": 3224.6,
+   "rooftop": 195,
+   "area_px": 556,
+   "bbox_px": [
+    1246,
+    919,
+    25,
+    29
+   ],
+   "lidar_points": 1919,
+   "height_source": "lidar",
+   "predicted_iou": 0.884
+  },
+  {
+   "footprint_area_m2": 198.4,
+   "height_m": 11.78,
+   "volume_m3": 2336.7,
+   "rooftop": 196,
+   "area_px": 551,
+   "bbox_px": [
+    1031,
+    172,
+    25,
+    27
+   ],
+   "lidar_points": 1173,
+   "height_source": "lidar",
+   "predicted_iou": 0.889
+  },
+  {
+   "footprint_area_m2": 198.0,
+   "height_m": 24.05,
+   "volume_m3": 4761.9,
+   "rooftop": 197,
+   "area_px": 550,
+   "bbox_px": [
+    1061,
+    421,
+    27,
+    22
+   ],
+   "lidar_points": 1160,
+   "height_source": "lidar",
+   "predicted_iou": 0.889
+  },
+  {
+   "footprint_area_m2": 196.9,
+   "height_m": 12.77,
+   "volume_m3": 2514.7,
+   "rooftop": 198,
+   "area_px": 547,
+   "bbox_px": [
+    941,
+    611,
+    31,
+    24
+   ],
+   "lidar_points": 1620,
+   "height_source": "lidar",
+   "predicted_iou": 0.882
+  },
+  {
+   "footprint_area_m2": 196.6,
+   "height_m": 10.32,
+   "volume_m3": 2028.5,
+   "rooftop": 199,
+   "area_px": 546,
+   "bbox_px": [
+    894,
+    475,
+    25,
+    25
+   ],
+   "lidar_points": 1362,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 194.8,
+   "height_m": 10.83,
+   "volume_m3": 2109.3,
+   "rooftop": 200,
+   "area_px": 541,
+   "bbox_px": [
+    1153,
+    473,
+    25,
+    24
+   ],
+   "lidar_points": 1334,
+   "height_source": "lidar",
+   "predicted_iou": 0.886
+  },
+  {
+   "footprint_area_m2": 193.7,
+   "height_m": 10.25,
+   "volume_m3": 1985.2,
+   "rooftop": 201,
+   "area_px": 538,
+   "bbox_px": [
+    823,
+    292,
+    29,
+    20
+   ],
+   "lidar_points": 1378,
+   "height_source": "lidar",
+   "predicted_iou": 0.899
+  },
+  {
+   "footprint_area_m2": 189.7,
+   "height_m": 8.04,
+   "volume_m3": 1525.3,
+   "rooftop": 202,
+   "area_px": 527,
+   "bbox_px": [
+    64,
+    704,
+    44,
+    13
+   ],
+   "lidar_points": 665,
+   "height_source": "lidar",
+   "predicted_iou": 0.89
+  },
+  {
+   "footprint_area_m2": 186.1,
+   "height_m": 5.98,
+   "volume_m3": 1113.0,
+   "rooftop": 203,
+   "area_px": 517,
+   "bbox_px": [
+    534,
+    319,
+    28,
+    24
+   ],
+   "lidar_points": 184,
+   "height_source": "lidar",
+   "predicted_iou": 0.916
+  },
+  {
+   "footprint_area_m2": 185.8,
+   "height_m": 6.2,
+   "volume_m3": 1151.7,
+   "rooftop": 204,
+   "area_px": 516,
+   "bbox_px": [
+    604,
+    480,
+    28,
+    25
+   ],
+   "lidar_points": 156,
+   "height_source": "lidar",
+   "predicted_iou": 0.888
+  },
+  {
+   "footprint_area_m2": 185.8,
+   "height_m": 12.85,
+   "volume_m3": 2387.0,
+   "rooftop": 205,
+   "area_px": 516,
+   "bbox_px": [
+    1336,
+    674,
+    23,
+    24
+   ],
+   "lidar_points": 1772,
+   "height_source": "lidar",
+   "predicted_iou": 0.883
+  },
+  {
+   "footprint_area_m2": 184.3,
+   "height_m": 7.87,
+   "volume_m3": 1450.6,
+   "rooftop": 206,
+   "area_px": 512,
+   "bbox_px": [
+    164,
+    1327,
+    23,
+    28
+   ],
+   "lidar_points": 1741,
+   "height_source": "lidar",
+   "predicted_iou": 0.889
+  },
+  {
+   "footprint_area_m2": 169.6,
+   "height_m": 6.05,
+   "volume_m3": 1025.8,
+   "rooftop": 207,
+   "area_px": 471,
+   "bbox_px": [
+    131,
+    259,
+    23,
+    20
+   ],
+   "lidar_points": 790,
+   "height_source": "lidar",
+   "predicted_iou": 0.943
+  },
+  {
+   "footprint_area_m2": 168.1,
+   "height_m": 13.14,
+   "volume_m3": 2208.3,
+   "rooftop": 208,
+   "area_px": 467,
+   "bbox_px": [
+    1145,
+    452,
+    25,
+    21
+   ],
+   "lidar_points": 1462,
+   "height_source": "lidar",
+   "predicted_iou": 0.895
+  },
+  {
+   "footprint_area_m2": 161.3,
+   "height_m": 8.65,
+   "volume_m3": 1394.3,
+   "rooftop": 209,
+   "area_px": 448,
+   "bbox_px": [
+    221,
+    453,
+    19,
+    28
+   ],
+   "lidar_points": 514,
+   "height_source": "lidar",
+   "predicted_iou": 0.881
+  },
+  {
+   "footprint_area_m2": 122.8,
+   "height_m": 8.93,
+   "volume_m3": 1096.2,
+   "rooftop": 210,
+   "area_px": 341,
+   "bbox_px": [
+    899,
+    73,
+    20,
+    21
+   ],
+   "lidar_points": 830,
+   "height_source": "lidar",
+   "predicted_iou": 0.889
+  },
+  {
+   "footprint_area_m2": 114.5,
+   "height_m": 14.34,
+   "volume_m3": 1641.6,
+   "rooftop": 211,
+   "area_px": 318,
+   "bbox_px": [
+    405,
+    232,
+    14,
+    22
+   ],
+   "lidar_points": 786,
+   "height_source": "lidar",
+   "predicted_iou": 0.922
+  },
+  {
+   "footprint_area_m2": 89.3,
+   "height_m": 3.9,
+   "volume_m3": 348.2,
+   "rooftop": 212,
+   "area_px": 248,
+   "bbox_px": [
+    1390,
+    1174,
+    17,
+    15
+   ],
+   "lidar_points": 122,
+   "height_source": "lidar",
+   "predicted_iou": 0.93
+  }
+ ]
+}
