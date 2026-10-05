@@ -45,3 +45,14 @@ opencv-python==5.0.0.93
 Pillow
 tqdm
 tensorboard==2.21.0
+
+# --- Phase 3: LiDAR + street-level imagery ---
+# PDAL is a conda-forge package and lives in its own environment (see README "Setup"):
+#   conda create -n geosense_lidar --override-channels -c conda-forge python=3.11 pdal python-pdal -y
+laspy[laszip]==2.7.0     # reads/writes LAZ (laszip 0.3.0 backend)
+open3d==0.20.0
+git+https://github.com/facebookresearch/segment-anything.git   # segment_anything 1.0 (commit dca509f)
+pycocotools==2.0.11
+accelerate==1.15.0
+scipy                    # minimum_filter in lidar_analyzer.py
+requests

@@ -15,3 +15,10 @@ data/satellite/labels/*.npy
 models/saved/*.pth
 lab_records/
 _to_delete/
+
+# --- Phase 3 additions ---
+data/lidar/raw/
+data/lidar/processed/*.laz
+data/streetview/images/
+models/saved/sam/*.pth
+outputs/point_clouds/*.ply
