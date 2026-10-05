@@ -1,0 +1,47 @@
+{
+ "radius_deg": 0.0015,
+ "max_images": 10,
+ "default_weights": {
+  "sidewalk": 0.4,
+  "vegetation": 0.3,
+  "car": -0.2
+ },
+ "alt_weights": {
+  "sidewalk": 0.3,
+  "vegetation": 0.4,
+  "person": 0.2,
+  "car": -0.3
+ },
+ "results": [
+  {
+   "latitude": 38.9097,
+   "longitude": -77.0434,
+   "images_analyzed": 10,
+   "scene_composition": {
+    "road": 22.8,
+    "sidewalk": 4.3,
+    "building": 36.9,
+    "vegetation": 7.1,
+    "sky": 5.8,
+    "person": 2.2,
+    "car": 4.9
+   },
+   "walkability_score": 0.57,
+   "radius_deg": 0.00075,
+   "image_ids": [
+    "1124136844725900",
+    "1094767897814765",
+    "1077809042751522",
+    "1114896279128997",
+    "1286870905082316",
+    "1013009779456301",
+    "1022517728517658",
+    "1046757566038129",
+    "113704781347731",
+    "1059127871409175"
+   ],
+   "name": "38.9097, -77.0434",
+   "walkability_score_alt": 0.62
+  }
+ ]
+}

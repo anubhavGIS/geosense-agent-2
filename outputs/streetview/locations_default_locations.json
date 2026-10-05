@@ -1,0 +1,124 @@
+{
+ "radius_deg": 0.0015,
+ "max_images": 10,
+ "default_weights": {
+  "sidewalk": 0.4,
+  "vegetation": 0.3,
+  "car": -0.2
+ },
+ "alt_weights": {
+  "sidewalk": 0.3,
+  "vegetation": 0.4,
+  "person": 0.2,
+  "car": -0.3
+ },
+ "results": [
+  {
+   "latitude": 13.0827,
+   "longitude": 80.2707,
+   "images_analyzed": 2,
+   "scene_composition": {
+    "road": 19.1,
+    "sidewalk": 3.8,
+    "building": 20.6,
+    "vegetation": 33.0,
+    "sky": 2.8,
+    "person": 1.6,
+    "car": 4.1
+   },
+   "walkability_score": 2.12,
+   "image_ids": [
+    "1517624612980097",
+    "780205971565951"
+   ],
+   "name": "Chennai centre",
+   "walkability_score_alt": 2.69
+  },
+  {
+   "latitude": 22.553,
+   "longitude": 88.354,
+   "images_analyzed": 10,
+   "scene_composition": {
+    "road": 24.9,
+    "sidewalk": 0.7,
+    "building": 26.0,
+    "vegetation": 19.4,
+    "sky": 5.8,
+    "person": 4.3,
+    "car": 13.0
+   },
+   "walkability_score": 0.7,
+   "image_ids": [
+    "1946222195530410",
+    "1190810328007657",
+    "475587620359907",
+    "2780605012230037",
+    "521312892364125",
+    "950364379057903",
+    "2589996087969505",
+    "303431917938153",
+    "522008052311704",
+    "889119925153658"
+   ],
+   "name": "Kolkata - Park Street / Camac Street",
+   "walkability_score_alt": 0.99
+  },
+  {
+   "latitude": 22.5535,
+   "longitude": 88.3515,
+   "images_analyzed": 10,
+   "scene_composition": {
+    "road": 19.5,
+    "sidewalk": 0.9,
+    "building": 19.1,
+    "vegetation": 36.7,
+    "sky": 5.3,
+    "person": 0.8,
+    "car": 13.1
+   },
+   "walkability_score": 1.75,
+   "image_ids": [
+    "837565303541415",
+    "225081169419656",
+    "166054508777903",
+    "773961449926992",
+    "198014035368615",
+    "211717227425863",
+    "376587603690817",
+    "760027404708467",
+    "515254379842993",
+    "926229004843109"
+   ],
+   "name": "Kolkata - Chowringhee (J. L. Nehru Road)",
+   "walkability_score_alt": 2.24
+  },
+  {
+   "latitude": 22.5495,
+   "longitude": 88.354,
+   "images_analyzed": 9,
+   "scene_composition": {
+    "road": 25.9,
+    "sidewalk": 0.7,
+    "building": 10.2,
+    "vegetation": 46.0,
+    "sky": 5.8,
+    "person": 0.3,
+    "car": 3.5
+   },
+   "walkability_score": 2.68,
+   "image_ids": [
+    "1938087003016545",
+    "293596715717643",
+    "2860172060868608",
+    "914563605996674",
+    "170232565025690",
+    "142431147867804",
+    "164596928928703",
+    "969046403925626",
+    "138359301618204"
+   ],
+   "name": "Kolkata - Shakespeare Sarani",
+   "walkability_score_alt": 3.52
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+[
+ {
+  "image": "303431917938153.jpg",
+  "composition": {
+   "road": 34.3,
+   "sidewalk": 0.2,
+   "building": 22.0,
+   "vegetation": 23.6,
+   "sky": 3.1,
+   "car": 10.3
+  },
+  "seconds": 4.08,
+  "walkability_score": 1.02
+ },
+ {
+  "image": "2511006015712226.jpg",
+  "composition": {
+   "road": 38.0,
+   "sidewalk": 1.4,
+   "building": 23.2,
+   "vegetation": 19.9,
+   "sky": 3.1,
+   "car": 8.2
+  },
+  "seconds": 0.08,
+  "walkability_score": 0.98
+ },
+ {
+  "image": "215520700075728.jpg",
+  "composition": {
+   "road": 8.8,
+   "sidewalk": 1.7,
+   "building": 59.4,
+   "vegetation": 19.5,
+   "sky": 0.0,
+   "car": 5.0
+  },
+  "seconds": 0.12,
+  "walkability_score": 1.11
+ }
+]
