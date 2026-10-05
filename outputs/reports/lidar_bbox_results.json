@@ -1,0 +1,183 @@
+[
+ {
+  "bbox": [
+   13.05,
+   80.24,
+   13.06,
+   80.25
+  ],
+  "bbox_projected": [
+   3261699.5,
+   18410677.0,
+   3263007.0,
+   18412005.7
+  ],
+  "crs": "EPSG:32618",
+  "lidar_coverage": false,
+  "coverage_pct": 0.0,
+  "avg_building_height_m": 0.0,
+  "canopy_cover_pct": 0.0,
+  "impervious_surface_pct": 0.0,
+  "slope_risk_score": 0.0,
+  "ground_relief_m": 0.0,
+  "median_slope_pct": 0.0,
+  "point_shares_pct": {
+   "ground": 0.0,
+   "vegetation": 0.0,
+   "building": 0.0
+  },
+  "roofs_recovered": {
+   "cells_5m": 0,
+   "points": 0,
+   "area_pct": 0.0
+  },
+  "total_points_analyzed": 0,
+  "cells_1m": 0,
+  "note": "no LiDAR points inside the box; the processed cloud covers lon -77.0480 to -77.0380, lat 38.9048 to 38.9132",
+  "name": "Chennai centre (manual example)"
+ },
+ {
+  "bbox": [
+   38.905,
+   -77.048,
+   38.913,
+   -77.038
+  ],
+  "bbox_projected": [
+   322415.1,
+   4308208.7,
+   323302.2,
+   4309116.0
+  ],
+  "crs": "EPSG:32618",
+  "lidar_coverage": true,
+  "coverage_pct": 100.0,
+  "avg_building_height_m": 18.18,
+  "canopy_cover_pct": 23.9,
+  "impervious_surface_pct": 43.2,
+  "slope_risk_score": 6.38,
+  "ground_relief_m": 10.34,
+  "median_slope_pct": 2.79,
+  "point_shares_pct": {
+   "ground": 41.8,
+   "vegetation": 16.9,
+   "building": 41.3
+  },
+  "roofs_recovered": {
+   "cells_5m": 1877,
+   "points": 221455,
+   "area_pct": 5.8
+  },
+  "total_points_analyzed": 6277069,
+  "cells_1m": 769094,
+  "name": "Whole Dupont Circle tile"
+ },
+ {
+  "bbox": [
+   38.9085,
+   -77.045,
+   38.911,
+   -77.042
+  ],
+  "bbox_projected": [
+   322684.0,
+   4308604.9,
+   322950.3,
+   4308888.2
+  ],
+  "crs": "EPSG:32618",
+  "lidar_coverage": true,
+  "coverage_pct": 100.0,
+  "avg_building_height_m": 15.88,
+  "canopy_cover_pct": 26.7,
+  "impervious_surface_pct": 33.0,
+  "slope_risk_score": 2.73,
+  "ground_relief_m": 2.62,
+  "median_slope_pct": 2.01,
+  "point_shares_pct": {
+   "ground": 52.7,
+   "vegetation": 18.5,
+   "building": 28.8
+  },
+  "roofs_recovered": {
+   "cells_5m": 286,
+   "points": 33130,
+   "area_pct": 9.5
+  },
+  "total_points_analyzed": 663537,
+  "cells_1m": 75684,
+  "name": "Dupont Circle park and radial avenues"
+ },
+ {
+  "bbox": [
+   38.905,
+   -77.042,
+   38.9075,
+   -77.039
+  ],
+  "bbox_projected": [
+   322935.4,
+   4308210.7,
+   323201.8,
+   4308493.9
+  ],
+  "crs": "EPSG:32618",
+  "lidar_coverage": true,
+  "coverage_pct": 100.0,
+  "avg_building_height_m": 22.26,
+  "canopy_cover_pct": 19.7,
+  "impervious_surface_pct": 47.7,
+  "slope_risk_score": 4.05,
+  "ground_relief_m": 5.49,
+  "median_slope_pct": 2.31,
+  "point_shares_pct": {
+   "ground": 39.4,
+   "vegetation": 12.7,
+   "building": 47.9
+  },
+  "roofs_recovered": {
+   "cells_5m": 339,
+   "points": 31893,
+   "area_pct": 11.2
+  },
+  "total_points_analyzed": 667200,
+  "cells_1m": 74997,
+  "name": "Office blocks south-east of the circle"
+ },
+ {
+  "bbox": [
+   38.9105,
+   -77.048,
+   38.913,
+   -77.045
+  ],
+  "bbox_projected": [
+   322428.8,
+   4308832.7,
+   322695.2,
+   4309116.0
+  ],
+  "crs": "EPSG:32618",
+  "lidar_coverage": true,
+  "coverage_pct": 100.0,
+  "avg_building_height_m": 13.02,
+  "canopy_cover_pct": 25.7,
+  "impervious_surface_pct": 42.0,
+  "slope_risk_score": 3.49,
+  "ground_relief_m": 5.4,
+  "median_slope_pct": 3.2,
+  "point_shares_pct": {
+   "ground": 39.6,
+   "vegetation": 21.2,
+   "building": 39.3
+  },
+  "roofs_recovered": {
+   "cells_5m": 10,
+   "points": 636,
+   "area_pct": 0.3
+  },
+  "total_points_analyzed": 593470,
+  "cells_1m": 73882,
+  "name": "Row houses north-west of the circle"
+ }
+]
