@@ -2,7 +2,8 @@
 
 A geospatial site-intelligence system for **Kolkata, India**, built phase by phase:
 machine learning on spatial features (Phase 1), deep learning on Sentinel-2 satellite imagery
-(Phase 2), and — in later phases — LiDAR, an MCP agent and a web interface.
+(Phase 2), LiDAR point clouds and street-level imagery merged into one site profile (Phase 3), and —
+in later phases — an MCP agent and a web interface.
 
 *Anubhav Ghosh · M.Tech Geoinformatics, Department of Geography, University of Madras*
 
@@ -10,26 +11,33 @@ machine learning on spatial features (Phase 1), deep learning on Sentinel-2 sate
 |---|---|
 | Study area | Kolkata bounding box 88.30–88.42 E, 22.45–22.67 N (≈ 12.6 × 24.5 km) |
 | Metric CRS | EPSG:32645 (WGS 84 / UTM zone 45N) |
-| Environment | conda `geosense`, Python 3.11, Windows 11, NVIDIA RTX 5060 Laptop GPU (8 GB) |
+| Environment | conda `geosense`, Python 3.11, Windows 11, NVIDIA RTX 5060 Laptop GPU (8 GB); conda `geosense_lidar` for PDAL |
+| LiDAR tile (Phase 3) | Dupont Circle, Washington, D.C. — 77.048–77.038 W, 38.905–38.913 N (0.8 km²), EPSG:32618 |
 
 ## Repository layout
 
 ```
 src/phase1_ml/            Phase 1 — PostGIS ingestion, candidate grid, features, RF/XGBoost, site_scorer.py
 src/phase2_dl/            Phase 2 — Sentinel-2 download, preprocessing, chips, labels, U-Net, Prithvi, evaluation, image_classifier.py
+src/phase3_lidar/         Phase 3 — LiDAR fetch and PDAL pipeline, features, PLY, NAIP, SAM rooftops, SegFormer street scenes, lidar_analyzer.py, unified_site_profile.py
 data/processed/           Phase 1 candidate grid, feature table and labelled dataset
 data/satellite/clean/     Phase 2 composite metadata (the 400 MB of arrays are regenerated, not committed)
+data/streetview/results/  Phase 3 frozen Mapillary query snapshots (the photographs themselves are not committed)
 models/evaluation/        training histories, train/validation split, model comparison
-outputs/reports/          Phase 1 label map and SHAP importance
+outputs/reports/          Phase 1 label map and SHAP importance; Phase 3 site profiles and bounding-box results
 outputs/plots/            Phase 2 confusion matrices, training curves, IoU comparison, prediction gallery
-docs/                     data inventory, Phase 2 checklist with evidence, glossary application
-tests/                    pytest unit tests
+outputs/point_clouds/     Phase 3 point-cloud screenshots, grid-metric maps, lidar_analyzer figures (the PLY is regenerated)
+outputs/rooftops/         Phase 3 SAM rooftop candidates with LiDAR heights and volumes
+outputs/streetview/       Phase 3 scene compositions, location results, SegFormer examples
+docs/                     data inventory, Phase 2 and Phase 3 checklists with evidence, glossary application
+tests/                    pytest unit tests (Phase 1 site scorer, Phase 3 modules)
 notebooks/                labelling notebook
 ```
 
 Large artefacts are not committed: raw OSM/shapefile data, the Sentinel-2 composites, chips and
-labels (`data/satellite/`, ≈ 400 MB) and the trained weights (`models/saved/*.pth`, 98 MB and 353 MB).
-The scripts below regenerate all of them.
+labels (`data/satellite/`, ≈ 400 MB), the trained weights (`models/saved/*.pth`, 98 MB and 353 MB), the
+LiDAR tiles (`data/lidar/`, 36 + 63 MB), the street photographs, the SAM checkpoint (375 MB) and the
+colour-coded PLY (170 MB). The scripts below regenerate all of them.
 
 ## Setup
 
@@ -38,6 +46,10 @@ conda create -n geosense python=3.11 && conda activate geosense
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128   # or the /cpu index
 pip install -r requirements.txt
 earthengine authenticate
+# Phase 3: PDAL in its own environment (the two PDAL scripts), SAM weights for the rooftop script
+conda create -n geosense_lidar --override-channels -c conda-forge python=3.11 pdal python-pdal -y
+conda run -n geosense_lidar pip install python-dotenv
+# download https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth into models/saved/sam/
 ```
 
 Create a `.env` in the project root (never committed):
@@ -47,6 +59,10 @@ DB_HOST=localhost  DB_PORT=5432  DB_NAME=geosense  DB_USER=postgres  DB_PASSWORD
 STUDY_AREA=Kolkata
 BBOX_MIN_LON=88.30  BBOX_MIN_LAT=22.45  BBOX_MAX_LON=88.42  BBOX_MAX_LAT=22.67
 GEE_PROJECT=<your Google Cloud project id>
+# Phase 3
+MAPILLARY_TOKEN=MLY|...            OPENTOPOGRAPHY_API_KEY=...
+SAM_CHECKPOINT_PATH=models/saved/sam/sam_vit_b_01ec64.pth
+STUDY_AREA_BBOX_LIDAR=-77.048,38.905,-77.038,38.913
 ```
 
 ## Phase 1 — Site suitability from spatial features
@@ -177,8 +193,147 @@ with NDVI changes of 0.03 or less.
 
 More: `docs/phase2_checklist.md` (deliverables with evidence), `docs/phase2_glossary_application.md`.
 
+## Phase 3 — LiDAR 3D analysis and street-level imagery
+
+Phase 3 gives the agent two more senses: a point cloud, from which building heights, tree canopy,
+impervious surface and terrain relief are measured for any bounding box, and crowd-sourced street
+photographs, from which the pavement-level scene composition and a walkability score are computed for
+any coordinate. Both are merged with the Phase 1 score and the Phase 2 land cover into one
+**unified enhanced site profile** per location — the record the Phase 4 agent will reason over.
+
+Kolkata has no public LiDAR, so the LiDAR pipeline was built and tested on a covered tile — a 0.8 km²
+box around **Dupont Circle, Washington, D.C.** — and every result carries a coverage flag. The street
+pipeline runs wherever Mapillary has photographs (Kolkata, Chennai and Washington here). The code is
+location-independent: changing `STUDY_AREA_BBOX_LIDAR` in `.env` and the `DATASET` constant of
+`fetch_lidar_ept.py` regenerates the tile for any 3DEP collection.
+
+| | |
+|---|---|
+| LiDAR | USGS 3DEP `USGS_LPC_MD_VA_Sandy_NCR_2014_LAS_2015` (National Capital Region, 2014–15), streamed with PDAL `readers.ept` from the public Entwine archive `s3://usgs-lidar-public` (no login); 6,418,741 points, 7.98 pts/m², reprojected to EPSG:32618 |
+| Street imagery | Mapillary API v4 — 29 images of the Park Street area of Kolkata for development; up to 50 candidates per query elsewhere |
+| Aerial image | USDA NAIP 0.6 m mosaic of the tile via Google Earth Engine (1479 × 1514 px, five scenes 2018–2023) |
+| Environments | `geosense` for everything; a second environment `geosense_lidar` (PDAL 2.10.2, python-pdal 3.5.5) for the two PDAL scripts only |
+
+### Pipeline
+
+| Step | Script | What it does |
+|---|---|---|
+| 1 | `fetch_lidar_ept.py` (`geosense_lidar`) | EPT subset by bounds → reprojection to UTM 18N → `data/lidar/raw/study_area.laz` (35.7 MB, 17.5 s) |
+| 2 | `pdal_pipeline.py` (`geosense_lidar`) | `filters.outlier` (statistical, mean_k 8, multiplier 2.5) → `filters.smrf` → `filters.hag_nn` → LAZ with a `HeightAboveGround` dimension: 6,277,069 points in 68.3 s, 2.2 % removed as noise, 43.8 % ground |
+| 3 | `view_classified.py` | plan view and cross-section of the classified cloud |
+| 4 | `mapillary_download.py` | `find_images_in_bbox()` and `download_image()` against the Mapillary Graph API |
+| 5 | `lidar_features.py` | heuristic labels from HAG and return count — ground 45.3 %, vegetation 16.9 %, building 37.7 % of the points; 331 cells of 50 m with mean building height and canopy cover (`outputs/lidar_grid_metrics.json`) |
+| 6 | `visualize_cloud.py` | colour-coded PLY (169.5 MB, not committed) for Open3D / CloudCompare |
+| 7 | `fetch_aerial_naip.py` | the NAIP orthophoto of the tile, GeoTIFF + PNG |
+| 8 | `sam_rooftop_extraction.py` | Segment Anything (ViT-B) automatic masks — 212 in 21 s on the GPU, 80 s on the CPU — filtered by an area window given in m², each footprint matched to the median LiDAR height of its roof points → building volumes |
+| 9 | `streetview_semantic.py` | SegFormer-B0 (Cityscapes) on every photograph near a coordinate; road / sidewalk / building / vegetation / sky / person / car shares and a transparent walkability score |
+| 10 | `lidar_analyzer.py` | `analyze_bbox(min_lat, min_lon, max_lat, max_lon)` — the main LiDAR deliverable |
+| 11 | `unified_site_profile.py` | `build_profile(lat, lon)` — the merged profile, saved to `outputs/reports/` |
+
+```bash
+conda activate geosense_lidar
+python src/phase3_lidar/fetch_lidar_ept.py && python src/phase3_lidar/pdal_pipeline.py
+conda activate geosense
+python src/phase3_lidar/mapillary_download.py
+python src/phase3_lidar/lidar_features.py && python src/phase3_lidar/visualize_cloud.py --show
+python src/phase3_lidar/fetch_aerial_naip.py
+python src/phase3_lidar/sam_rooftop_extraction.py --min-area-m2 10 --max-area-m2 5000
+python src/phase3_lidar/streetview_semantic.py             # four locations, two weight sets
+python src/phase3_lidar/lidar_analyzer.py --json --figure  # the demo boxes
+python src/phase3_lidar/unified_site_profile.py            # three site profiles
+python -m pytest tests/ -v                                 # 16 tests (12 Phase 3 + 4 Phase 1)
+```
+
+![The classified point cloud of the Dupont Circle tile (ground brown, vegetation green, buildings grey), oblique view in Open3D](outputs/point_clouds/study_area_colored_oblique.png)
+
+### lidar_analyzer.py
+
+`analyze_bbox()` loads the processed cloud once, reads its CRS from the LAS header (EPSG:32618),
+reprojects the WGS84 box with pyproj (all four corners, so the rotated quadrilateral is enclosed) and
+selects the points inside it. Three refinements over the per-point measures of the feature script:
+
+- **Area, not points.** Canopy and impervious shares are counted on a 1 m raster labelled by the highest
+  return in each cell — a tree crown with 30 returns per m² and a roof with 5 weigh the same per square
+  metre. On the whole tile canopy is 23.9 % of the area but 16.9 % of the points.
+- **A ground model for the slope.** The slope risk (standard deviation of elevation × 2, capped at 10)
+  is computed on a 5 m model of the median ground elevation per cell instead of on the raw ground
+  points, and the model also gives the relief and the median slope.
+- **Roofs given back.** Large flat roofs that the ground filter had accepted as ground show up in that
+  model as plateaus 7–40 m above their surroundings; their points are relabelled building with a height
+  above the local ground — 1,877 cells and 221,455 points on the tile, 5.8 % of its area, which lifts
+  the impervious share from 40.3 to 43.2 % and the mean building height from 17.71 to 18.18 m.
+
+A box outside the cloud returns zeros with `lidar_coverage: false` and a note saying what the cloud covers.
+
+| Box (`--bbox`) | Points | Building height (m) | Canopy (%) | Impervious (%) | Slope risk | Relief (m) |
+|---|---|---|---|---|---|---|
+| Chennai centre (the manual's example, no LiDAR) | 0 | — | — | — | — | — |
+| Whole Dupont Circle tile | 6,277,069 | 18.18 | 23.9 | 43.2 | 6.38 | 10.34 |
+| Dupont Circle park and radial avenues | 663,537 | 15.88 | 26.7 | 33.0 | 2.73 | 2.62 |
+| Office blocks south-east of the circle | 667,200 | 22.26 | 19.7 | 47.7 | 4.05 | 5.49 |
+| Row houses north-west of the circle | 593,470 | 13.02 | 25.7 | 42.0 | 3.49 | 5.40 |
+
+![What the analyzer sees for the whole tile: the 1 m label raster (left) and the 5 m ground model with the recovered roof cells in red (right)](outputs/point_clouds/lidar_analyzer_whole_dupont_circle_tile.png)
+
+### streetview_semantic.py
+
+Every photograph is segmented at its own resolution (the model's quarter-resolution logits are
+upsampled bilinearly before the argmax), the shares of seven Cityscapes classes are counted, and
+`compute_walkability_score()` = (sidewalk × 0.4 + vegetation × 0.3 − car × 0.2) / 5, clipped to 0–10.
+`analyze_location(lat, lon)` averages the ten open-air photographs nearest to the point. Two
+behaviours were added after watching the API: the first answer Mapillary gives for a box is **frozen**
+in `data/streetview/results/query_*.json` with its time stamp, because the API returns a different
+subset of a busy box on every call (10 then 8 images for the same Chennai box, scores 2.82 and 1.07
+minutes apart); and photographs with neither sky nor vegetation in them — the nearest images to
+Dupont Circle are taken inside the Connecticut Avenue underpass beneath it — are skipped as
+**enclosed** scenes. A dense archive that answers HTTP 500 is retried with a box half the size.
+
+| Location | Images | road | sidewalk | building | vegetation | sky | person | car | Score |
+|---|---|---|---|---|---|---|---|---|---|
+| Chennai centre, 13.0827 N 80.2707 E | 10 | 17.8 | 1.7 | 25.5 | 29.9 | 1.4 | 0.7 | 6.0 | 1.69 |
+| Washington, Dupont Circle, 38.9097 N 77.0434 W (12 underpass images skipped) | 10 | 29.4 | 2.0 | 28.8 | 16.5 | 8.5 | 0.4 | 0.5 | 1.13 |
+| Kolkata, Park Street / Camac Street, 22.5530 N 88.3540 E | 10 | 25.9 | 1.3 | 27.4 | 21.8 | 2.8 | 6.0 | 7.4 | 1.12 |
+
+Across the four locations of the development run (Chennai centre and three Kolkata streets) the
+ranking Shakespeare Sarani > Chowringhee > Park Street held under both weight sets; the sidewalk term is
+the weakest signal, because Kolkata pavements occupied by stalls and parked vehicles are labelled road,
+terrain or building by a model trained on European streets.
+
+### unified_site_profile.py
+
+```python
+from src.phase3_lidar.unified_site_profile import build_profile
+build_profile(22.5530, 88.3540, site_name='Kolkata - Park Street / Camac Street')
+```
+
+```text
+avg_building_height_m    : 0.0      canopy_cover_pct : 0.0     impervious_surface_pct : 0.0
+slope_risk_score         : 0.0      lidar_coverage   : false   (the cloud covers Washington only)
+scene_composition        : road 25.9  sidewalk 1.3  building 27.4  vegetation 21.8  sky 2.8  person 6.0  car 7.4
+walkability_score        : 1.12     street_images_analyzed : 10   street_archive_snapshot : 2026-10-05T01:30:29Z
+phase1_opportunity_score : 10.0     phase1_verdict : GOOD SITE   (road 1.9 m, hospital 46.5 m; SHAP hospital 0.39)
+phase2_land_cover        : Urban    confidence 83.6 %   NDVI 0.225   Urban 65.3 / Vegetation 12.6 / Agriculture 16.1 %
+phase2_change_flag       : false    (mean NDVI +0.203 -> +0.225, 3 % of pixels changed)
+sources                  : lidar - no coverage; streetview ok (10 images); phase1 ok; phase2 ok
+```
+
+The profile is an `EnhancedSiteProfile` dataclass: the eight fields of the Phase 3 design first
+(latitude, longitude, the four LiDAR metrics, scene composition, walkability), then provenance (LiDAR
+coverage and point count, images analysed and skipped, snapshot time), the Phase 1 score with its SHAP
+explanation and the Phase 2 land cover, NDVI and change flag, and a `sources` dictionary that states for
+every phase whether it contributed and, if not, why — Phases 1 and 2 answer only inside the Kolkata
+study area, the LiDAR only inside its tile. Three profiles are saved in `outputs/reports/`:
+`enhanced_site_profile_13.08_80.27.json` (Chennai: street only), `…_38.91_-77.04.json` (Washington:
+LiDAR + street) and `…_22.55_88.35.json` (Kolkata: Phases 1, 2 and street). Asked twice, a site
+answers the same profile: the second run of the three sites took 13.9 s against 97.4 s for the first.
+
+More: `docs/phase3_checklist.md` (deliverables with evidence, the common errors and their fixes).
+
 ## Licence and data
 
 Code © Anubhav Ghosh 2026, for academic use. OpenStreetMap data © OpenStreetMap contributors (ODbL);
 Sentinel-2 imagery © ESA/Copernicus via Google Earth Engine; Prithvi-EO-1.0-100M © IBM/NASA
-(HuggingFace, `ibm-nasa-geospatial/Prithvi-EO-1.0-100M`).
+(HuggingFace, `ibm-nasa-geospatial/Prithvi-EO-1.0-100M`). Phase 3: USGS 3DEP LiDAR and USDA NAIP
+imagery are U.S. public-domain data (3DEP distributed as Entwine Point Tiles on AWS Open Data); Mapillary
+photographs © their contributors, CC BY-SA 4.0, accessed through the Mapillary API; Segment Anything
+© Meta Platforms (Apache 2.0); SegFormer weights © NVIDIA (`nvidia/segformer-b0-finetuned-cityscapes-1024-1024`).
