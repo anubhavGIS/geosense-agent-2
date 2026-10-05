@@ -1,0 +1,51 @@
+{
+  "latitude": 38.9097,
+  "longitude": -77.0434,
+  "avg_building_height_m": 18.24,
+  "canopy_cover_pct": 23.9,
+  "impervious_surface_pct": 42.9,
+  "slope_risk_score": 6.42,
+  "scene_composition": {
+    "road": 29.4,
+    "sidewalk": 2.0,
+    "building": 28.8,
+    "vegetation": 16.5,
+    "sky": 8.5,
+    "person": 0.4,
+    "car": 0.5
+  },
+  "walkability_score": 1.13,
+  "site_name": "Washington - Dupont Circle",
+  "lidar_coverage": true,
+  "lidar_coverage_pct": 77.1,
+  "lidar_points_analyzed": 6103515,
+  "lidar_bbox": [
+    38.9047,
+    -77.0484,
+    38.9147,
+    -77.0384
+  ],
+  "street_images_analyzed": 10,
+  "street_images_enclosed": 12,
+  "street_archive_snapshot": "2026-10-05T01:30:10Z",
+  "phase1_opportunity_score": null,
+  "phase1_risk_score": null,
+  "phase1_verdict": null,
+  "phase1_features": null,
+  "phase1_shap_explanation": null,
+  "phase2_land_cover": null,
+  "phase2_confidence_pct": null,
+  "phase2_ndvi": null,
+  "phase2_ndvi_label": null,
+  "phase2_class_distribution": null,
+  "phase2_change_flag": null,
+  "phase2_change_description": null,
+  "sources": {
+    "phase3_lidar_analyzer": "ok (77.1 % of the box covered)",
+    "phase3_streetview_semantic": "ok (10 images)",
+    "phase1_site_scorer": "outside the Phase 1 study area [88.3, 22.45, 88.42, 22.67]",
+    "phase2_image_classifier": "outside the Phase 2 composite [88.3, 22.45, 88.42, 22.67]"
+  },
+  "bbox_radius_deg": 0.005,
+  "generated_at": "2026-10-05T01:39:34Z"
+}

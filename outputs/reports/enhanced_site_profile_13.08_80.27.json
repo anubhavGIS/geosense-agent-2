@@ -1,0 +1,51 @@
+{
+  "latitude": 13.0827,
+  "longitude": 80.2707,
+  "avg_building_height_m": 0.0,
+  "canopy_cover_pct": 0.0,
+  "impervious_surface_pct": 0.0,
+  "slope_risk_score": 0.0,
+  "scene_composition": {
+    "road": 17.8,
+    "sidewalk": 1.7,
+    "building": 25.5,
+    "vegetation": 29.9,
+    "sky": 1.4,
+    "person": 0.7,
+    "car": 6.0
+  },
+  "walkability_score": 1.69,
+  "site_name": "Chennai centre (manual example)",
+  "lidar_coverage": false,
+  "lidar_coverage_pct": 0.0,
+  "lidar_points_analyzed": 0,
+  "lidar_bbox": [
+    13.0777,
+    80.2657,
+    13.0877,
+    80.2757
+  ],
+  "street_images_analyzed": 10,
+  "street_images_enclosed": 0,
+  "street_archive_snapshot": "2026-10-05T01:29:32Z",
+  "phase1_opportunity_score": null,
+  "phase1_risk_score": null,
+  "phase1_verdict": null,
+  "phase1_features": null,
+  "phase1_shap_explanation": null,
+  "phase2_land_cover": null,
+  "phase2_confidence_pct": null,
+  "phase2_ndvi": null,
+  "phase2_ndvi_label": null,
+  "phase2_class_distribution": null,
+  "phase2_change_flag": null,
+  "phase2_change_description": null,
+  "sources": {
+    "phase3_lidar_analyzer": "no LiDAR points inside the box; the processed cloud covers lon -77.0480 to -77.0380, lat 38.9048 to 38.9132",
+    "phase3_streetview_semantic": "ok (10 images)",
+    "phase1_site_scorer": "outside the Phase 1 study area [88.3, 22.45, 88.42, 22.67]",
+    "phase2_image_classifier": "outside the Phase 2 composite [88.3, 22.45, 88.42, 22.67]"
+  },
+  "bbox_radius_deg": 0.005,
+  "generated_at": "2026-10-05T01:39:02Z"
+}
