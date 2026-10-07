@@ -56,3 +56,21 @@ pycocotools==2.0.11
 accelerate==1.15.0
 scipy                    # minimum_filter in lidar_analyzer.py
 requests
+
+# --- Phase 4: MCP server, LangGraph agent, Streamlit ---
+mcp==2.3.0
+fastapi==0.142.2
+uvicorn==0.54.0
+pydantic==2.13.5
+httpx==0.28.1
+python-multipart==0.0.32
+langgraph==1.2.12
+langchain==1.4.3
+langchain-core==1.6.6
+langchain-google-genai==4.4.0   # Gemini through LangChain - the model used here (free tier)
+google-genai==2.28.0
+langchain-anthropic==1.7.5      # Claude - a one-line switch of AGENT_MODEL
+anthropic==1.11.0
+streamlit==1.65.0
+# JavaScript side (frontend/digital_twin/package.json): vite 8.3.2, cesium 1.146.0, vite-plugin-cesium 1.2.23
+# - installed with `npm install` inside frontend/digital_twin (Node.js 18+; 24.21.0 used here)

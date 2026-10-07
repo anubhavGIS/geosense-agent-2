@@ -22,3 +22,11 @@ data/lidar/processed/*.laz
 data/streetview/images/
 models/saved/sam/*.pth
 outputs/point_clouds/*.ply
+# --- Phase 4 additions ---
+frontend/digital_twin/node_modules/
+frontend/digital_twin/dist/
+frontend/digital_twin/.env
+outputs/agent_logs/
+data/phase4_cache/
+data/twin/
+frontend/digital_twin/public/imagery/
