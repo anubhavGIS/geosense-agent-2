@@ -80,3 +80,11 @@ body,
   color: #f9b;
   font-size: 12px;
 }
+
+#agent {
+  max-height: 120px;
+  overflow-y: auto;
+  color: #fe6;
+  font-size: 12px;
+  line-height: 1.35;
+}

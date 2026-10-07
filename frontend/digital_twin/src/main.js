@@ -4,6 +4,8 @@
 //          the LiDAR buildings of the Dupont Circle tile extruded by their height, an NDVI
 //          overlay of 2023 and Sentinel-2 imagery of four years behind a year selector,
 //          with buttons to the NDVI-change hotspots of Phase II for comparing years
+// Exercise 5: polls the MCP server for the agent's latest result and flies the camera to
+//          it (800 m) whenever a new result arrives, with a marker and the similar sites
 // Open http://localhost:5173 after `npm run dev`; ?buildings=cylinders shows the
 // blueprint's cylinder stand-in instead of the extruded footprints.
 import * as Cesium from 'cesium';
@@ -209,5 +211,92 @@ const [floodZones, buildings] = await Promise.all([          // both load in par
   loadLayer(loadFloodZones, 'layer-flood', 'flood_risk.geojson'),
   loadLayer(loadBuildings, 'layer-buildings', 'lidar_buildings.geojson'),
 ]);
+
+// ---- the agent's latest result (Exercise 5): fly there when a new one arrives ----
+const SERVER_URL = import.meta.env.VITE_MCP_SERVER_URL || 'http://localhost:8000';
+const agentLayer = new Cesium.CustomDataSource('agent result');
+viewer.dataSources.add(agentLayer);
+let lastResultId = null;
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text ?? '';
+  return div.innerHTML;
+}
+
+function marker(lon, lat, text, colour, size) {
+  return {
+    position: Cesium.Cartesian3.fromDegrees(lon, lat),
+    point: {
+      pixelSize: size,
+      color: colour,
+      outlineColor: Cesium.Color.BLACK,
+      outlineWidth: 2,
+      heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+      disableDepthTestDistance: Number.POSITIVE_INFINITY,
+    },
+    label: {
+      text,
+      font: '14px sans-serif',
+      pixelOffset: new Cesium.Cartesian2(0, -20),
+      showBackground: true,
+      heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+      disableDepthTestDistance: Number.POSITIVE_INFINITY,
+    },
+  };
+}
+
+function showAgentResult(result) {
+  agentLayer.entities.removeAll();
+  agentLayer.entities.add({
+    name: `Agent: ${result.question}`,
+    description: `<p><b>${escapeHtml(result.question)}</b></p>`
+      + `<p>${escapeHtml(result.answer)}</p><p>Tools: ${result.tools.join(', ')}</p>`,
+    ...marker(result.longitude, result.latitude, 'agent', Cesium.Color.YELLOW, 14),
+  });
+  (result.sites || []).forEach((site) => agentLayer.entities.add({
+    name: `Similar site #${site.rank} (score ${site.opportunity_score})`,
+    ...marker(site.longitude, site.latitude, `#${site.rank}`, Cesium.Color.CYAN, 10),
+  }));
+  document.getElementById('agent').innerHTML = `<b>${escapeHtml(result.question)}</b>`
+    + `<br>${result.latitude.toFixed(4)}, ${result.longitude.toFixed(4)} - `
+    + `${escapeHtml(result.tools.join(', '))} (${result.received.slice(11)})`;
+}
+
+function flyToResult(result) {
+  // 800 m above the place the agent discussed; when similar sites were found, 4 x the
+  // distance of the farthest one (up to 5 km -> 20 km), so every #rank marker is in view
+  const sites = result.sites || [];
+  const here = Cesium.Cartographic.fromDegrees(result.longitude, result.latitude);
+  const geodesic = new Cesium.EllipsoidGeodesic();
+  const reach = Math.max(0, ...sites.map((site) => {
+    const there = Cesium.Cartographic.fromDegrees(site.longitude, site.latitude);
+    geodesic.setEndPoints(here, there);
+    return geodesic.surfaceDistance;
+  }));
+  viewer.camera.flyTo({
+    destination: Cesium.Cartesian3.fromDegrees(result.longitude, result.latitude,
+      Math.max(800, 4 * reach)),
+  });
+}
+
+async function pollAgentResult() {
+  try {
+    const response = await fetch(`${SERVER_URL}/agent/latest_result`);
+    const result = await response.json();
+    showLoaded();                                 // clears an earlier fetch error
+    if (result.id === undefined || result.id === lastResultId) {
+      return;                                     // no result yet, or nothing new
+    }
+    lastResultId = result.id;
+    showAgentResult(result);
+    flyToResult(result);
+  } catch (error) {
+    status(`agent result not reachable: ${error.message}`);    // server down, or CORS
+  }
+}
+
+setInterval(pollAgentResult, 3000);
+pollAgentResult();
 
 export { viewer, floodZones, buildings, flyTo };

@@ -2,13 +2,18 @@
 # Purpose: FastAPI server exposing the GeoSense analysis modules as seven MCP-compatible
 #          tools - REST routes /tools/<name> (tested at /docs and in Postman) - and the
 #          same seven tools through the Model Context Protocol at /mcp
+#          Exercise 5: CORS for the digital twin (5173) and Streamlit (8501), and the
+#          agent's latest result at /agent/latest_result (POSTed by the agent, polled
+#          by the twin)
 # Run from the project root (geosense environment):
 #   python src/phase4_agent/mcp_server.py
 import inspect
+import itertools
 import os
 import sys
 import threading
 from contextlib import asynccontextmanager
+from datetime import datetime
 from typing import Annotated, Any
 
 os.environ.setdefault('KMP_DUPLICATE_LIB_OK', 'TRUE')   # torch + numpy OpenMP on Windows
@@ -20,6 +25,7 @@ sys.path.append('src/phase2_dl')      # project root, which the Phase I and III 
 sys.path.append('src/phase3_lidar')   # also need for models/ and data/
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from mcp.server.mcpserver import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError as MCPToolError
@@ -43,6 +49,9 @@ COVERAGE = (f'Coverage: site scoring, land cover and similar sites - the study a
             f'street-level imagery, climate and population - worldwide. Outside its '
             f'coverage a tool answers available = false with a reason.')
 WRAPPED, CONTEXT = 'Phase I-III modules', 'Context and search tools'
+AGENT = 'Agent and digital twin'
+CORS_ORIGINS = os.getenv('CORS_ORIGINS',                # browser pages allowed to call us
+                         'http://localhost:5173,http://localhost:8501').split(',')
 UNAVAILABLE = (ToolError, OperationalError, OSError)    # database, Earth Engine, network
 _lock = threading.Lock()          # one analysis at a time: the modules cache large models
 
@@ -59,6 +68,8 @@ app = FastAPI(title='GeoSense Agent MCP Server', version='1.0', lifespan=lifespa
                           'POST route each (JSON in, JSON out, inputs validated by '
                           'Pydantic), also served through the Model Context Protocol at '
                           '/mcp. ' + COVERAGE)
+app.add_middleware(CORSMiddleware, allow_origins=CORS_ORIGINS, allow_methods=['*'],
+                   allow_headers=['*'])
 
 
 class LocationInput(BaseModel):
@@ -236,15 +247,16 @@ def tool_streetview_scene(payload: LocationInput):
 def tool_get_climate_risk(payload: LocationInput):
     """
     Climate risk at a location: the temperature anomaly in degrees C and a drought
-    index from 0 (normal or wetter) to 1 (extreme drought), from tools/climate.py; the
-    source field names the data behind the values.
+    index from 0 (normal or wetter) to 1 (extreme drought), and the flood-risk zone of
+    the point (high, medium or low; study area only), from tools/climate.py; the source
+    field names the data behind the values.
 
     Args:
         payload (LocationInput): latitude and longitude in WGS84 decimal degrees
 
     Returns:
-        dict: temperature_anomaly_c, drought_index and source (with the version of
-              Task 2.3 also the classes, the precipitation and the period)
+        dict: temperature_anomaly_c, drought_index, flood_zone and source, with the
+              classes, the precipitation and the period
 
     Example:
         POST /tools/get_climate_risk  {"latitude": 13.0827, "longitude": 80.2707}
@@ -296,6 +308,58 @@ def tool_find_similar_sites(payload: SimilarSitesInput):
     p = payload
     return run('find_similar_sites', find_similar_sites, p.latitude, p.longitude,
                p.radius_km, p.top_k)
+
+
+# -- The agent's latest result for the digital twin (Exercise 5) ----------------------
+class AgentResult(BaseModel):
+    latitude: float = Field(..., ge=-90, le=90, description='Latitude, WGS84')
+    longitude: float = Field(..., ge=-180, le=180, description='Longitude, WGS84')
+    question: str = Field('', description='The question the agent answered')
+    answer: str = Field('', description='The start of its answer')
+    tools: list[str] = Field([], description='The tools it called')
+    sites: list[dict] = Field([], description='Similar sites to mark (rank, lat, lon)')
+    source: str = Field('', description='Where the location came from')
+
+
+LAST_AGENT_RESULT = {}
+_result_ids = itertools.count(1)
+
+
+@app.get('/agent/latest_result', tags=[AGENT],
+         summary="Location of the agent's latest answer (polled by the twin)")
+def get_latest_result():
+    """
+    The location and summary of the agent's latest answer; empty until the first one.
+
+    Returns:
+        dict: id (grows with every new result), latitude, longitude, question, answer,
+              tools, sites, source and received
+
+    Example:
+        GET /agent/latest_result
+    """
+    return LAST_AGENT_RESULT
+
+
+@app.post('/agent/latest_result', tags=[AGENT],
+          summary="Store the location of the agent's latest answer")
+def post_latest_result(payload: AgentResult):
+    """
+    Called by the agent after every answer, so that the twin can fly to the place.
+
+    Args:
+        payload (AgentResult): latitude, longitude and a summary of the answer
+
+    Returns:
+        dict: stored = true and the id of the result
+
+    Example:
+        POST /agent/latest_result  {"latitude": 22.5530, "longitude": 88.3540}
+    """
+    LAST_AGENT_RESULT.clear()
+    LAST_AGENT_RESULT.update(payload.model_dump(), id=next(_result_ids),
+                             received=datetime.now().isoformat(timespec='seconds'))
+    return {'stored': True, 'id': LAST_AGENT_RESULT['id']}
 
 
 # -- The same seven tools through the Model Context Protocol (/mcp) -------------------
@@ -403,4 +467,5 @@ if __name__ == '__main__':
           f'{torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"}')
     print('REST /tools/<name>  |  docs http://localhost:8000/docs  |  '
           'MCP http://localhost:8000/mcp')
+    print(f'CORS origins: {", ".join(CORS_ORIGINS)}')
     uvicorn.run(app, host='0.0.0.0', port=8000)

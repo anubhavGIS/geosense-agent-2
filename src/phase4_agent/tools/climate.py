@@ -9,15 +9,55 @@
 #                          30 normal totals (an SPI-12-like index)
 #   drought_index          -z / 2 clipped to 0..1: 0 = normal or wetter, 0.5 = moderate
 #                          (z = -1), 0.75 = severe (z = -1.5), 1 = extreme (z <= -2)
+#   flood_zone             (Exercise 5) the flood-risk zone of the point - high, medium or
+#                          low - from the PostGIS table flood_zones built in Exercise 4
+#                          (MERIT Hydro HAND + JRC Global Surface Water); study area only
 from datetime import date
 
-from tools.common import cache_get, cache_put, earth_engine
+from sqlalchemy import text
+from sqlalchemy.exc import ProgrammingError
+
+from tools.common import cache_get, cache_put, db_engine, earth_engine, in_study_area
 
 DATASET = 'ECMWF/ERA5_LAND/MONTHLY_AGGR'
 NORMAL = (1991, 2020)
 RADIUS_M = 10_000
 SCALE_M = 11_132                       # 0.1 degree, the native cell of ERA5-Land
 CACHE_DAYS = 7                         # ERA5-Land gains one month per month
+
+
+FLOOD_SQL = text('SELECT risk_level FROM flood_zones WHERE ST_Contains(geometry, '
+                 'ST_SetSRID(ST_MakePoint(:lon, :lat), 4326)) LIMIT 1')
+
+
+def flood_zone(lat, lon):
+    """
+    The flood-risk zone of a point from the PostGIS table flood_zones.
+
+    Args:
+        lat (float): latitude in WGS84 decimal degrees
+        lon (float): longitude in WGS84 decimal degrees
+
+    Returns:
+        tuple: the risk level ('high', 'medium', 'low', or None) and a note when there is
+               no level (outside the study area, permanent water, table not built yet)
+
+    Example:
+        flood_zone(22.5530, 88.3540)
+    """
+    if not in_study_area(lat, lon):
+        return None, 'the flood zones cover the Kolkata study area only'
+    try:
+        with db_engine().connect() as conn:
+            level = conn.execute(FLOOD_SQL, {'lat': lat, 'lon': lon}).scalar()
+    except ProgrammingError as err:
+        code = getattr(err.orig, 'pgcode', None) or getattr(err.orig, 'sqlstate', None)
+        if code == '42P01':                                       # undefined table
+            return None, 'table flood_zones not found - run build_flood_zones.py'
+        raise
+    if level is None:
+        return None, 'the point lies on permanent water or outside the mapped zones'
+    return level, None
 
 
 def _query(lat, lon):
@@ -83,7 +123,7 @@ def get_climate_risk(lat, lon):
         dict: temperature_anomaly_c and temperature_class, mean and normal temperature,
               precipitation and normal precipitation (mm), precipitation_anomaly_pct,
               precipitation_z, drought_index (0-1), drought_class, period,
-              normal_period, from_cache and source
+              normal_period, from_cache, flood_zone (+ flood_zone_note) and source
 
     Example:
         get_climate_risk(13.0827, 80.2707)['drought_class']
@@ -99,6 +139,7 @@ def get_climate_risk(lat, lon):
                 'reason': 'ERA5-Land has no land cells within 10 km of the point',
                 'temperature_anomaly_c': None, 'drought_index': None}
     end = date.fromisoformat(data['end'])            # first day after the 12 months
+    zone, note = flood_zone(lat, lon)
     anomaly = v['t_recent'] - v['t_normal']
     z = (v['p_recent'] - v['p_normal']) / v['p_sd']
     p_anomaly = 100 * (v['p_recent'] / v['p_normal'] - 1)
@@ -116,5 +157,9 @@ def get_climate_risk(lat, lon):
             'period': f'{_month(end, -12):%b %Y} - {_month(end, -1):%b %Y}',
             'normal_period': f'{NORMAL[0]}-{NORMAL[1]}, same 12 calendar months',
             'from_cache': cached,
+            'flood_zone': zone,
+            **({'flood_zone_note': note} if note else {}),
             'source': f'ERA5-Land monthly reanalysis ({DATASET}, 0.1 deg) in Google '
-                      f'Earth Engine; mean over a {RADIUS_M // 1000} km radius'}
+                      f'Earth Engine; mean over a {RADIUS_M // 1000} km radius; flood '
+                      f'zone from PostGIS flood_zones (MERIT Hydro HAND, JRC Global '
+                      f'Surface Water)'}

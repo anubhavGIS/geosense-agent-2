@@ -10,6 +10,9 @@
 #     accumulates the question-answer pairs of a thread
 #   - error notes instead of crashes when a tool cannot be reached or rejects a request
 #   - a transcript (text + JSON) of every answer in outputs/agent_logs/
+# Exercise 5: after every answer the location (and any similar sites) is posted to the
+#   MCP server's /agent/latest_result, from where the digital twin flies there; the
+#   climate tool also reports the flood-risk zone of the point
 # Run from the project root while mcp_server.py runs in another window:
 #   python src/phase4_agent/geoai_agent.py "Is 22.5530, 88.3540 suitable for a clinic?"
 import json
@@ -63,8 +66,9 @@ TOOLS = {
                         'sidewalk, buildings, vegetation, cars and people, and a '
                         'walkability score; wherever photos exist',
     'get_climate_risk': 'climate of the last 12 months against 1991-2020 (ERA5-Land): '
-                        'temperature anomaly, rainfall anomaly and a drought index; '
-                        'worldwide',
+                        'temperature anomaly, rainfall anomaly and a drought index, '
+                        'worldwide; and the flood-risk zone of the point (high, medium, '
+                        'low) in the Kolkata study area',
     'get_demographics': 'people living within 1 km and population density (WorldPop), '
                         'the nearest hospital and the hospitals within 2 km (hospitals in '
                         'the Kolkata study area only)',
@@ -75,8 +79,9 @@ TOOL_CATALOG = list(TOOLS)
 DATA_NOTES = """\
 - scales: opportunity_score and risk_score 0-10, walkability_score 0-10, drought_index
   0-1, scene and land-cover shares in % of pixels; always give the scale with a score
-- score_location: flood_risk is a placeholder (0 for every site) and says nothing about
-  flooding; the project has no flood layer yet
+- flooding: use flood_zone of get_climate_risk (zones from terrain height above the nearest
+  drainage and surface-water history); score_location's flood_risk is a placeholder (0 for
+  every site) and says nothing about flooding
 - a result with available = false means the tool has no data for this place: say so and
   give the reason
 - an entry with an error means the tool could not be used: mention it briefly"""
@@ -97,7 +102,8 @@ Choose every tool whose output is needed to answer the question, and no others.
 Reply with JSON only, in this form:
 {{"tools": ["tool_name"], "latitude": null, "longitude": null, "place": null}}
 - latitude and longitude: copy them only if the question states coordinates
-- place: the place name in the question (for example "Park Street, Kolkata"), else null""",
+- place: a place name written in this question (for example "Park Street, Kolkata");
+  null when the question only refers back to the earlier one (its, there, that site)""",
 }
 ANSWER_PROMPT = """\
 You are GeoSense Agent, a geospatial analyst. Answer the question from the tool results.
@@ -279,11 +285,36 @@ def coordinates_in(question):
     return None
 
 
-def geocode(place):
-    """Latitude and longitude of a place name from OpenStreetMap Nominatim (or None)."""
+def mentioned(place, question):
+    """True when every word of the place name (before any comma) is in the question."""
+    head = re.split(r'[,(]', str(place or ''))[0].lower()
+    words = [w for w in re.findall(r'[a-z]+', head) if len(w) >= 3]
+    return bool(words) and all(w in question.lower() for w in words)
+
+
+def geocode(place, near=None):
+    """
+    Latitude and longitude of a place name from OpenStreetMap Nominatim (or None).
+
+    Args:
+        place (str): the place name, e.g. "Park Street, Kolkata"
+        near (dict): a location with latitude and longitude; when given, Nominatim is asked
+            to prefer results within about 50 km of it (a follow-up stays in the same city)
+
+    Returns:
+        dict: latitude, longitude and source, or None when nothing was found
+
+    Example:
+        geocode('Park Street', near={'latitude': 22.553, 'longitude': 88.354})
+    """
+    params = {'q': place, 'format': 'jsonv2', 'limit': 1}
+    if near:
+        lat, lon = near['latitude'], near['longitude']
+        params['viewbox'] = f'{lon - 0.5},{lat + 0.5},{lon + 0.5},{lat - 0.5}'
+        params['bounded'] = 0                          # a preference, not a limit
     try:
-        resp = httpx.get(GEOCODER, params={'q': place, 'format': 'jsonv2', 'limit': 1},
-                         headers={'User-Agent': USER_AGENT}, timeout=10)
+        resp = httpx.get(GEOCODER, params=params, headers={'User-Agent': USER_AGENT},
+                         timeout=10)
         hits = resp.json() if resp.status_code == 200 else []
     except (httpx.HTTPError, ValueError):
         return None
@@ -306,15 +337,15 @@ def resolve_location(selection, question, history):
     if pair:
         return {'latitude': pair[0], 'longitude': pair[1],
                 'source': 'coordinates read from the question'}
-    if selection.get('place'):
-        found = geocode(selection['place'])
+    previous = next((t['location'] for t in reversed(history or []) if t.get('location')),
+                    None)
+    if mentioned(selection.get('place'), question):     # not a name taken from the history
+        found = geocode(selection['place'], near=previous)
         if found:
             return found
-    for turn in reversed(history or []):
-        if turn.get('location'):
-            return {'latitude': turn['location']['latitude'],
-                    'longitude': turn['location']['longitude'],
-                    'source': 'carried over from the previous question'}
+    if previous:
+        return {'latitude': previous['latitude'], 'longitude': previous['longitude'],
+                'source': 'carried over from the previous question'}
     return {**DEMO_POINT, 'source': 'demo point - no location in the question'}
 
 
@@ -491,7 +522,37 @@ def save_transcript(run):
     return path
 
 
-def run_agent(question, thread_id='default-session', remember=True, log=True):
+def publish_result(run):
+    """
+    Post the location of an answer (and any similar sites) for the digital twin.
+
+    Args:
+        run (dict): the result of run_agent()
+
+    Returns:
+        bool: True when the MCP server stored the result
+
+    Example:
+        publish_result(run_agent('Is 22.5530, 88.3540 safe from flooding?'))
+    """
+    loc, sites = run['location'], []
+    for entry in run['tool_results']:
+        if entry['tool'] == 'find_similar_sites' and entry.get('result'):
+            sites = [{k: s[k] for k in ('rank', 'latitude', 'longitude',
+                                        'opportunity_score')}
+                     for s in entry['result'].get('similar_sites') or []]
+    body = {'latitude': loc['latitude'], 'longitude': loc['longitude'],
+            'question': run['question'], 'answer': run['final_answer'][:600],
+            'tools': run['tool_calls'], 'sites': sites, 'source': loc['source']}
+    try:
+        resp = httpx.post(f'{MCP_SERVER_URL}/agent/latest_result', json=body, timeout=5)
+        return resp.status_code == 200
+    except httpx.HTTPError:
+        return False
+
+
+def run_agent(question, thread_id='default-session', remember=True, log=True,
+              publish=True):
     """
     Run the graph for one question and return the answer with everything behind it.
 
@@ -500,10 +561,11 @@ def run_agent(question, thread_id='default-session', remember=True, log=True):
         thread_id (str): conversation session id - turns of one thread share a history
         remember (bool): False compiles a fresh graph (and memory) for this call only
         log (bool): write the transcript to outputs/agent_logs/
+        publish (bool): post the location to the MCP server for the digital twin
 
     Returns:
         dict: question, final_answer, tool_calls, tool_results, location, turn,
-              tokens, seconds, thread_id and the transcript path
+              tokens, models, seconds, thread_id, published and the transcript path
 
     Example:
         run = run_agent('What about its flood risk?', thread_id='clinic-1')
@@ -521,6 +583,8 @@ def run_agent(question, thread_id='default-session', remember=True, log=True):
            'thread_id': thread_id, 'tokens': token_totals(cb.usage_metadata),
            'models': sorted(cb.usage_metadata), 'model_error': state.get('model_error'),
            'seconds': round(time.perf_counter() - t0, 1)}
+    if publish:
+        run['published'] = publish_result(run)
     if log:
         run['transcript'] = str(save_transcript(run).relative_to(ROOT))
     return run
@@ -553,3 +617,5 @@ if __name__ == '__main__':
     print(f'Tokens: input {tok["input_tokens"]}, output {tok["output_tokens"]} (thinking '
           f'{tok["thinking_tokens"]}); {run["seconds"]} s')
     print(f'Transcript: {run["transcript"]}')
+    print('Digital twin: ' + ('location sent to the MCP server' if run.get('published')
+                             else 'not sent - MCP server not reachable'))
