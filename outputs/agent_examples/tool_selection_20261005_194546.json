@@ -1,0 +1,177 @@
+{
+ "model": "google_genai:gemini-3.5-flash-lite",
+ "matches": {
+  "vague": 1,
+  "basic": 5,
+  "described": 6
+ },
+ "tokens": {
+  "vague": 931,
+  "basic": 625,
+  "described": 2694
+ },
+ "rows": [
+  {
+   "question_no": 1,
+   "question": "What is the land cover around 22.5726, 88.3639, and has the vegetation changed since 2018?",
+   "style": "vague",
+   "expected": "classify_imagery",
+   "selected": "",
+   "result": "MISSED",
+   "tokens": 152
+  },
+  {
+   "question_no": 1,
+   "question": "What is the land cover around 22.5726, 88.3639, and has the vegetation changed since 2018?",
+   "style": "basic",
+   "expected": "classify_imagery",
+   "selected": "classify_imagery",
+   "result": "MATCH",
+   "tokens": 112
+  },
+  {
+   "question_no": 1,
+   "question": "What is the land cover around 22.5726, 88.3639, and has the vegetation changed since 2018?",
+   "style": "described",
+   "expected": "classify_imagery",
+   "selected": "classify_imagery",
+   "result": "MATCH",
+   "tokens": 463
+  },
+  {
+   "question_no": 2,
+   "question": "How tall are the buildings and how much tree canopy is there around 38.9097, -77.0434?",
+   "style": "vague",
+   "expected": "lidar_profile",
+   "selected": "",
+   "result": "MISSED",
+   "tokens": 135
+  },
+  {
+   "question_no": 2,
+   "question": "How tall are the buildings and how much tree canopy is there around 38.9097, -77.0434?",
+   "style": "basic",
+   "expected": "lidar_profile",
+   "selected": "lidar_profile",
+   "result": "MATCH",
+   "tokens": 108
+  },
+  {
+   "question_no": 2,
+   "question": "How tall are the buildings and how much tree canopy is there around 38.9097, -77.0434?",
+   "style": "described",
+   "expected": "lidar_profile",
+   "selected": "lidar_profile",
+   "result": "MATCH",
+   "tokens": 459
+  },
+  {
+   "question_no": 3,
+   "question": "Is Park Street in Kolkata pleasant to walk along?",
+   "style": "vague",
+   "expected": "streetview_scene",
+   "selected": "",
+   "result": "MISSED",
+   "tokens": 146
+  },
+  {
+   "question_no": 3,
+   "question": "Is Park Street in Kolkata pleasant to walk along?",
+   "style": "basic",
+   "expected": "streetview_scene",
+   "selected": "streetview_scene",
+   "result": "MATCH",
+   "tokens": 87
+  },
+  {
+   "question_no": 3,
+   "question": "Is Park Street in Kolkata pleasant to walk along?",
+   "style": "described",
+   "expected": "streetview_scene",
+   "selected": "streetview_scene",
+   "result": "MATCH",
+   "tokens": 428
+  },
+  {
+   "question_no": 4,
+   "question": "How many people live near 22.5530, 88.3540, and how far is the nearest hospital?",
+   "style": "vague",
+   "expected": "get_demographics",
+   "selected": "",
+   "result": "MISSED",
+   "tokens": 177
+  },
+  {
+   "question_no": 4,
+   "question": "How many people live near 22.5530, 88.3540, and how far is the nearest hospital?",
+   "style": "basic",
+   "expected": "get_demographics",
+   "selected": "get_demographics",
+   "result": "MATCH",
+   "tokens": 108
+  },
+  {
+   "question_no": 4,
+   "question": "How many people live near 22.5530, 88.3540, and how far is the nearest hospital?",
+   "style": "described",
+   "expected": "get_demographics",
+   "selected": "get_demographics",
+   "result": "MATCH",
+   "tokens": 457
+  },
+  {
+   "question_no": 5,
+   "question": "Has the past year been unusually hot or dry in Chennai?",
+   "style": "vague",
+   "expected": "get_climate_risk",
+   "selected": "get_climate_risk",
+   "result": "MATCH",
+   "tokens": 148
+  },
+  {
+   "question_no": 5,
+   "question": "Has the past year been unusually hot or dry in Chennai?",
+   "style": "basic",
+   "expected": "get_climate_risk",
+   "selected": "get_climate_risk",
+   "result": "MATCH",
+   "tokens": 90
+  },
+  {
+   "question_no": 5,
+   "question": "Has the past year been unusually hot or dry in Chennai?",
+   "style": "described",
+   "expected": "get_climate_risk",
+   "selected": "get_climate_risk",
+   "result": "MATCH",
+   "tokens": 423
+  },
+  {
+   "question_no": 6,
+   "question": "Is 22.5450, 88.3600 a good site for a new clinic, and which nearby sites are similar?",
+   "style": "vague",
+   "expected": "find_similar_sites + score_location",
+   "selected": "",
+   "result": "MISSED",
+   "tokens": 173
+  },
+  {
+   "question_no": 6,
+   "question": "Is 22.5450, 88.3600 a good site for a new clinic, and which nearby sites are similar?",
+   "style": "basic",
+   "expected": "find_similar_sites + score_location",
+   "selected": "score_location + get_demographics + find_similar_sites",
+   "result": "EXTRA",
+   "tokens": 120
+  },
+  {
+   "question_no": 6,
+   "question": "Is 22.5450, 88.3600 a good site for a new clinic, and which nearby sites are similar?",
+   "style": "described",
+   "expected": "find_similar_sites + score_location",
+   "selected": "score_location + find_similar_sites",
+   "result": "MATCH",
+   "tokens": 464
+  }
+ ]
+}

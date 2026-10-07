@@ -1,0 +1,19 @@
+question_no,question,style,expected,selected,result,tokens
+1,"What is the land cover around 22.5726, 88.3639, and has the vegetation changed since 2018?",vague,classify_imagery,,MISSED,152
+1,"What is the land cover around 22.5726, 88.3639, and has the vegetation changed since 2018?",basic,classify_imagery,classify_imagery,MATCH,112
+1,"What is the land cover around 22.5726, 88.3639, and has the vegetation changed since 2018?",described,classify_imagery,classify_imagery,MATCH,463
+2,"How tall are the buildings and how much tree canopy is there around 38.9097, -77.0434?",vague,lidar_profile,,MISSED,135
+2,"How tall are the buildings and how much tree canopy is there around 38.9097, -77.0434?",basic,lidar_profile,lidar_profile,MATCH,108
+2,"How tall are the buildings and how much tree canopy is there around 38.9097, -77.0434?",described,lidar_profile,lidar_profile,MATCH,459
+3,Is Park Street in Kolkata pleasant to walk along?,vague,streetview_scene,,MISSED,146
+3,Is Park Street in Kolkata pleasant to walk along?,basic,streetview_scene,streetview_scene,MATCH,87
+3,Is Park Street in Kolkata pleasant to walk along?,described,streetview_scene,streetview_scene,MATCH,428
+4,"How many people live near 22.5530, 88.3540, and how far is the nearest hospital?",vague,get_demographics,,MISSED,177
+4,"How many people live near 22.5530, 88.3540, and how far is the nearest hospital?",basic,get_demographics,get_demographics,MATCH,108
+4,"How many people live near 22.5530, 88.3540, and how far is the nearest hospital?",described,get_demographics,get_demographics,MATCH,457
+5,Has the past year been unusually hot or dry in Chennai?,vague,get_climate_risk,get_climate_risk,MATCH,148
+5,Has the past year been unusually hot or dry in Chennai?,basic,get_climate_risk,get_climate_risk,MATCH,90
+5,Has the past year been unusually hot or dry in Chennai?,described,get_climate_risk,get_climate_risk,MATCH,423
+6,"Is 22.5450, 88.3600 a good site for a new clinic, and which nearby sites are similar?",vague,find_similar_sites + score_location,,MISSED,173
+6,"Is 22.5450, 88.3600 a good site for a new clinic, and which nearby sites are similar?",basic,find_similar_sites + score_location,score_location + get_demographics + find_similar_sites,EXTRA,120
+6,"Is 22.5450, 88.3600 a good site for a new clinic, and which nearby sites are similar?",described,find_similar_sites + score_location,score_location + find_similar_sites,MATCH,464
