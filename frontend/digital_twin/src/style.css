@@ -1,0 +1,82 @@
+/* style.css - the globe fills the browser window; a small control panel floats on it */
+html,
+body,
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+#panel {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 210px;
+  padding: 8px 12px 10px;
+  background: rgba(30, 32, 36, 0.86);
+  color: #eee;
+  font-size: 13px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+#panel h1 {
+  margin: 2px 0 8px;
+  font-size: 15px;
+}
+
+#panel h2 {
+  margin: 10px 0 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ab;
+}
+
+#panel label {
+  display: block;
+  margin: 2px 0;
+  cursor: pointer;
+}
+
+#panel .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+#panel button {
+  padding: 3px 8px;
+  border: 1px solid #567;
+  border-radius: 4px;
+  background: #2b3036;
+  color: #eee;
+  cursor: pointer;
+}
+
+#panel button.active {
+  background: #2c6fb3;
+  border-color: #2c6fb3;
+}
+
+#legend .item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 1px 0;
+}
+
+#legend .swatch {
+  width: 14px;
+  height: 10px;
+  border: 1px solid #000;
+}
+
+#status {
+  margin-top: 8px;
+  color: #f9b;
+  font-size: 12px;
+}

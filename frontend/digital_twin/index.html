@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoSense Agent 2.0 - 3D Digital Twin</title>
+  </head>
+  <body>
+    <div id="cesiumContainer"></div>
+    <div id="panel">
+      <h1>GeoSense Digital Twin</h1>
+      <div class="row">
+        <button data-fly="kolkata">Kolkata</button>
+        <button data-fly="dupont">Dupont Circle</button>
+      </div>
+      <h2>Layers</h2>
+      <label><input type="checkbox" autocomplete="off" id="layer-flood" checked />
+        Flood-risk zones</label>
+      <label><input type="checkbox" autocomplete="off" id="layer-buildings" checked />
+        LiDAR buildings</label>
+      <label><input type="checkbox" autocomplete="off" id="layer-ndvi" />
+        NDVI 2023</label>
+      <label><input type="checkbox" autocomplete="off" id="layer-imagery" checked />
+        Sentinel-2 images</label>
+      <h2>Sentinel-2 year</h2>
+      <div class="row" id="years"></div>
+      <h2>Change hotspots</h2>
+      <div class="row">
+        <button data-fly="loss">Loss hotspot</button>
+        <button data-fly="gain">Gain hotspot</button>
+      </div>
+      <h2>Legend</h2>
+      <div id="legend"></div>
+      <div id="status"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
