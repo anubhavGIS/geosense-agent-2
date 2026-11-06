@@ -21,7 +21,7 @@ CHENNAI = (13.0827, 80.2707)              # Chennai centre, outside it
 
 def test_study_area_gate():
     assert in_study_area(*PARK_STREET)
-    assert not in_study_area(*CHENNAI)
+    assert in_study_area(*CHENNAI) # deliberately wrong (CI demo)
     assert in_study_area(22.45, 88.30) and in_study_area(22.67, 88.42)   # the corners count
     assert not in_study_area(22.6701, 88.35) and not in_study_area(22.50, 88.4201)
 
