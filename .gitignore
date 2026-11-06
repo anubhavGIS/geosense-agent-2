@@ -45,3 +45,8 @@ gee-sa-key*.json
 
 # --- Phase 5, Exercise 4 additions ---
 github-deployer-key*.json
+
+# --- Phase 5, Exercise 5 additions ---
+# the demo recording stays out of git (only the GIF is committed)
+*.mp4
+*.mkv
