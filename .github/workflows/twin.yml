@@ -1,0 +1,62 @@
+# twin.yml
+# Purpose: build the digital twin and publish it on GitHub Pages whenever its code changes
+#          (Phase 5, Exercise 4 - Task E.4.1)
+#   build  - npm ci and npm run build:pages in frontend/digital_twin with Node 24 (the
+#            laptop's major version). The committed .env.production gives the backend URL
+#            and the bucket of the tiles; the Cesium ion token, limited to the site's
+#            origins, comes from the secret CESIUM_ION_TOKEN. dist/ becomes the Pages artifact.
+#   deploy - GitHub's own Pages deployment (Settings - Pages - Source: GitHub Actions); it
+#            replaces the gh-pages branch that npm run deploy:pages pushed in Exercise 3.
+# Repository secret: CESIUM_ION_TOKEN.
+name: Publish the digital twin
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/digital_twin/**'
+      - '.github/workflows/twin.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write                     # deploy-pages publishes the site ...
+  id-token: write                  # ... and proves with an OIDC token that this run may
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend/digital_twin
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/digital_twin/package-lock.json
+      - run: npm ci
+      - name: npm run build:pages (assets from the bucket, token from the secret)
+        env:
+          VITE_CESIUM_ION_TOKEN: ${{ secrets.CESIUM_ION_TOKEN }}
+        run: npm run build:pages
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: frontend/digital_twin/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

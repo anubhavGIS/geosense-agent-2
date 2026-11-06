@@ -1,0 +1,21 @@
+# Dockerfile.ci
+# Purpose: the image the GitHub Actions pipeline builds for every push to main (Phase 5,
+#          Exercise 4): the released backend image - Python 3.11, the pinned packages with
+#          the CPU build of PyTorch, the SegFormer weights, the models and the data, built
+#          on the laptop by deploy\deploy_backend.bat - with the code of this commit copied
+#          over its code.
+# Why not Dockerfile.backend: the models and data it copies (about 520 MB - the U-Net, the
+# Sentinel-2 composites, the LiDAR tile, the street-view photographs) are kept out of the
+# repository, so GitHub's runner has nothing to copy; they are already layers of the
+# released image. A change of the requirements, the models or the data therefore needs a
+# new full image from the laptop (deploy\deploy_backend.bat v3) and BASE_TAG: v3 in
+# .github/workflows/deploy.yml. A file deleted from src/ stays in the image until then.
+# Built by the pipeline (the build arg names the released image):
+#   docker build -f deploy/Dockerfile.ci --build-arg BASE_IMAGE=<registry>/backend:v2 -t <registry>/backend:<sha> .
+ARG BASE_IMAGE=us-central1-docker.pkg.dev/geosense-agent-2/geosense-repo/backend:v2
+FROM ${BASE_IMAGE}
+# WORKDIR /app, the environment, the health check and the start command come from it
+COPY src/phase1_ml/ ./src/phase1_ml/
+COPY src/phase2_dl/ ./src/phase2_dl/
+COPY src/phase3_lidar/ ./src/phase3_lidar/
+COPY src/phase4_agent/ ./src/phase4_agent/

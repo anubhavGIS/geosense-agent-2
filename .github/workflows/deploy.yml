@@ -1,0 +1,90 @@
+# deploy.yml
+# Purpose: test the code of every push to main and, when the tests pass, redeploy the
+#          backend to Cloud Run (Phase 5, Exercise 4 - Task E.4.1)
+#   test   - the offline tests on GitHub's Ubuntu runner, with the pinned backend and agent
+#            requirements (PyTorch from the CPU index). Tests marked data, live or llm
+#            (pytest.ini) need the laptop's database, data files, running server or a model
+#            key and are left out.
+#   deploy - only after test has passed: signs in with the deployer's key (secret
+#            GCP_SA_KEY), builds backend:<commit sha> with deploy/Dockerfile.ci - the
+#            released image (Python, PyTorch, models, data) with this commit's code on top -
+#            pushes it to Artifact Registry and deploys it to the service geosense-backend,
+#            whose variables, secrets, identity and limits stay as they are; then /health.
+# New requirements, models or data need a new full image from the laptop
+# (deploy\deploy_backend.bat v3) and BASE_TAG: v3 below - that edit starts this workflow too.
+# Repository secrets: GCP_SA_KEY (the key of github-actions-deployer), GCP_PROJECT_ID.
+name: Deploy GeoSense Agent
+
+on:
+  push:
+    branches: [main]
+    paths:                         # a change to the twin or the docs alone deploys nothing
+      - 'src/**'
+      - 'tests/**'
+      - 'pytest.ini'
+      - 'deploy/Dockerfile.ci'
+      - '.github/workflows/deploy.yml'   # also a new BASE_TAG after a full build on the laptop
+  workflow_dispatch:               # the "Run workflow" button on the Actions tab
+
+permissions:
+  contents: read
+
+concurrency:                       # one deploy at a time; a newer push waits its turn
+  group: deploy-backend
+  cancel-in-progress: false
+
+env:
+  REGION: us-central1
+  SERVICE: geosense-backend
+  BASE_TAG: v2                     # the full image built on the laptop by deploy_backend.bat
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            deploy/requirements-backend.txt
+            deploy/requirements-frontend.txt
+      - name: Install the pinned requirements (PyTorch from the CPU index)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r deploy/requirements-backend.txt -r deploy/requirements-frontend.txt pytest==9.2.0
+      - name: Offline tests (no GPU, database, data files, server or model key here)
+        env:
+          GOOGLE_API_KEY: ci-placeholder   # the agent builds its model client on import; the one test that uses the model replaces it
+        run: python -m pytest -v -m "not data and not live and not llm"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      IMAGE: us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/geosense-repo/backend:${{ github.sha }}
+      BASE: us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/geosense-repo/backend
+    steps:
+      - uses: actions/checkout@v7
+      - id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+      - uses: google-github-actions/setup-gcloud@v3
+      - name: Build backend:<commit sha> on the released image and push it
+        run: |
+          gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
+          docker build -f deploy/Dockerfile.ci --build-arg "BASE_IMAGE=$BASE:$BASE_TAG" -t "$IMAGE" .
+          docker push "$IMAGE"
+      - id: deploy
+        uses: google-github-actions/deploy-cloudrun@v3
+        with:
+          service: ${{ env.SERVICE }}
+          region: ${{ env.REGION }}
+          image: ${{ env.IMAGE }}
+      - name: /health of the new revision
+        run: curl --fail --silent --show-error --max-time 180 "${{ steps.deploy.outputs.url }}/health"

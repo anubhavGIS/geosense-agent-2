@@ -42,3 +42,6 @@ deploy/*.sql
 # --- Phase 5, Exercise 3 additions ---
 deploy/cloudrun.env.yaml
 gee-sa-key*.json
+
+# --- Phase 5, Exercise 4 additions ---
+github-deployer-key*.json

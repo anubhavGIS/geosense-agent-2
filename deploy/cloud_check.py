@@ -1,6 +1,7 @@
 """
 cloud_check.py - Phase 5, Exercise 3: three checks of the live Cloud Run backend that the
-smoke test does not make.
+smoke test does not make. (Exercise 4: the /health lines also show the revision that
+answered, when the server reports it.)
 
   1. /health twice - the first answer after an idle period includes the cold start (a new
      container is started), the second shows a warm instance; both times are printed
@@ -73,7 +74,8 @@ def main():
             r, s = timed(client, 'GET', f'{url}/health')
             body = r.json()
             print(f'   {label:6s} {r.status_code}  {s:6.2f} s  device={body.get("device")} '
-                  f'port={body.get("port")} uptime={body.get("uptime_s")} s')
+                  f'port={body.get("port")} uptime={body.get("uptime_s")} s'
+                  + (f' revision={body["revision"]}' if 'revision' in body else ''))
             report['health'].append({'call': label, 'status': r.status_code, 'seconds': s,
                                      **body})
         if not args.no_fresh:

@@ -26,6 +26,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
@@ -61,6 +62,23 @@ def gcloud(args, stdin=None, check=True):
     if check and p.returncode != 0:
         sys.exit(f'FAILED: gcloud {args.split(" --")[0]}\n{decode(p.stderr)[-1200:]}')
     return p.returncode, decode(p.stdout), decode(p.stderr)
+
+
+def gcloud_to_file(args, timeout=240):
+    """Run a slow gcloud storage command (about 1.5 minutes for du on the Windows laptop:
+    gcloud storage starts its worker processes first): one worker process only, the output
+    to a temporary file instead of a pipe (which helper processes could keep open), and
+    give up after `timeout` seconds. Returns the text, or None."""
+    env = {**os.environ, 'CLOUDSDK_STORAGE_PROCESS_COUNT': '1'}
+    with tempfile.TemporaryFile() as out:
+        try:
+            p = subprocess.run(f'gcloud {args} --project={PROJECT} --quiet', shell=True,
+                               stdin=subprocess.DEVNULL, stdout=out,
+                               stderr=subprocess.DEVNULL, timeout=timeout, env=env)
+        except subprocess.TimeoutExpired:
+            return None
+        out.seek(0)
+        return decode(out.read()) if p.returncode == 0 else None
 
 
 def ok(text):
@@ -249,16 +267,37 @@ def status():
               f'revision {svc["status"].get("latestReadyRevisionName")}')
         print(f'  variables: {", ".join(plain)}')
         print(f'  from Secret Manager: {", ".join(from_secrets)}; files: {", ".join(mounts)}')
-        _, rev, _ = gcloud(f'run revisions list --service={SERVICE} --region={REGION} '
-                           f'--format="table(metadata.name,status.conditions[0].status:label=READY,'
-                           f'metadata.creationTimestamp:label=CREATED)"', check=False)
-        print('\n'.join('  ' + line for line in rev.splitlines()))
+        traffic = {}                               # revision -> percent of the traffic
+        for t in svc['status'].get('traffic', []):
+            name = t.get('revisionName') or svc['status'].get('latestReadyRevisionName')
+            traffic[name] = traffic.get(name, 0) + t.get('percent', 0)
+        _, raw, _ = gcloud(f'run revisions list --service={SERVICE} --region={REGION} '
+                           f'--format=json', check=False)
+        revisions = sorted(json.loads(raw) if raw.startswith('[') else [],
+                           key=lambda r: r['metadata'].get('creationTimestamp', ''), reverse=True)
+        print(f'  {"REVISION":28s} {"TRAFFIC":8s} {"CREATED (UTC)":20s} STATE')
+        for r in revisions:
+            name = r['metadata']['name']
+            cond = {c.get('type'): c for c in r.get('status', {}).get('conditions', [])}
+            # a revision that never started keeps ContainerHealthy = False; its Ready condition
+            # turns 'True' (reason Retired) once it is retired, so Ready alone does not show it
+            health = cond.get('ContainerHealthy', {})
+            share = traffic.get(name, 0)
+            state = (f'failed to start ({health.get("reason", "?")})'
+                     if health.get('status') == 'False'
+                     else 'serving' if share else 'ready, no traffic')
+            print(f'  {name:28s} {share:>3d} %    '
+                  f'{r["metadata"].get("creationTimestamp", "")[:19].replace("T", " "):20s} '
+                  f'{state}')
     _, secrets, _ = gcloud('secrets list --format="table(name.basename(),createTime.date())"',
                            check=False)
     print('secrets:\n' + '\n'.join('  ' + line for line in secrets.splitlines()))
-    rc, du, _ = gcloud(f'storage du -s gs://{BUCKET}', check=False)
-    print(f'bucket gs://{BUCKET}: ' + (f'{int(du.split()[0]) / 1e6:.1f} MB' if rc == 0 and du
-                                       else 'not created yet'))
+    print(f'bucket gs://{BUCKET}: measuring its size with gcloud storage du '
+          f'(this can take a minute or two) ...', flush=True)
+    du = gcloud_to_file(f'storage du --summarize gs://{BUCKET}')
+    size = du.split()[0] if du else ''
+    print(f'bucket gs://{BUCKET}: ' + (f'{int(size) / 1e6:.1f} MB' if size.isdigit()
+                                       else 'size not available (not created, or no answer)'))
 
 
 def main():

@@ -1,10 +1,18 @@
 # test_site_scorer.py
 # Purpose: Automated tests verifying the site scorer's contract.
 # Run from the project root with:  python -m pytest tests/ -v
+# Phase 5, Exercise 4: every test here queries the PostGIS database (the distances to the
+# nearest road and hospital) and loads the trained model, so the module is marked 'data'
+# (pytest.ini) - the CI pipeline, which has neither, leaves it out.
 import sys
+
+import pytest
+
 sys.path.append('src/phase1_ml')
 
-from site_scorer import score_location
+from site_scorer import score_location                            # noqa: E402
+
+pytestmark = pytest.mark.data
 
 # Central Kolkata (Park Street area) test coordinate.
 TEST_LAT, TEST_LON = 22.5535, 88.3520

@@ -4,6 +4,12 @@
 # NOTE: requires the MCP server running locally on port 8000. The two agent tests of
 #       Section G.1 call the language model of AGENT_MODEL (two requests each); the
 #       mocked test at the end needs neither the model nor the server.
+# Phase 5, Exercise 4: the tests that call the server are marked 'live', those that also
+# call the language model 'llm' (pytest.ini); the CI pipeline runs only the mocked test.
+# The server address comes from MCP_SERVER_URL, so the same tests can check Cloud Run:
+#   set MCP_SERVER_URL=https://geosense-backend-917306622260.us-central1.run.app
+#   python -m pytest -m live tests/test_phase4_agent.py
+import os
 import sys
 
 import httpx
@@ -15,17 +21,19 @@ sys.path.append('src/phase4_agent')
 import geoai_agent                                                    # noqa: E402
 from geoai_agent import ask_agent                                     # noqa: E402
 
-MCP_URL = 'http://localhost:8000'
+MCP_URL = os.getenv('MCP_SERVER_URL', 'http://localhost:8000').rstrip('/')
 KOLKATA = {'latitude': 22.5530, 'longitude': 88.3540}
 DUPONT = {'min_lat': 38.9085, 'min_lon': -77.0450, 'max_lat': 38.9110, 'max_lon': -77.0420}
 
 
 # ---- the four tests of Section G.1 ------------------------------------------------
+@pytest.mark.live
 def test_mcp_server_docs_reachable():
     resp = httpx.get(f'{MCP_URL}/docs')
     assert resp.status_code == 200, 'MCP server docs page should be reachable'
 
 
+@pytest.mark.live
 def test_score_location_tool():
     resp = httpx.post(f'{MCP_URL}/tools/score_location',
                       json={'latitude': 13.0827, 'longitude': 80.2707}, timeout=60)
@@ -33,6 +41,8 @@ def test_score_location_tool():
     assert 'opportunity_score' in resp.json()
 
 
+@pytest.mark.live
+@pytest.mark.llm
 def test_agent_returns_nonempty_answer():
     answer = ask_agent('Is this location suitable for a clinic?')
     assert isinstance(answer, str) and len(answer) > 0, \
@@ -40,6 +50,8 @@ def test_agent_returns_nonempty_answer():
     assert not answer.startswith('The language model is not available'), answer[:120]
 
 
+@pytest.mark.live
+@pytest.mark.llm
 def test_agent_selects_at_least_one_tool():
     from geoai_agent import build_agent_graph
     app = build_agent_graph()
@@ -50,6 +62,7 @@ def test_agent_selects_at_least_one_tool():
 
 
 # ---- additional tests ----------------------------------------------------------------
+@pytest.mark.live
 @pytest.mark.parametrize('tool', ['score_location', 'classify_imagery', 'lidar_profile',
                                   'streetview_scene', 'get_climate_risk',
                                   'get_demographics', 'find_similar_sites'])
@@ -60,6 +73,7 @@ def test_every_tool_returns_200(tool):
     assert resp.json()['available'] is True, f'{tool} should have data for its test place'
 
 
+@pytest.mark.live
 @pytest.mark.parametrize('body, field', [
     ({'latitude': 22.5530}, 'longitude'),                         # missing field
     ({'latitude': 'north', 'longitude': 88.354}, 'latitude'),     # text for a number
@@ -71,6 +85,7 @@ def test_invalid_payload_returns_422(body, field):
     assert resp.json()['detail'][0]['loc'][-1] == field
 
 
+@pytest.mark.live
 def test_latest_result_round_trip():
     body = {'latitude': 22.5530, 'longitude': 88.3540, 'question': 'pytest'}
     stored = httpx.post(f'{MCP_URL}/agent/latest_result', json=body).json()

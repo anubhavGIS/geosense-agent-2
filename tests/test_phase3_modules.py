@@ -2,6 +2,10 @@
 # Purpose: Automated tests to verify Phase 3 modules work correctly
 # Run with: python -m pytest tests/test_phase3_modules.py -v     (from the project root)
 #           python -m pytest tests/ -v                            (Phase 1 tests as well)
+# Phase 5, Exercise 4: the tests that read the classified LiDAR tile or build a full site
+# profile (Mapillary photographs, the site scorer's database) are marked 'data'; the four
+# tests of the pure functions - slope risk, walkability, point classification - run
+# anywhere, also in the CI pipeline (pytest.ini).
 import json
 import sys
 
@@ -21,11 +25,13 @@ OFFICE_BOX = (38.9050, -77.0420, 38.9075, -77.0390)   # office blocks south-east
 
 
 # ── The four tests of Section G.1 ───────────────────────────────────────────
+@pytest.mark.data
 def test_lidar_analyzer_returns_dict():
     result = analyze_bbox(13.05, 80.24, 13.06, 80.25)
     assert isinstance(result, dict), 'Result should be a dictionary'
 
 
+@pytest.mark.data
 def test_lidar_analyzer_required_keys():
     result = analyze_bbox(13.05, 80.24, 13.06, 80.25)
     required = ['avg_building_height_m', 'canopy_cover_pct', 'impervious_surface_pct',
@@ -34,11 +40,13 @@ def test_lidar_analyzer_required_keys():
         assert key in result, f'Missing key: {key}'
 
 
+@pytest.mark.data
 def test_canopy_cover_in_valid_range():
     result = analyze_bbox(13.05, 80.24, 13.06, 80.25)
     assert 0 <= result['canopy_cover_pct'] <= 100, 'Canopy cover must be 0-100'
 
 
+@pytest.mark.data
 def test_unified_profile_has_all_fields():
     profile = build_profile(13.0827, 80.2707)
     required = ['avg_building_height_m', 'canopy_cover_pct', 'scene_composition',
@@ -83,6 +91,7 @@ def test_classify_points_follows_the_height_and_return_rules():
     assert labels.tolist() == [0, 1, 1, 2, 1, 0]       # ground shrub tree roof tree ground
 
 
+@pytest.mark.data
 def test_bbox_outside_the_cloud_is_reported_not_faked():
     result = analyze_bbox(*CHENNAI_BOX)
     assert result['lidar_coverage'] is False
@@ -90,6 +99,7 @@ def test_bbox_outside_the_cloud_is_reported_not_faked():
     assert 'note' in result and 'no LiDAR points' in result['note']
 
 
+@pytest.mark.data
 def test_two_boxes_inside_the_tile_give_different_results():
     park, office = analyze_bbox(*CIRCLE_BOX), analyze_bbox(*OFFICE_BOX)
     for r in (park, office):
@@ -102,11 +112,12 @@ def test_two_boxes_inside_the_tile_give_different_results():
 
 
 @pytest.fixture(scope='module')
-def chennai_profile():
+def chennai_profile():                                 # used only by tests marked 'data'
     """Built once for the tests below (Mapillary + SegFormer are the slow part)."""
     return build_profile(13.0827, 80.2707, site_name='Chennai centre')
 
 
+@pytest.mark.data
 def test_profile_records_its_sources_and_is_json_serialisable(chennai_profile):
     text = json.dumps(chennai_profile)                 # no numpy types may leak through
     assert 'sources' in chennai_profile
@@ -117,6 +128,7 @@ def test_profile_records_its_sources_and_is_json_serialisable(chennai_profile):
     assert len(text) > 200
 
 
+@pytest.mark.data
 def test_profile_walkability_matches_its_composition(chennai_profile):
     comp = chennai_profile['scene_composition']
     score = chennai_profile['walkability_score']

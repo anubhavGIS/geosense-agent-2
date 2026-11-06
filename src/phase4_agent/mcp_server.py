@@ -14,6 +14,9 @@
 #          Phase 5, Exercise 3: the /mcp transport answers only Host names it knows
 #          (its DNS-rebinding check) - localhost, plus the Cloud Run addresses given in
 #          MCP_ALLOWED_HOSTS; its browser origins are the CORS origins.
+#          Phase 5, Exercise 4: /health also names the Cloud Run revision that answers
+#          (K_REVISION, set by Cloud Run; "local" elsewhere), so a pipeline deploy and a
+#          traffic rollback can be seen from outside.
 # Run from the project root (geosense environment):
 #   python src/phase4_agent/mcp_server.py
 import inspect
@@ -65,6 +68,7 @@ CORS_ORIGINS = [o.strip() for o in              # browser pages allowed to call 
                           'http://localhost:5173,http://localhost:8501').split(',')
                 if o.strip()]                   # the public frontends once deployed
 PORT = int(os.getenv('PORT', '8000'))           # Cloud Run assigns the port at run time
+REVISION = os.getenv('K_REVISION', 'local')     # Cloud Run names the revision it runs
 MCP_ALLOWED_HOSTS = [h.strip() for h in         # public host names of /mcp - the
                      os.getenv('MCP_ALLOWED_HOSTS', '').split(',')
                      if h.strip()]              # two run.app addresses of Cloud Run
@@ -169,14 +173,15 @@ def health():
     tools report themselves with available = false or HTTP 503.
 
     Returns:
-        dict: status, version, the number of tools, the compute device, the port the
-              server listens on and how long it has been up (seconds)
+        dict: status, version, the Cloud Run revision ("local" off Cloud Run), the number
+              of tools, the compute device, the port the server listens on and how long
+              it has been up (seconds)
 
     Example:
         GET /health  ->  {"status": "ok", "tools": 7, "device": "CPU", ...}
     """
-    return {'status': 'ok', 'version': app.version, 'tools': len(tool_names()),
-            'device': DEVICE, 'port': PORT,
+    return {'status': 'ok', 'version': app.version, 'revision': REVISION,
+            'tools': len(tool_names()), 'device': DEVICE, 'port': PORT,
             'uptime_s': round((datetime.now() - STARTED).total_seconds(), 1)}
 
 
