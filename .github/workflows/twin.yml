@@ -21,7 +21,7 @@ on:
 permissions:
   contents: read
   pages: write                     # deploy-pages publishes the site ...
-  id-token: write                  # ... and proves with an OIDC token that this run may
+  id-token: write                  # ... and proves with an OIDC token that it may
 
 concurrency:
   group: pages
