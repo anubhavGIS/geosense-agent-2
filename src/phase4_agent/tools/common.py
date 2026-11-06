@@ -5,6 +5,10 @@
 #   - ToolError, raised when a data source is unreachable (the server answers HTTP 503)
 #   - one PostGIS engine and one Earth Engine session, opened on first use
 #   - a small JSON cache in data/phase4_cache for slow open-data queries
+#   Phase 5, Exercise 2: Earth Engine through a service account when the container has
+#   one (GEE_SERVICE_ACCOUNT_KEY = path to its JSON key, or GEE_SERVICE_ACCOUNT_JSON =
+#   the key itself); on the laptop, without either, the personal login of Phase II is
+#   used as before. The key is never printed - redact() also hides it in error text.
 import json
 import math
 import os
@@ -88,17 +92,49 @@ def db_engine():
     return _engine
 
 
+def _ee_credentials(ee):
+    """
+    Service-account credentials for Earth Engine when the environment provides a key,
+    otherwise None (the personal login stored by 'earthengine authenticate' is used).
+
+    Args:
+        ee: the imported earthengine-api module
+
+    Returns:
+        ee.ServiceAccountCredentials, or None when no key is configured
+
+    Example:
+        creds = _ee_credentials(ee)   # GEE_SERVICE_ACCOUNT_KEY=/secrets/gee-key.json
+    """
+    key_file = os.getenv('GEE_SERVICE_ACCOUNT_KEY')        # a mounted secret file (cloud)
+    key_json = os.getenv('GEE_SERVICE_ACCOUNT_JSON')       # or the key as one env value
+    if key_file:
+        email = json.loads(Path(key_file).read_text())['client_email']
+        return ee.ServiceAccountCredentials(email, key_file=key_file)
+    if key_json:
+        email = json.loads(key_json)['client_email']
+        return ee.ServiceAccountCredentials(email, key_data=key_json)
+    return None
+
+
 def earth_engine():
-    """The Earth Engine API, initialised once with GEE_PROJECT (as in Phase II)."""
+    """The Earth Engine API, initialised once with GEE_PROJECT (as in Phase II); in a
+    container with a service-account key the session belongs to that account. Without a
+    key, credentials is left out: ee.Initialize then uses its default, the login stored
+    by 'earthengine authenticate' (an explicit None would mean no credentials at all)."""
     global _ee
     if _ee is None:
         try:
             import ee
-            ee.Initialize(project=os.getenv('GEE_PROJECT'))
+            options = {'project': os.getenv('GEE_PROJECT')}
+            credentials = _ee_credentials(ee)
+            if credentials is not None:
+                options['credentials'] = credentials
+            ee.Initialize(**options)
         except Exception as err:
             raise ToolError(f'Google Earth Engine is not available ({redact(err)}); '
-                            'run "earthengine authenticate" in the geosense '
-                            'environment') from err
+                            'run "earthengine authenticate" in the geosense environment, '
+                            'or give the container a service-account key') from err
         _ee = ee
     return _ee
 

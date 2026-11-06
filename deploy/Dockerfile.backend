@@ -1,0 +1,66 @@
+# Dockerfile.backend
+# Purpose: package the FastAPI + MCP backend (src/phase4_agent/mcp_server.py) with the
+#          Phase I-III modules, their trained models and the data the seven tools read into
+#          one portable, CPU-only container (Phase 5, Exercise 2 - Part C.2, Task E.2.2).
+# Two stages: the first builds the Python environment with the system libraries and the
+# compiler of Part C.2 at hand; the second carries only the finished environment, the code
+# and the data - what runs, and nothing that was needed only to build.
+# Build from the project root (the .dockerignore there decides what reaches the daemon):
+#   docker build -f deploy/Dockerfile.backend -t geosense-backend:local .
+# Run alone (database on the laptop):
+#   docker run --rm -p 8000:8000 --env-file .env -e DB_HOST=host.docker.internal geosense-backend:local
+
+# ---- stage 1: the Python environment ---------------------------------------------------
+FROM python:3.11-slim AS builder
+# GDAL and a compiler, for any geospatial package that has to compile against them
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        gdal-bin libgdal-dev build-essential \
+    && rm -rf /var/lib/apt/lists/*
+ENV PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+RUN python -m venv /opt/venv
+ENV PATH=/opt/venv/bin:$PATH
+# PyTorch first and alone, from the CPU index: the laptop's cu128 build would add about
+# 3 GB of CUDA libraries that no cloud CPU can use. Its own layer, rebuilt only when the
+# version changes.
+RUN pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cpu
+# the trimmed, pinned list (deploy/pin_requirements.py); torch is already satisfied
+COPY deploy/requirements-backend.txt .
+RUN pip install -r requirements-backend.txt
+
+# ---- stage 2: the runtime image -------------------------------------------------------
+FROM python:3.11-slim
+WORKDIR /app
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH=/opt/venv/bin:$PATH \
+    PYTHONUNBUFFERED=1 \
+    HF_HOME=/app/.cache/huggingface \
+    GEOSENSE_MODEL=unet \
+    PORT=8000
+# the SegFormer-B0 weights of the street-view tool are fetched now, at build time, so that
+# the running container downloads nothing and starts the same way every time
+RUN python -c "from transformers import AutoImageProcessor, SegformerForSemanticSegmentation as M; \
+n = 'nvidia/segformer-b0-finetuned-cityscapes-1024-1024'; AutoImageProcessor.from_pretrained(n); M.from_pretrained(n)"
+# the models and data the tools read - only these (see .dockerignore): the site scorer,
+# the U-Net and the comparison that selects it, the Sentinel-2 composites of 2023 and 2018
+# (change detection), the classified LiDAR tile, the frozen Mapillary queries with the
+# photographs they name (the same street-view answers as on the laptop, without a download)
+# and the Earth Engine cache. Big files before the code, so that a code change rebuilds
+# only the last layers.
+COPY models/saved/site_scorer_model.pkl models/saved/unet_best.pth ./models/saved/
+COPY models/evaluation/model_comparison.json ./models/evaluation/
+COPY data/satellite/clean/clean_2023.npy data/satellite/clean/meta_2023.json \
+     data/satellite/clean/clean_2018.npy data/satellite/clean/meta_2018.json \
+     ./data/satellite/clean/
+COPY data/lidar/processed/study_area_classified.laz ./data/lidar/processed/
+COPY data/streetview/ ./data/streetview/
+COPY data/phase4_cache/ ./data/phase4_cache/
+COPY src/phase1_ml/ ./src/phase1_ml/
+COPY src/phase2_dl/ ./src/phase2_dl/
+COPY src/phase3_lidar/ ./src/phase3_lidar/
+COPY src/phase4_agent/ ./src/phase4_agent/
+EXPOSE 8000
+# docker compose waits for this before it starts the frontend; Cloud Run has its own probe
+HEALTHCHECK --interval=30s --timeout=5s --start-period=120s --start-interval=5s --retries=3 \
+    CMD python -c "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:%s/health' % os.environ.get('PORT', '8000'))" || exit 1
+# the script's __main__ block reads PORT (Task E.2.2): no port is written here
+CMD ["python", "src/phase4_agent/mcp_server.py"]

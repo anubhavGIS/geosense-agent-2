@@ -1,0 +1,16 @@
+# requirements-frontend.in - Phase 5, Exercise 2 (Task E.2.1): the Streamlit image.
+# The frontend container runs app.py and geoai_agent.py only: Streamlit, the LangGraph
+# agent with LangChain's init_chat_model and the two model providers, httpx for the calls
+# to the backend and to Nominatim, python-dotenv for the local .env. No torch, no
+# database driver, no data - the analysis happens in the backend at MCP_SERVER_URL.
+# deploy/pin_requirements.py writes requirements-frontend.txt from this list.
+streamlit
+langgraph
+langchain
+langchain-core
+langchain-google-genai
+google-genai
+langchain-anthropic
+anthropic
+httpx
+python-dotenv

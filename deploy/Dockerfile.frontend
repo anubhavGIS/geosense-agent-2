@@ -1,0 +1,19 @@
+# Dockerfile.frontend
+# Purpose: package the Streamlit demo app and the LangGraph agent (Phase 5, Exercise 2 -
+#          Task E.2.1). The agent talks to the backend over HTTP at MCP_SERVER_URL, so this
+#          image carries no model, no data and no database driver: Python, Streamlit, the
+#          agent stack and two source files.
+# Build from the project root:
+#   docker build -f deploy/Dockerfile.frontend -t geosense-frontend:local .
+FROM python:3.11-slim
+WORKDIR /app
+ENV PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1 PYTHONUNBUFFERED=1 \
+    STREAMLIT_SERVER_HEADLESS=true STREAMLIT_BROWSER_GATHER_USAGE_STATS=false \
+    STREAMLIT_SERVER_ADDRESS=0.0.0.0 PORT=8501
+COPY deploy/requirements-frontend.txt .
+RUN pip install -r requirements-frontend.txt
+COPY src/phase4_agent/app.py src/phase4_agent/geoai_agent.py ./src/phase4_agent/
+EXPOSE 8501
+# sh reads ${PORT} at start (8501 here; a cloud service may set another) and exec hands the
+# process over to Streamlit, so that "docker compose down" stops it at once
+CMD ["sh", "-c", "exec streamlit run src/phase4_agent/app.py --server.port=${PORT}"]

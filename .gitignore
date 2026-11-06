@@ -30,3 +30,15 @@ outputs/agent_logs/
 data/phase4_cache/
 data/twin/
 frontend/digital_twin/public/imagery/
+
+# --- Phase 5 additions ---
+deploy/key.json
+*.tfstate
+.streamlit/secrets.toml
+outputs/deploy_logs/
+deploy/geosense_db.sql.gz
+deploy/*.sql
+
+# --- Phase 5, Exercise 3 additions ---
+deploy/cloudrun.env.yaml
+gee-sa-key*.json

@@ -5,6 +5,15 @@
 #          Exercise 5: CORS for the digital twin (5173) and Streamlit (8501), and the
 #          agent's latest result at /agent/latest_result (POSTed by the agent, polled
 #          by the twin)
+#          Phase 5, Exercise 2 (cloud readiness, Task E.2.2): the port comes from PORT
+#          (Cloud Run sets it; 8000 on the laptop), the browser origins from CORS_ORIGINS,
+#          a /health route answers container and Cloud Run probes without loading a
+#          model, and the banner names the device, so that a CPU-only container is
+#          recognisable in its log. The database SSL mode (DB_SSLMODE) and the Earth
+#          Engine service account live in db_connection.py and tools/common.py.
+#          Phase 5, Exercise 3: the /mcp transport answers only Host names it knows
+#          (its DNS-rebinding check) - localhost, plus the Cloud Run addresses given in
+#          MCP_ALLOWED_HOSTS; its browser origins are the CORS origins.
 # Run from the project root (geosense environment):
 #   python src/phase4_agent/mcp_server.py
 import inspect
@@ -29,6 +38,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from mcp.server.mcpserver import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError as MCPToolError
+from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 from pydantic import BaseModel, Field, ValidationError, model_validator
 from sqlalchemy.exc import OperationalError
@@ -49,11 +59,19 @@ COVERAGE = (f'Coverage: site scoring, land cover and similar sites - the study a
             f'street-level imagery, climate and population - worldwide. Outside its '
             f'coverage a tool answers available = false with a reason.')
 WRAPPED, CONTEXT = 'Phase I-III modules', 'Context and search tools'
-AGENT = 'Agent and digital twin'
-CORS_ORIGINS = os.getenv('CORS_ORIGINS',                # browser pages allowed to call us
-                         'http://localhost:5173,http://localhost:8501').split(',')
+AGENT, SERVICE = 'Agent and digital twin', 'Service'
+CORS_ORIGINS = [o.strip() for o in              # browser pages allowed to call us: the
+                os.getenv('CORS_ORIGINS',       # laptop's twin and Streamlit by default,
+                          'http://localhost:5173,http://localhost:8501').split(',')
+                if o.strip()]                   # the public frontends once deployed
+PORT = int(os.getenv('PORT', '8000'))           # Cloud Run assigns the port at run time
+MCP_ALLOWED_HOSTS = [h.strip() for h in         # public host names of /mcp - the
+                     os.getenv('MCP_ALLOWED_HOSTS', '').split(',')
+                     if h.strip()]              # two run.app addresses of Cloud Run
+DEVICE = torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'
 UNAVAILABLE = (ToolError, OperationalError, OSError)    # database, Earth Engine, network
 _lock = threading.Lock()          # one analysis at a time: the modules cache large models
+STARTED = datetime.now()
 
 
 @asynccontextmanager
@@ -134,6 +152,32 @@ def run(tool, fn, *args, **kwargs):
 def home():
     """The bare address opens the interactive documentation."""
     return RedirectResponse('/docs')
+
+
+def tool_names():
+    """The names of the REST tool routes, in the order they are declared."""
+    return [r.path.split('/')[-1] for r in app.routes if r.path.startswith('/tools/')]
+
+
+@app.get('/health', tags=[SERVICE],
+         summary='Is the server up? (container and cloud probe)')
+def health():
+    """
+    A quick answer that loads no model and touches no data source: the process is up
+    and serving. Docker's HEALTHCHECK, docker compose and Cloud Run's start-up probe
+    call it; a 200 here says nothing about the database or Earth Engine, which the
+    tools report themselves with available = false or HTTP 503.
+
+    Returns:
+        dict: status, version, the number of tools, the compute device, the port the
+              server listens on and how long it has been up (seconds)
+
+    Example:
+        GET /health  ->  {"status": "ok", "tools": 7, "device": "CPU", ...}
+    """
+    return {'status': 'ok', 'version': app.version, 'tools': len(tool_names()),
+            'device': DEVICE, 'port': PORT,
+            'uptime_s': round((datetime.now() - STARTED).total_seconds(), 1)}
 
 
 @app.post('/tools/score_location', tags=[WRAPPED],
@@ -454,18 +498,25 @@ def mcp_find_similar_sites(latitude: Lat, longitude: Lon, radius_km: Km = 5.0,
                     longitude=longitude, radius_km=radius_km, top_k=top_k)
 
 
+# The MCP transport checks the Host header of every request (DNS-rebinding protection)
+# and, left to itself, accepts localhost only: a request to the Cloud Run address gets
+# 421 "Invalid Host header". The public names come from MCP_ALLOWED_HOSTS.
+MCP_SECURITY = TransportSecuritySettings(
+    allowed_hosts=['127.0.0.1:*', 'localhost:*', '[::1]:*'] + MCP_ALLOWED_HOSTS,
+    allowed_origins=['http://127.0.0.1:*', 'http://localhost:*', 'http://[::1]:*']
+    + CORS_ORIGINS)
 mcp_app = mcp.streamable_http_app(streamable_http_path='/mcp', stateless_http=True,
-                                  json_response=True)
+                                  json_response=True, transport_security=MCP_SECURITY)
 app.router.routes.extend(mcp_app.routes)        # /mcp served by the same Uvicorn process
 
 
 if __name__ == '__main__':
     import uvicorn
-    tools = [r.path.split('/')[-1] for r in app.routes if r.path.startswith('/tools/')]
+    tools = tool_names()
     print(f'GeoSense Agent MCP Server - {len(tools)} tools: {", ".join(tools)}')
-    print(f'torch {torch.__version__}, device '
-          f'{torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"}')
-    print('REST /tools/<name>  |  docs http://localhost:8000/docs  |  '
-          'MCP http://localhost:8000/mcp')
+    print(f'torch {torch.__version__}, device {DEVICE}')
+    print(f'REST /tools/<name>  |  docs http://localhost:{PORT}/docs  |  '
+          f'MCP http://localhost:{PORT}/mcp  |  health http://localhost:{PORT}/health')
     print(f'CORS origins: {", ".join(CORS_ORIGINS)}')
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    print('MCP host names: ' + ', '.join(['localhost'] + MCP_ALLOWED_HOSTS))
+    uvicorn.run(app, host='0.0.0.0', port=PORT)    # PORT: 8000 here, Cloud Run's in the cloud

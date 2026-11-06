@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["https://anubhavgis.github.io", "http://localhost:5173", "http://localhost:4173"],
+    "method": ["GET", "HEAD"],
+    "responseHeader": ["Content-Type", "Content-Length"],
+    "maxAgeSeconds": 3600
+  }
+]

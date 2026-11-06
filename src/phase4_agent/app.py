@@ -6,13 +6,18 @@
 #   python src/phase4_agent/mcp_server.py
 #   cd frontend/digital_twin  then  npm run dev
 #   streamlit run src/phase4_agent/app.py
+# Phase 5, Exercise 2: the backend address comes from MCP_SERVER_URL (read by the agent)
+#   and the twin's address from TWIN_URL, so that the same file runs on the laptop, in a
+#   container (backend at http://backend:8000) and on Streamlit Community Cloud (both
+#   public HTTPS addresses); the caption names the backend the page is talking to.
+import os
 import uuid
 
 import streamlit as st
 
-from geoai_agent import MODEL, run_agent
+from geoai_agent import MCP_SERVER_URL, MODEL, run_agent
 
-TWIN_URL = 'http://localhost:5173'
+TWIN_URL = os.getenv('TWIN_URL', 'http://localhost:5173')   # the Vite dev server by default
 DEFAULT_QUESTION = 'Is Park Street in Kolkata (22.5530, 88.3540) a good place for a new ' \
                    'clinic, and is it safe from flooding?'
 
@@ -44,8 +49,9 @@ question = st.text_input('Ask a question about any location:', DEFAULT_QUESTION)
 ask_col, new_col, info_col = st.columns([1.2, 1.2, 5])
 ask = ask_col.button('Ask GeoSense Agent', type='primary')
 new_col.button('New conversation', on_click=new_thread)
-info_col.caption(f'Model {MODEL} · thread {st.session_state.thread_id} · '
-                 f'{len(st.session_state.turns)} earlier question(s) in this thread')
+info_col.caption(f'Model {MODEL} · backend {MCP_SERVER_URL} · thread '
+                 f'{st.session_state.thread_id} · {len(st.session_state.turns)} earlier '
+                 f'question(s) in this thread')
 
 if ask and question.strip():
     with st.spinner('Agent is reasoning and calling tools...'):

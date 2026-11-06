@@ -1,0 +1,15 @@
+# src/phase4_agent/requirements.txt - Phase 5, Exercise 3: the dependency file of the
+# Streamlit Community Cloud app (entrypoint src/phase4_agent/app.py). Community Cloud looks
+# in the entrypoint's folder before the repository root, whose requirements.txt is the full
+# Phase I-IV environment (PyTorch, GDAL, ...); this list is the frontend image's list,
+# deploy/requirements-frontend.txt, with the same pinned versions - keep the two equal.
+streamlit==1.65.0
+langgraph==1.2.12
+langchain==1.4.3
+langchain-core==1.6.6
+langchain-google-genai==4.4.0
+google-genai==2.28.0
+langchain-anthropic==1.7.5
+anthropic==1.11.0
+httpx==0.28.1
+python-dotenv==1.2.3

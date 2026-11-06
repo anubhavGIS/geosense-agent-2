@@ -1,0 +1,93 @@
+# docker-compose.yml - Phase 5, Exercise 2 (Part C.4, Task E.2.3)
+# Purpose: run the whole GeoSense stack on the laptop in containers - PostGIS with the
+#          project's tables, the FastAPI + MCP backend and the Streamlit frontend - with one
+#          command, before anything is deployed:
+#     docker compose --env-file .env -f deploy\docker-compose.yml up --build
+#          (from the project root; --env-file names the .env whose values fill the ${...}
+#          below, so that no password or key is ever written into this file)
+#     docker compose --env-file .env -f deploy\docker-compose.yml down       (keep the data)
+#     docker compose --env-file .env -f deploy\docker-compose.yml down -v    (drop it too)
+# The containers talk to each other by service name on the compose network (db, backend);
+# the laptop reaches them at localhost:5433 (PostGIS, beside the laptop's own 5432),
+# localhost:8000 (backend) and localhost:8501 (Streamlit).
+name: geosense
+
+services:
+  db:
+    # the PostGIS image whose PostgreSQL major version matches the dump (deploy/export_db.py
+    # prints the laptop's version): the dump must be restored by the same or a newer major
+    image: postgis/postgis:18-3.6
+    environment:
+      POSTGRES_DB: ${DB_NAME:-geosense_db}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is missing - run compose with --env-file .env}
+    ports:
+      - "5433:5432"
+    volumes:
+      # PostgreSQL 18 images keep the data in a version-numbered folder below
+      # /var/lib/postgresql (18/docker), so the volume is mounted one level higher than in
+      # the images up to 17 (which use /var/lib/postgresql/data)
+      - pgdata:/var/lib/postgresql
+      # restored once, on the first start of an empty volume, after the image has created
+      # the postgis extension (its own init script runs first, 10_postgis.sh)
+      - ./geosense_db.sql.gz:/docker-entrypoint-initdb.d/20_geosense_db.sql.gz:ro
+    healthcheck:
+      # over TCP (-h localhost): during the restore the server listens on its socket only,
+      # so the check stays red until the real server is up and the data is in
+      test: ["CMD-SHELL", "pg_isready -h localhost -U ${DB_USER:-postgres} -d ${DB_NAME:-geosense_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.backend
+    image: geosense-backend:local
+    environment:
+      DB_HOST: db                      # the service name, not localhost (that is the container itself)
+      DB_PORT: "5432"                  # the container port of db, not the 5433 of the laptop
+      DB_NAME: ${DB_NAME:-geosense_db}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD}
+      STUDY_AREA: ${STUDY_AREA:-Kolkata}
+      BBOX_MIN_LON: ${BBOX_MIN_LON:-88.30}
+      BBOX_MIN_LAT: ${BBOX_MIN_LAT:-22.45}
+      BBOX_MAX_LON: ${BBOX_MAX_LON:-88.42}
+      BBOX_MAX_LAT: ${BBOX_MAX_LAT:-22.67}
+      GEE_PROJECT: ${GEE_PROJECT}
+      MAPILLARY_TOKEN: ${MAPILLARY_TOKEN}
+      CORS_ORIGINS: http://localhost:5173,http://localhost:8501
+    ports:
+      - "8000:8000"
+    volumes:
+      # the Earth Engine login of Phase II, read-only, so that the climate and population
+      # tools work in the container before the service account of Exercise 3 exists
+      # (long form: a Windows path such as C:\Users\... carries a colon of its own)
+      - type: bind
+        source: ${USERPROFILE}/.config/earthengine
+        target: /root/.config/earthengine
+        read_only: true
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.frontend
+    image: geosense-frontend:local
+    environment:
+      MCP_SERVER_URL: http://backend:8000
+      TWIN_URL: http://localhost:5173  # the laptop's Vite dev server, if it is running
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      AGENT_MODEL: ${AGENT_MODEL:-google_genai:gemini-3.8-flash}
+    ports:
+      - "8501:8501"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  pgdata:

@@ -6,6 +6,10 @@
 //          with buttons to the NDVI-change hotspots of Phase II for comparing years
 // Exercise 5: polls the MCP server for the agent's latest result and flies the camera to
 //          it (800 m) whenever a new result arrives, with a marker and the similar sites
+// Phase 5, Exercise 3: the tiles and GeoJSON layers come from ASSET_BASE - the public
+//          folder in development, the Cloud Storage bucket in the GitHub Pages build
+//          (VITE_ASSET_BASE_URL in .env.production) - and the agent's results from
+//          VITE_MCP_SERVER_URL, the Cloud Run backend in that build
 // Open http://localhost:5173 after `npm run dev`; ?buildings=cylinders shows the
 // blueprint's cylinder stand-in instead of the extruded footprints.
 import * as Cesium from 'cesium';
@@ -13,6 +17,9 @@ import 'cesium/Build/Cesium/Widgets/widgets.css';
 import './style.css';
 
 Cesium.Ion.defaultAccessToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
+// where the imagery tiles and the two GeoJSON layers are read from, ending in '/'
+const ASSET_BASE = (import.meta.env.VITE_ASSET_BASE_URL || import.meta.env.BASE_URL)
+  .replace(/\/?$/, '/');
 
 const PLACES = {
   kolkata: { lon: 88.36, lat: 22.56, height: 15000 },          // the study area
@@ -69,7 +76,7 @@ function showLoaded() {
 function tileLayer(folder, alpha = 1.0) {
   const layer = viewer.imageryLayers.addImageryProvider(
     new Cesium.UrlTemplateImageryProvider({
-      url: `/imagery/${folder}/{z}/{x}/{y}.png`,
+      url: `${ASSET_BASE}imagery/${folder}/{z}/{x}/{y}.png`,
       rectangle: STUDY_AREA,
       minimumLevel: 10,
       maximumLevel: 15,
@@ -101,7 +108,7 @@ window.showYear = showYear;      // callable from the console or another page
 
 // ---- flood-risk zones (exported from PostGIS as flood_risk.geojson) ----
 async function loadFloodZones() {
-  const source = await Cesium.GeoJsonDataSource.load('/flood_risk.geojson', {
+  const source = await Cesium.GeoJsonDataSource.load(`${ASSET_BASE}flood_risk.geojson`, {
     clampToGround: true,
     fill: Cesium.Color.RED.withAlpha(0.4),
     stroke: Cesium.Color.RED,
@@ -124,7 +131,7 @@ function heightColour(height) {
 }
 
 async function loadBuildings() {
-  const source = await Cesium.GeoJsonDataSource.load('/lidar_buildings.geojson');
+  const source = await Cesium.GeoJsonDataSource.load(`${ASSET_BASE}lidar_buildings.geojson`);
   const now = Cesium.JulianDate.now();
   source.entities.values.forEach((entity) => {
     const height = entity.properties.height_m.getValue();

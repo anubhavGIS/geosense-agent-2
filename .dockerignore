@@ -1,0 +1,27 @@
+# .dockerignore - Phase 5, Exercise 2: what docker build may send from the project folder.
+# Everything is excluded first; the lines starting with ! let through only what the two
+# Dockerfiles copy. The secrets (.env), the raw data, the training artefacts (chips, labels,
+# the Prithvi and SAM weights), the lab records and node_modules never reach the daemon or
+# an image - and the build context shrinks from several GB to the ~520 MB the backend needs.
+*
+!deploy/requirements-backend.txt
+!deploy/requirements-frontend.txt
+!src/phase1_ml
+!src/phase2_dl
+!src/phase3_lidar
+!src/phase4_agent
+!models/saved/site_scorer_model.pkl
+!models/saved/unet_best.pth
+!models/evaluation/model_comparison.json
+!data/satellite/clean/clean_2018.npy
+!data/satellite/clean/meta_2018.json
+!data/satellite/clean/clean_2023.npy
+!data/satellite/clean/meta_2023.json
+!data/lidar/processed/study_area_classified.laz
+!data/streetview/results
+!data/streetview/images
+!data/phase4_cache
+# never, not even inside the folders let through above
+**/__pycache__
+**/*.pyc
+**/.env

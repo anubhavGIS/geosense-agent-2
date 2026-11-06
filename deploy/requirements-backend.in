@@ -1,0 +1,58 @@
+# requirements-backend.in - Phase 5, Exercise 2 (Part C.3): what the backend container needs.
+# Hand-trimmed from requirements.txt to the packages that mcp_server.py and the modules it
+# imports (site_scorer, image_classifier, lidar_analyzer, streetview_semantic, tools/*)
+# actually load. deploy/pin_requirements.py turns this list into requirements-backend.txt,
+# pinning every package to the version installed in the geosense environment, so that the
+# container runs exactly the versions the tools were tested with (the site-scorer pickle
+# in particular must be opened by the scikit-learn and numpy that wrote it).
+#
+# Left out on purpose (never imported by the server): the training and download stacks of
+# Phases I-III - xgboost, seaborn, pytest, torchgeo, albumentations, albucore, stringzilla,
+# datasets, einops, geemap, scikit-image, opencv-python, tqdm (pulled in by shap anyway),
+# tensorboard, open3d, segment-anything, pycocotools, accelerate, rasterio, GeoAlchemy2 -
+# and the agent and Streamlit stack, which is the frontend image (requirements-frontend.in).
+# PyTorch and torchvision are installed by the Dockerfile from the PyTorch CPU index
+# (the cu128 build of the laptop would add about 3 GB of CUDA libraries a CPU container
+# cannot use); the two lines below only record the versions.
+
+# --- web layer: FastAPI routes, Pydantic validation, the MCP endpoint, Uvicorn ---
+fastapi
+uvicorn
+pydantic
+mcp
+python-multipart
+python-dotenv
+
+# --- Phase I site scorer and the spatial SQL of the tools (PostGIS) ---
+numpy
+pandas
+geopandas
+shapely
+pyproj
+scikit-learn
+joblib
+shap
+psycopg2-binary
+SQLAlchemy
+
+# --- Phase II land cover (U-Net, Sentinel-2 composites) ---
+torch
+torchvision
+segmentation-models-pytorch
+timm
+
+# --- Phase III LiDAR (laspy with the laszip backend, scipy's minimum_filter; matplotlib is
+#     imported at module level by lidar_features.py, Agg backend) ---
+laspy[laszip]
+laszip
+scipy
+matplotlib
+
+# --- Phase III street view (SegFormer from the Hugging Face hub, Mapillary downloads) ---
+transformers
+huggingface_hub
+Pillow
+requests
+
+# --- context tools: ERA5-Land and WorldPop through Earth Engine ---
+earthengine-api
